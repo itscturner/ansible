@@ -1,0 +1,21 @@
+# Tasks file for update packages
+
+- name: Update all software (dnf)
+  ansible.builtin.dnf:
+    name: "*"
+    state: latest
+    exclude: "{{ update_exclude_packages }}"
+  notify:
+    - Reboot
+  when:
+    - ansible_pkg_mgr == "dnf"
+
+- name: Update all software (yum)
+  ansible.builtin.yum:
+    name: "*"
+    state: latest
+    exclude: "{{ update_exclude_packages }}"
+  notify:
+    - Reboot
+  when:
+    - ansible_pkg_mgr == "yum"
