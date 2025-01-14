@@ -1,0 +1,6 @@
+# Handlers file for update packages
+
+- name: Reboot
+  ansible.builtin.reboot
+  when:
+    - update_reboot
