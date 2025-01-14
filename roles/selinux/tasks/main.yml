@@ -1,0 +1,8 @@
+# Tasks file for selinux
+
+- name: Configure selinux
+  ansible.posix.selinux:
+    state: "{{ selinux_state }}"
+    policy: "{{ selinux_policy }}"
+  notify:
+    - Reboot
