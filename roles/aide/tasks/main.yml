@@ -1,0 +1,33 @@
+# Tasks file for aide
+
+- name: Ensure aide is installed
+  ansible.builtin.package:
+    name: "{{ aide_package }}"
+    state: latest
+  retries: 3
+  register: aide_installed
+  until: aide_installed is success
+
+- name: Configure aide
+  ansible.builtin.template:
+    src: aide.conf.j2
+    dest: "{{ aide_conf_path }}"
+
+- name: Initialize aide
+  ansible.builtin.command:
+    cmd: "{{ aide_init_command }}"
+    creates: "{{ aide_db_new }}"
+  notify:
+    - Copy new aide database
+
+- name: Schedule aide check cron
+  ansible.builtin.cron:
+    name: "{{ aide_cronjob_name }}"
+    user: root
+    state: present
+    minute: "{{ aide_cron_min }}"
+    hour: "{{ aide_cron_hour }}"
+    day: "{{ aide_cron_day }}"
+    month: "{{ aide_cron_month }}"
+    weekday: "{{ aide_cron_weekday }}"
+    job: "aide --check"
