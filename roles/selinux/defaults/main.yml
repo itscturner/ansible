@@ -1,0 +1,4 @@
+# Defaults file for selinux
+
+selinux_state: enforcing
+
