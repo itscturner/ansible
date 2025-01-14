@@ -1,7 +1,0 @@
-# Defaults file for auditd
-
-auditd_package: audit
-
-auditd_config_directory: /etc/audit
-auditd_config_file: auditd.conf
-
