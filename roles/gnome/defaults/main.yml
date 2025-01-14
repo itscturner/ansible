@@ -1,0 +1,4 @@
+# Defaults file for gnome
+
+gnome_packages:
+  - "@Server with GUI"
