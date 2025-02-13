@@ -1,0 +1,9 @@
+---
+- name: Workstations Playbook
+  hosts: workstations
+  become: true
+  gather_facts: true
+  tasks:
+    - name: Include <ROLE>
+      ansible.builtin.include_role:
+        name: <ROLE>
