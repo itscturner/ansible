@@ -1,1 +1,10 @@
 # Host file
+
+[dbservers]
+dbserver1
+
+[webservers]
+webserver1
+
+[workstations]
+workstation1
