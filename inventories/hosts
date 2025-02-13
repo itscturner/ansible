@@ -1,12 +1,4 @@
-[dbservers]
-dbserver1
-
-[webservers]
-webserver1
-
-[servers:children]
-dbserver1
-webserver1
+[servers]
 
 [workstations]
-workstation1
+
