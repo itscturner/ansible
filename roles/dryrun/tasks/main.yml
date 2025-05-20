@@ -1,9 +1,0 @@
-# Tasks file for dryrun
-
-- name: Show defaults variable
-  ansible.builtin.debug:
-    msg: "dryrun_defaults_variable: {{ dryrun_defaults_variable }}"
-
-- name: Show vars variable
-  ansible.builtin.debug:
-    msg: "dryrun_vars_variable: {{ dryrun_vars_variable }}"
