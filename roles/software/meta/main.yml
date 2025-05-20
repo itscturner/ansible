@@ -1,0 +1,12 @@
+---
+galaxy_info:
+  author: cturner
+  role_name: software
+  description: Install or uninstall software on your system.
+  license: Apache-2.0
+
+  galaxy_tags:
+    - software
+    - system
+
+dependencies: []
