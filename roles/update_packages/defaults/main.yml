@@ -1,7 +1,0 @@
-# Defaults file for update packages
-
-# You can exclude certain packages from being updated.
-# Example:
-# update_excluded_packages:
-#   - kernel
-update_exclude_packages: []

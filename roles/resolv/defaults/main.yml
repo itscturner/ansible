@@ -1,7 +1,0 @@
-# Defaults file for resolv
-
-resolv_nameservers: []
-resolv_domain: ""
-resolv_search: []
-resolv_sortlist: []
-resolv_options: []

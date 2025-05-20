@@ -1,8 +1,0 @@
-# Handlers file for aide
-
-- name: Copy new aide database
-  ansible.builtin.copy:
-    src: "{{ aide_db_new }}"
-    dest: "{{ aide_db }}"
-    mode: 0600
-    remote_src: true

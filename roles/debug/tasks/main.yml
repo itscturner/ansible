@@ -1,4 +1,5 @@
-# Tasks file debug
+---
+# tasks file for debug
 
 - name: Collect package facts
   ansible.builtin.package_facts:
@@ -9,3 +10,4 @@
 - name: Show variables
   ansible.builtin.debug:
     var: vars
+

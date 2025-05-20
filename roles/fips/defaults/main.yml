@@ -1,4 +1,0 @@
-# Defaults file for fips
-
-# A policy to apply, pick from "DEFAULT", "FUTURE", "FIPS" or "LEGACY".
-fips_policy: DEFAULT
