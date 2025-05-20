@@ -1,0 +1,12 @@
+---
+# tasks file for software
+
+- name: Install packages
+  ansible.builtin.packages:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+  loop: "{{ software_packages }}"
+  loop_control:
+    label: "{{ item.name }}"
+  when:
+    - software_packages is defined
