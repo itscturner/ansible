@@ -1,0 +1,14 @@
+---
+# defaults file for users
+
+# Location to store ssh keys for user.
+users_ssh_key_directory: ssh_keys
+
+# Default shell.
+users_shell: /bin/bash
+
+# Manage cron permissions (/etc/cron.allow).
+users_cron_allow: true
+
+# Create home directory.
+users_create_home: true
