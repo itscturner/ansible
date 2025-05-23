@@ -1,6 +1,13 @@
 ---
 # defaults file for firewall
 
+# Firewall packages.
+firewall_packages:
+  - firewalld
+
+# Firewall service.
+firewall_service: firewalld
+
 # Default firewall protocol.
 firewall_default_protocol: tcp
 
