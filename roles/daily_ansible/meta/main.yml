@@ -1,0 +1,11 @@
+galaxy_info:
+  role_name: daily_ansible
+  author: cturner
+  description: "An Ansible role to configure the daily Ansible cron."
+
+  galaxy_tags:
+    - ansible
+    - daily
+
+  dependencies: []
+  
