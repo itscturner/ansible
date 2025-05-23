@@ -1,0 +1,10 @@
+galaxy_info:
+  role_name: limits
+  author: cturner
+  description: "An Ansible role to manage system limits."
+
+  galaxy_tags:
+    - limits
+    - system
+
+dependencies: []
