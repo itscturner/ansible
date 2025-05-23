@@ -1,0 +1,17 @@
+---
+# defaults file for facts
+
+# You can pass the key value pair to this role, which will place the facts in 'custom.fact'.
+# For example:
+#     facts:
+#       - key: machine_type
+#         value: server
+
+# Would make these facts available:
+#     "ansible_local": {
+#       "custom": {
+#         "machine_type": "server"
+#       }
+#     },
+
+facts: []
