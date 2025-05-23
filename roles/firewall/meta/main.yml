@@ -1,0 +1,11 @@
+galaxy_info:
+  role_name: firewall
+  author: cturner
+  description: "An Ansible role to manage the firewall."
+
+  galaxy_tags:
+    - firewall
+    - security
+    - system
+
+dependencies: []
