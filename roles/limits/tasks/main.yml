@@ -1,2 +1,11 @@
 ---
 # tasks file for limits
+
+- name: Configure limits
+  ansible.builtin.templates:
+    src: limits.conf.j2
+    dest: /etc/security/limits.conf
+    owner: root
+    group: root
+    mode: 0644
+    
