@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+
+# Each line describes a limit for a user in the form:
+# <domain>    <type>  <item>  <value>
+
+{% for limit in limits_conf %}
+{{ limit }}
+{% endfor %}
