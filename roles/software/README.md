@@ -1,7 +1,7 @@
 Software
 =========
 
-Install or uninstall software on your system.
+An ansible role to install or uninstall software on your system.
 
 Example Playbook
 ----------------
