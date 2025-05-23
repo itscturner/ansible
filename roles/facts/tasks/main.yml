@@ -1,0 +1,16 @@
+---
+# tasks file for facts
+
+- name: Create Ansible facts directory
+  ansible.builtin.file:
+    path: /etc/ansible/facts.d
+    state: directory
+    mode: 0755
+
+- name: Place custom facts
+  ansible.builtin.template:
+    src: facts.j2
+    dest: /etc/ansible/facts.d/facts
+    mode: 0644
+  notify:
+    - Setup
