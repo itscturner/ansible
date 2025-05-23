@@ -6,9 +6,12 @@ An Ansible role to configure custom facts.
 Example Playbook
 ----------------
 
-    - hosts: all
+    - hosts: servers
       roles:
          - facts
+           facts:
+             - key: machine_type
+               value: server
 
 License
 -------
