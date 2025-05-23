@@ -1,5 +1,0 @@
----
-# defaults file for daily_ansible
-
-# Set machine type. Options are server or workstation.
-machine_type: server
