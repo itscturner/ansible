@@ -1,0 +1,17 @@
+---
+# tasks file for users
+
+- name: Manage users
+  ansible.builtin.users:
+    name: "{{ user.name }}"
+    state: "{{ user.state | default('present')"
+    comment: "{{ user.comment | default(omit) }}"
+    password: "{{ user.password | default(omit) }}"
+    uid: "{{ user.uid | default(omit) }}"
+    group: "{{ user.group | default(omit) }}"
+    groups: "{{ user.groups | default([]) | join(' ') or omit }}"
+    create_home: "{{ user.create_home | default('true') }}"
+    shell: "{{ user.shell | default(omit) }}"
+    expires: "{{ user.expires | default(omit) }}"
+    local: "{{ user.local | default('true') }}"
+    
