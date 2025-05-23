@@ -1,0 +1,13 @@
+---
+# tasks file for daily_ansible
+
+- name: Ensure jq is installed
+  ansible.builtin.dnf:
+    name: jq
+    state: present
+
+- name: Setup daily ansible cron
+  ansible.builtin.template:
+    src: ansible_cron_{{ machine_type }}.j2
+    dest: /etc/cron.daily/ansible_cron
+    mode: 0700
