@@ -1,2 +1,12 @@
 ---
 # defaults file for firewall
+
+# Default firewall protocol.
+firewall_default_protocol: tcp
+
+# Default firewall rule.
+firewall_default_rule: allow
+
+# Default firewall services.
+firewall_services:
+  - name: ssh
