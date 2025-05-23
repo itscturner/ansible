@@ -1,2 +1,7 @@
 ---
 # tasks file for template
+
+- name: Template Task
+  ansible.builtin.shell:
+    cmd: "ls -l /etc/"
+  when: ansible_distribution == 'RedHat' and ansible_distribution_verion == '9.2'
