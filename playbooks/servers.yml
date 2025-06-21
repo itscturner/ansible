@@ -1,9 +1,0 @@
----
-- name: Servers Playbook
-  hosts: servers
-  become: true
-  gather_facts: true
-  tasks:
-    - name: Include <ROLE>
-      ansible.builtin.include_role:
-        name: <ROLE>
