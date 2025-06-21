@@ -1,7 +1,0 @@
----
-# defaults file for limits
-
-limits_conf:
-  - "*  hard  core  0"
-  - "*  hard  maxlogins  10"
-  

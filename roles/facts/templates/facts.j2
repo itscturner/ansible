@@ -1,7 +1,0 @@
-# {{ ansible_managed }}
-
-{% for item in facts %}
-  "{{ item.key }}": "{{ item.value }}"{% if not loop.last %},{% endif %}
-
-{% endfor %}
-}
