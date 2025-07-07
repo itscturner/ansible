@@ -55,6 +55,7 @@ arch_packages:
   #- pipewire-jack
   #- pipewire-pulse
   - python
+  - python-pip
   - rsync
   - sddm
   - slurp
