@@ -13,7 +13,7 @@ arch_packages:
   - curl
   - dmenu
   #- dolphin
-  - dunst
+  #- dunst (OR swaync OR mako)
   - dysk
   - fastfetch
   - firefox
@@ -21,14 +21,20 @@ arch_packages:
   - ghostty
   - git
   - go
-  - grim
+  #- grim OR grim-hyprland (OR hyprshot or slurp)
   - helm
+  - hyprbars
+  #- hyprcursor
+  #- hyprexpo
+  - hyprfocus
+  - hyprhelpr
   - hypridle
   - hyprland
   - hyprlock
   - hyprpaper
   #- hyprpicker
   #- hyprshot
+  #- hyprspace
   #- hyprsunset
   #- hyprutils
   - jq
