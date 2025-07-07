@@ -1,3 +1,5 @@
+---
+
 - name: environment | Change shell to zsh
   ansible.builtin.shell:
     cmd: 'chsh -s /bin/zsh {{ username }}'
