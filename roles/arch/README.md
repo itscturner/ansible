@@ -20,11 +20,12 @@ DEPENDENCIES
 
 Example Playbook
 ----------------
-
-  - hosts: servers <br>
-    roles: <br>
-      - arch <br>
+```
+  - hosts: servers
+    roles:
+      - arch
     when: ansible_os_family == 'Archlinux'
+```
 
 License
 -------
