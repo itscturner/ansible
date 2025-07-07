@@ -15,3 +15,8 @@
   community.general.pacman:
     upgrade: true
     update_cache: true
+
+- name: packages | Install aur packages
+
+
+- name: packages | Install fonts
