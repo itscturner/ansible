@@ -23,7 +23,7 @@ Example Playbook
 ```
   - hosts: servers
     roles:
-      - arch
+      - role: arch
     when: ansible_os_family == 'Archlinux' or ansible_os_family == 'Arch Linux'
 ```
 
