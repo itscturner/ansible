@@ -5,6 +5,8 @@
     owner: root
     group: root
     mode: 0644
+  tags:
+    - packages
 
 - name: packages | Install pacman packages
   community.general.pacman:
