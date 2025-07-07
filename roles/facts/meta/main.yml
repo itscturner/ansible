@@ -1,6 +1,6 @@
 galaxy_info:
   author: itscturner
-  description: An ansible role for facts.
+  description: An ansible role for creating custom facts.
   license:
   min_ansible_version:
 
