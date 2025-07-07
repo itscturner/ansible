@@ -1,1 +1,16 @@
+galaxy_info:
+  author: itscturner
+  description: An ansible role for arch linux.
+  license:
+  min_ansible_version:
 
+  platforms:
+    - name: Arch
+      versions:
+        - all
+
+  galaxy_tags:
+    - system
+
+  dependencies:
+    - yay
