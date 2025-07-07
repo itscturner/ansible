@@ -36,6 +36,9 @@ arch_packages:
 pacman_packages:
 
 
-
 yay_packages:
+
+
+arch_fonts:
+
 
