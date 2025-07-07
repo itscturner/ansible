@@ -1,0 +1,16 @@
+---
+# tasks file for sudoers
+
+
+- name: Ensure sudo package is installed
+
+
+- name: Configure sudoers file
+  ansible.builtin.template:
+    src: sudoers.j2
+    dest: /etc/sudoers
+    owner: root
+    group: root
+    mode: 0440
+
+
