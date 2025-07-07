@@ -1,0 +1,9 @@
+galaxy_info:
+  author: itscturner
+  description: An ansible role for facts.
+  license:
+  min_ansible_version:
+
+  galaxy_tags:
+    - facts
+    - system
