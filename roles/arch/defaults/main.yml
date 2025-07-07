@@ -12,6 +12,7 @@ arch_packages:
   - btop
   - curl
   - dmenu
+  #- dolphin
   - dunst
   - dysk
   - fastfetch
