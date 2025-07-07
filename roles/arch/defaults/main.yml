@@ -4,6 +4,7 @@ arch_packages:
   - broadcom-wl
   - btop
   #- chromium
+  - curl
   - dysk
   - fastfetch
   - firefox
