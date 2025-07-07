@@ -2,9 +2,12 @@
 # defaults file for arch
 
 arch_packages:
+  #- 7zip
   #- alsa-utils
   - ansible
   - ansible-lint
+  #- base
+  #- base-devel
   - broadcom-wl
   - btop
   - curl
@@ -20,10 +23,17 @@ arch_packages:
   - grim
   - helm
   - hypridle
+  - hyprland
   - hyprlock
   - hyprpaper
+  #- hyprpicker
+  #- hyprshot
+  #- hyprsunset
+  #- hyprutils
   - jq
   - kubectl
+  - less
+  - libreoffice-fresh
   - man
   - man-db
   - man-pages
@@ -35,6 +45,9 @@ arch_packages:
   - openssh
   - pavucontrol
   - pipewire
+  #- pipewire-jack
+  #- pipewire-pulse
+  - python
   - rsync
   - sddm
   - slurp
@@ -57,12 +70,18 @@ arch_packages:
   - zsh-completions
   - zsh-syntax-highlighting
 
+####################################################################################################
+
 pacman_packages:
 
 
 #yay_packages:
 aur_packages:
-
+  #- paru
+  - spotify
+  - ttf-ms-fonts
+  - ttf-mac-fonts
+  - yay
 
 arch_fonts:
   - adobe-source-sans-pro-fonts
@@ -70,5 +89,6 @@ arch_fonts:
   - noto-fonts-emoji
   - powerline-fonts
   - ttf-font-awesome
+  - ttf-jetbrains-mono
   - ttf-liberation
 
