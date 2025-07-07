@@ -1,23 +1,7 @@
 ---
 
-- name: Template pacman.conf
-  ansible.builtin.template:
-    src: pacman.conf.j2
-    dest: /etc/pacman.conf
-    owner: root
-    group: root
-    mode: 0644
-
-
-
-- name: Install pacman packages
-  community.general.pacman:
-    name: "{{ pacman_packages }}"
-    state: present
-
-
-- name: Update pacman packages
-  community.general.pacman:
-    upgrade: true
-    update_cache: true
+- name: Include packages.yml
+  ansible.builtin.include_tasks:
+    file: packages.yml
+    
 
