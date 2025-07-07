@@ -3,6 +3,7 @@ arch_packages:
   - ansible-lint
   - broadcom-wl
   - btop
+  #- chromium
   - dysk
   - fastfetch
   - firefox
@@ -14,31 +15,45 @@ arch_packages:
   - hypridle
   - hyprlock
   - hyprpaper
+  - jq
   - kubectl
   - man
+  - man-db
+  - man-pages
   - neovim
+  - networkmanager
   - nmap
   - ntp
+  - openssh
   - pavucontrol
+  - pipewire
   - rsync
+  - sudo
   - tmux
   - tree
+  - unzip
   - vivid
   - waybar
+  - wget
   - wireshark
   - wofi
   - yay
   - yazi
   - youtube-dl
+  - zip
   - zsh
   - zsh-syntax-highlighting
 
 pacman_packages:
 
 
-yay_packages:
+#yay_packages:
+aur_packages:
 
 
 arch_fonts:
-
+  - adobe-source-sans-pro-fonts
+  - noto-fonts
+  - noto-fonts-emoji
+  - powerline-fonts
 
