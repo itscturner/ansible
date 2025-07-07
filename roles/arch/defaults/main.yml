@@ -1,1 +1,41 @@
+arch_packages:
+  - ansible
+  - ansible-lint
+  - broadcom-wl
+  - btop
+  - dysk
+  - fastfetch
+  - firefox
+  - fzf
+  - ghostty
+  - git
+  - go
+  - helm
+  - hypridle
+  - hyprlock
+  - hyprpaper
+  - kubectl
+  - man
+  - neovim
+  - nmap
+  - ntp
+  - pavucontrol
+  - rsync
+  - tmux
+  - tree
+  - vivid
+  - waybar
+  - wireshark
+  - wofi
+  - yay
+  - yazi
+  - youtube-dl
+  - zsh
+  - zsh-syntax-highlighting
+
+pacman_packages:
+
+
+
+yay_packages:
 
