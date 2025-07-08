@@ -1,3 +1,60 @@
-#SPDX-License-Identifier: MIT-0
 ---
 # tasks file for neovim
+
+- name: Ensure git is installed
+  ansible.builtin.package:
+    name: git
+    state: present
+
+- name: Install neovim
+  ansible.builtin.package:
+    name: nvim
+    state: present
+
+- name: Clone lazyvim
+  ansible.builtin.git:
+    src:
+    dest:
+    mode:
+
+- name: Create neovim config directories
+  ansible.builtin.file:
+    path: "~/.config/nvim/{{ item }}"
+    state: directory
+    mode: 0755
+    recurse: true
+  with_items:
+    - "lua/conf"
+
+- name: Create init.lua file
+  ansible.builtin.copy:
+    src: init.lua
+    dest: ~/.config/nvim/init.lua
+    mode: 0755
+
+- name: Create neovim core config files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "~/.config/nvim/lua/{{ item }}"
+    mode: 0755
+  with_items:
+    - core/keymaps.lua
+    - corelazy.lua
+    - core/options.lua
+
+- name: Create neovim plugin config files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "~/.config/nvim/lua/{{ item }}"
+    mode: 0755
+  with_items:
+    - plugins/catppuccin.lua
+    - plugins/dashboard.lua
+    - plugins/harpoon.lua
+    - plugins/lualine.lua
+    - plugins/neotree.lua
+    - plugins/telescope.lua
+    - plugins/todo-comments.lua
+    - plugins/treesitter-context.lua
+    - plugins/treesitter.lua
+    - plugins/trouble.lua
