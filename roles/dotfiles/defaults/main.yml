@@ -1,3 +1,16 @@
-#SPDX-License-Identifier: MIT-0
 ---
 # defaults file for dotfiles
+
+packages:
+  - btop
+  - dolphin
+  - fastfetch
+  - ghostty
+  - hypridle
+  - hyprland
+  - hyprlock
+  - hyprpaper
+  - nvim
+  - waybar
+  - wofi
+  - yazi
