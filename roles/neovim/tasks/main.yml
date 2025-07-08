@@ -24,7 +24,8 @@
     mode: 0755
     recurse: true
   with_items:
-    - "lua/conf"
+    - "lua/core"
+    - "lua/plugins"
 
 - name: Create init.lua file
   ansible.builtin.copy:
