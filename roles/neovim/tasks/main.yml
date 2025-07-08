@@ -39,7 +39,7 @@
     mode: 0755
   with_items:
     - core/keymaps.lua
-    - corelazy.lua
+    - core/lazy.lua
     - core/options.lua
 
 - name: Create neovim plugin config files
