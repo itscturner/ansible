@@ -1,0 +1,13 @@
+---
+# defaults file for users
+
+users:
+  - username: itscturner
+    uid:
+    group:
+    groups: ["sudo", "wheel"]
+    home_create: yes
+    home: /home/cturner
+    #authorized_keys: []
+    shell: /bin/zsh
+    
