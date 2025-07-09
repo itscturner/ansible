@@ -1,0 +1,23 @@
+---
+# tasks file for users
+
+- name: Add users
+  ansible.builtin.user:
+    name:
+    comment:
+    uid:
+    group:
+    groups:
+    create_home:
+    shell:
+
+- name: Remove password expiration
+  ansible.builtin.user:
+    name:
+    expires: -1
+
+- name: Remove users
+  ansible.builtin.user:
+    name:
+    state: absent
+    remove: yes
