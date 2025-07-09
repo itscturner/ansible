@@ -1,3 +1,15 @@
 ---
 # tasks file for logrotate
 
+- name: Install logrotate package
+  ansible.builtin.package:
+    name: '{{ logrotate_package }}'
+    state: present
+
+- name: Template logrotate configuration file
+  ansible.builtin.template:
+    src: logrotate.conf.j2
+    dest: /etc/logrotate.conf
+    owner: root
+    group: root
+    mode: 0644
