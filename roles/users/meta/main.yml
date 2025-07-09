@@ -1,0 +1,11 @@
+galaxy_info:
+  author: itscturner
+  description: An ansible role to manage users.
+  license:
+  min_ansible_version:
+
+  galaxy_tags:
+    - system
+    - users
+
+  dependencies: []
