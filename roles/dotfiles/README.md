@@ -28,11 +28,6 @@ Example Playbook
              - cturner
 ```
 
-License
--------
-
-BSD
-
 Author Information
 ------------------
 
