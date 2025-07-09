@@ -1,2 +1,6 @@
 ---
 # defaults file for logrotate
+
+logrotate_package: logrotate
+
+logrotate_directory: /etc/logrotate.d
