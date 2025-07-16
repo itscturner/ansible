@@ -4,3 +4,9 @@
 logrotate_package: logrotate
 
 logrotate_directory: /etc/logrotate.d
+
+logrotate_keep: 5
+
+logrotate_frequency: weekly
+
+logrotate_compress: true
