@@ -5,7 +5,9 @@ galaxy_info:
   min_ansible_version:
 
   galaxy_tags:
+    - logrotate
     - logs
+    - monitoring
     - system
 
   dependencies: []
