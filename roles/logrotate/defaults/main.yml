@@ -5,8 +5,8 @@ logrotate_package: logrotate
 
 logrotate_directory: /etc/logrotate.d
 
-logrotate_keep: 5
+logrotate_keep: 14
 
-logrotate_frequency: weekly
+logrotate_frequency: daily
 
 logrotate_compress: true
