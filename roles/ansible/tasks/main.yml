@@ -1,0 +1,20 @@
+---
+# tasks file for ansible
+
+- name: Install ansible packages
+  ansible.builtin.dnf:
+    name: "{{ ansible_packages }}"
+    state: present
+
+- name: Ensure ansible directory exists
+  ansible.builtin.file:
+    path: "{{ ansible_configuration_directory }}"
+    state: directory
+    mode: 0755
+
+- name: Configure ansible
+  ansible.builtin.template:
+    src: "{{ ansible_config_file }}.j2"
+    dest: "{{ ansible_configuration_directory }}/{{ ansible_config_file }}"
+    mode: 0644
+
