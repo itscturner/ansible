@@ -1,6 +1,12 @@
 ---
 # tasks file for alternatives
 
+- name: Install alternatives packages
+  ansible.builtin.package:
+    name: "{{ item.name }}"
+    state: present
+  with_items: "{{ alternatives }}"
+
 - name: Configure alternatives
   community.general.alternatives:
     name: "{{ item.name }}"
