@@ -3,9 +3,8 @@
 
 - name: Install alternatives packages
   ansible.builtin.package:
-    name: "{{ item.name }}"
+    name: "{{ alternatives_packages }}"
     state: present
-  with_items: "{{ alternatives }}"
 
 - name: Configure alternatives
   community.general.alternatives:
