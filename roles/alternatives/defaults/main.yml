@@ -5,7 +5,7 @@ alternatives_packages:
   - alternatives
   - chkconfig
 
-alternatives:
+alternatives_list:
   - name: python
     link: /usr/bin/python3.7
     path: /usr/bin/python
