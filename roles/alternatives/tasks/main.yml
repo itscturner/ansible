@@ -1,0 +1,12 @@
+---
+# tasks file for alternatives
+
+- name: Configure alternatives
+  community.general.alternatives:
+    name: "{{ item.name }}"
+    path: "{{ item.path }}"
+    link: "{{ item.link }}"
+  loop: "{{ alternatives }}"
+  loop_control: "{{ item.name }}"
+  when:
+    - alternatives is defined
