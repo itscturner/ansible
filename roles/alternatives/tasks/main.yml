@@ -1,7 +1,7 @@
 ---
 # tasks file for alternatives
 
-- name: Install alternatives packages
+- name: Ensure alternatives packages are installed
   ansible.builtin.package:
     name: "{{ alternatives_packages }}"
     state: present
@@ -11,7 +11,7 @@
     name: "{{ item.name }}"
     path: "{{ item.path }}"
     link: "{{ item.link }}"
-  loop: "{{ alternatives }}"
+  loop: "{{ alternatives_list }}"
   loop_control: "{{ item.name }}"
   when:
-    - alternatives is defined
+    - alternatives_list is defined
