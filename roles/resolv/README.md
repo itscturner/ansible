@@ -1,7 +1,7 @@
 resolv
 ======
 
-A brief description of the role goes here.
+An ansible role to configure resolv.
 
 Requirements
 ------------
