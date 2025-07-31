@@ -1,0 +1,9 @@
+---
+# defaults file for limits
+
+limits_enabled: true
+
+limits_path: /etc/security/limits.d/tune.conf
+
+limits_configure:
+  - "*     -     nofile     65535"
