@@ -1,13 +1,14 @@
 ---
 # defaults file for users
 
+users_shell: /bin/bash
+
 users:
-  - username: cturner
+  - name: cturner
     uid:
     group:
     groups: ["sudo", "wheel"]
-    home_create: yes
+    comment: "itscturner"
+    home_create: true
     home: /home/cturner
-    authorized_keys: []
     shell: /bin/zsh
-    
