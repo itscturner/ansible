@@ -6,7 +6,7 @@ An ansible role to configure sysctl.
 Requirements
 ------------
 
-REQUIREMENTS
+ansible.posix
 
 Role Variables
 --------------
@@ -29,7 +29,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
