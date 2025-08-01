@@ -1,0 +1,6 @@
+---
+# defaults file for scripts
+
+scripts_shell: /bin/bash
+
+scripts: []
