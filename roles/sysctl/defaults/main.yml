@@ -6,3 +6,7 @@ sysctl_set: true
 
 # If true, performs a /sbin/sysctl -p if the sysctl_file is updated.
 sysctl_reload: true
+
+sysctl_items:
+  - name: net.ipv4.ip_forward
+    value: 1
