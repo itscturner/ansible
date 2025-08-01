@@ -1,0 +1,5 @@
+---
+# defaults file for sysctl
+
+# If true, performs a /sbin/sysctl -p if the sysctl_file is updated.
+sysctl_reload: true
