@@ -3,21 +3,20 @@
 
 - name: Add users
   ansible.builtin.user:
-    name:
-    comment:
-    uid:
-    group:
-    groups:
-    create_home:
-    shell:
-
-- name: Remove password expiration
-  ansible.builtin.user:
-    name:
-    expires: -1
+    name: "{{ user.name }}"
+    comment: "{{ user.comment | default(omit) }}"
+    uid: "{{ user.uid }}"
+    group: "{{ user.group }}"
+    groups: "{{ user.groups | default([]) | join(',') or omit }}"
+    create_home: "{{ user.create_home }}"
+    shell: "{{ user.shell | default(users_shell) }}"
+  with_items: "{{ users }}"
 
 - name: Remove users
   ansible.builtin.user:
-    name:
+    name: "{{ user.name }}"
     state: absent
     remove: yes
+  with_items: "{{ users }}"
+  when:
+    - user.state == "absent"
