@@ -9,6 +9,7 @@
     group: "{{ user.group }}"
     groups: "{{ user.groups | default([]) | join(',') or omit }}"
     create_home: "{{ user.create_home }}"
+    home: "{{ user.home | default(omit) }}"
     shell: "{{ user.shell | default(users_shell) }}"
   with_items: "{{ users }}"
 
