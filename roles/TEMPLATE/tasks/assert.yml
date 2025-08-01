@@ -1,0 +1,8 @@
+---
+# tasks file for TEMPLATE - assert
+
+- name: assert | TASK
+  ansible.builtin.assert:
+    that:
+      - TEST
+    quiet: true
