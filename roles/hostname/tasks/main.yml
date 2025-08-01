@@ -1,0 +1,11 @@
+---
+# tasks file for hostname
+
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: "{{ hostname }}"
+  notify:
+    - Reboot
+    - Gather Facts
+  when:
+    - ansible_connection not in [ "container", "docker", "community.docker.docker" ]
