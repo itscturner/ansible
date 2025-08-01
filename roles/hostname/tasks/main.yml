@@ -1,6 +1,11 @@
 ---
 # tasks file for hostname
 
+- name: Ensure hostname package is installed
+  ansible.builtin.dnf:
+    name: hostname
+    state: present
+
 - name: Set hostname
   ansible.builtin.hostname:
     name: "{{ hostname }}"
