@@ -1,5 +1,8 @@
 ---
 # defaults file for sysctl
 
+# Verify token value with the sysctl command and set with -w if necessary.
+sysctl_set: true
+
 # If true, performs a /sbin/sysctl -p if the sysctl_file is updated.
 sysctl_reload: true
