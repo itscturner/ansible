@@ -1,23 +1,28 @@
 ---
 # tasks file for epel
 
-- name: Install epel gpg key
-  ansible.builtin.rpm_key:
-    key: "{{ epel_gpg_key }}"
-    state: present
+- name: Install epel block
+  block:
+    - name: Install epel gpg key
+      ansible.builtin.rpm_key:
+        key: "{{ epel_gpg_key }}"
+        state: present
 
-- name: Install epel-release
-  ansible.builtin.package:
-    name: "{{ epel_url }}"
-    state: present
-  notify:
-    - Update package cache
+    - name: Install epel-release
+      ansible.builtin.package:
+        name: "{{ epel_url }}"
+        state: present
+      notify:
+        - Update package cache
 
-- name: Install epel-next-release
-  ansible.builtin.package:
-    name: "{{ epel_next_url }}"
-    state: present
+    - name: Install epel-next-release
+      ansible.builtin.package:
+        name: "{{ epel_next_url }}"
+        state: present
+      when:
+        - epel_next
+      notify:
+        - Update package cache
+        
   when:
-    - epel_next
-  notify:
-    - Update package cache
+    - (ansible_os_family == "RedHat" and ansible_distribution_major_version in [ "8", "9" ])
