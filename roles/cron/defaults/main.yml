@@ -2,14 +2,31 @@
 # defaults file for cron
 
 cron_packages:
+  - cronie
 
-cron_service:
+cron_service: crond
 
-cron_shell:
+# cron_shell: /bin/bash
 
-cron_path:
+# cron_path: /sbin:/bin:/usr/sbin:/usr/bin
 
-cron_mailto:
+# cron_mailto: root
 
 cron_jobs:
-  - 
+#  - name:
+#    minute:
+#    hour:
+#    day:
+#    weekday:
+#    month:
+#    job:
+#    state:
+#    user:
+  - name: aide_check
+    minute: "*/15"
+    hour: '*'
+    day: '*'
+    weekday: '*'
+    month: '*'
+    job: '/usr/sbin/aide --check'
+    user: root
