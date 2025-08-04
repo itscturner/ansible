@@ -1,0 +1,6 @@
+---
+# defaults file for git
+
+git_packages:
+  - git
+
