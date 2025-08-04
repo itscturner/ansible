@@ -1,6 +1,10 @@
 ---
 # defaults file for filesystem
 
+filesystem_packages:
+  - e2fsprogs
+  - util-linux
+
 filesytem_default_filesystem: ext4
 
 filesystem_list:
