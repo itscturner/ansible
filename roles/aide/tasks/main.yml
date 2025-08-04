@@ -6,15 +6,29 @@
     name: aide
     state: present
 
-- name: Initialize aide
-  ansible.builtin.shell:
-    cmd: "aide --init"
-    creates: "{{ aide_db_new }}"
-  notify:
-    - Copy new aide database
+- name: Template aide configuration file
+  ansible.builtin.template:
+    src: aide.conf.j2
+    dest: /etc/aide.conf
 
-- name: Schedule aide check
+- name: Stat aide db file
+  ansible.builtin.stat:
+    path: /var/lib/aide/aide.db.gz
+  register: aide_db_stat
+
+- name: Initialize aide if needed
+  ansible.builtin.shell:
+    cmd: "aide -i"
+  when: not aide_db_stat.stat.exists
+
+- name: Setup aide cron jobs
   ansible.builtin.cron:
-    name: aide check
-    job: aide --check
-    special_time: daily
+    name: "{{ item.name }}"
+    minute: "{{ item.minute | default('0') }}"
+    hour: "{{ item.hour | default('0') }}"
+    day: "{{ item.day | default('*') }}"
+    weekday: "{{ item.weekday | default('*') }}"
+    month: "{{ item.month | default('*') }}"
+    user: "{{ item.user | default('root') }}"
+    job: "{{ item.job }}"
+  with_items: "{{ aide_cron_jobs }}"
