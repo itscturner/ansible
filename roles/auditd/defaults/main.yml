@@ -41,3 +41,16 @@ auditd_enable_krb5: "no"
 auditd_krb5_principal: auditd
 auditd_distribute_network: "no"
 
+# /etc/audit/rules.d/custom.rules
+auditd_rules:
+  - file: /var/log/audit/
+    keyname: auditlog
+  - file: /etc/audit/
+    permissions:
+      - write
+      - auttribute_change
+    keyname: auditconfig
+  - file: /sbin/auditctl
+    permissions:
+      - execute
+    keyname: audittools
