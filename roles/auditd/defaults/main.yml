@@ -6,6 +6,8 @@ auditd_service: auditd
 auditd_config_directory: /etc/audit
 auditd_config_file: auditd.conf
 
+auditd_default_arch: b64
+
 # /etc/audit/auditd.conf
 auditd_buffer_size: 32768
 auditd_fail_mode: 1
