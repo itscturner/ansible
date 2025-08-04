@@ -1,0 +1,10 @@
+---
+# defaults file for filesystem
+
+filesytem_default_filesystem: ext4
+
+filesystem_list:
+  - dev: /dev/sdb1
+    fstype: ext4
+  - dev: /dev/sdb2
+    fstype: swap
