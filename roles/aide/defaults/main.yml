@@ -1,8 +1,6 @@
 ---
 # defaults file for aide
 
-aide_db_new:
-
 aide_cron_jobs:
   - name: AIDE check
     hour: "12"
@@ -10,5 +8,3 @@ aide_cron_jobs:
   - name: Move AIDE db files
     hour: "13"
     job: "mv -f /var/lib/aide/aide.db.new.gz /var/lib/aide/aide.db.gz"
-
-    
