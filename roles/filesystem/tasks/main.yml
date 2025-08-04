@@ -1,0 +1,19 @@
+---
+# tasks file for filesystem
+
+- name: Install filesystem packages
+  ansible.builtin.dnf:
+    name: "{{ filesystem_packages }}"
+    state: present
+
+- name: Manage filesystems
+  community.general.filesystem:
+    dev: "{{ item.dev }}"
+    force: "{{ item.force | default(omit) }}"
+    fstype: "{{ item.fstype | default(filesytem_default_filesystem) }}"
+    state: "{{ item.state | default(omit) }}"
+    opts: "{{ item.opts | default(omit) }}"
+    resizefs: "{{ item.resizefs | default(omit) }}"
+  loop: "{{ filesystem_list }}"
+  loop_control:
+    label: "{{ item.dev }}"
