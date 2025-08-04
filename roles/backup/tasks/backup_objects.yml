@@ -1,0 +1,25 @@
+---
+
+- name: backup_objects | Archive directory object
+  community.general.archive:
+    path:
+    dest:
+    exclude_path:
+    format:
+    mode: 0640
+  when:
+    - object.type == "directory"
+
+- name: backup_objects | Compress object
+  community.general.archive:
+    path:
+    dest:
+    format:
+    mode: 0640
+
+- name: backup_objects | Fetch object
+  ansible.builtin.fetch:
+    src:
+    dest:
+    flat: true
+  become: false
