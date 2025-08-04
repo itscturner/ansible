@@ -1,7 +1,7 @@
 diskspace
 =========
 
-An ansible role to check diskspace.
+An ansible role to monitor diskspace.
 
 Requirements
 ------------
@@ -29,7 +29,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
