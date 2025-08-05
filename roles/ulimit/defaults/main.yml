@@ -1,0 +1,14 @@
+---
+# defaults file for ulimit
+
+ulimit_conf: /etc/security/limits.conf
+
+ulimit_domain: '*'
+
+ulimit_limit_type: hard
+
+ulimit_items:
+  - limit_item:
+    domain:
+    limit_type:
+    value:
