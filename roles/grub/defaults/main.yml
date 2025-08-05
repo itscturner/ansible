@@ -11,3 +11,5 @@ grub_passowrd_unrestricted_files:
   - 10_linux_xen
 
 grub_timeout: 5
+
+grub_update_command: "grub2-mkconfig -o /boot/grub2/grub.cfg"
