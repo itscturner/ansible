@@ -16,5 +16,11 @@
   notify:
     - Update grub
 
+- name: Import grub_password.yml
+  ansible.builtin.import_tasks:
+    file: grub_password.yml
+  when:
+    - grub_set_password
+
 - name: Flush handlers
   ansible.builtin.meta: flush_handlers
