@@ -1,3 +1,14 @@
 ---
 # defaults file for repos
 
+
+
+repos_gpg_key:
+
+repos_update_cache: true
+
+repo_list:
+  - name: BaseOS
+    baseurl:
+  - name: AppStream
+    baseurl:
