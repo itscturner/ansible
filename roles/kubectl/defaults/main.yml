@@ -1,8 +1,8 @@
 ---
 # defaults file for kubectl
 
-kubectl_version:
+kubectl_version: "https://storage.googleapis.com/kubernetes-release/release/stable.txt"
 
-kubectl_url:
+kubectl_url: "https://storage.googleapis.com/kubernetes-release/release/{{ lookup('url', kubectl_version) }}/bin/linux/amd64/kubectl"
 
 kubectl_validate_certs: false
