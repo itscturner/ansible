@@ -1,0 +1,34 @@
+---
+# tasks file for maintenance
+
+- name: Cleanup dnf cache
+  ansible.builtin.shell:
+    cmd: "dnf clean all"
+  register: maintenance_cleanup_dnf
+  changed_when:
+    - "'0 files removed' not in maintenance_cleanup_dnf.stdout"
+
+- name: Check journalctl
+  ansible.builtin.stat:
+    path: "{{ item.path }}"
+  register: "{{ item.register }}"
+  with_items: "{{ maintenance_journalctl }}"
+
+- name: Cleanup journalctl logs
+  ansible.builtin.command:
+    cmd: journalctl --vacuum-time={{ maintenance_journalctl_vacuum }}
+  when:
+    - maintenance_usr_bin_journalctl.stat.exists or maintenance_bin_journalctl.stat.exists
+  register: maintenance_cleanup_journalctl
+  changed_when:
+    - "'freed 0B' not in maintenance_cleanup_journalctl.stderr"
+
+- name: Empty selected files
+  ansible.builtin.copy:
+    content: ""
+    dest: "{{ item }}"
+    mode: "0644"
+  loop: "{{ maintenance_files_to_empty }}"
+  when:
+    - maintenance_files_to_empty is defined
+    - maintenance_files_to_empty | length > 0
