@@ -1,0 +1,20 @@
+# {{ ansible_managed }}
+
+{% for ntp_server in ntp_pool %}
+pool {{ ntp_server.name }}
+{% endfor %}
+
+# Minimum number of selectable sources required to adjust the system clock.
+minsources 2
+
+# Record the rate at which the system clock gains/losses time.
+driftfile /var/lib/chrony/drift
+
+# Specify the file containing keys for NTP authentication.
+keyfile /etc/chrony.keys
+
+# Allow the system clock to be stepped in the first three updates if its offset is larger than 1 second.
+makestep 1.0 3
+
+# Specify directory for log files.
+logdir {{ ntp_log_dir }}
