@@ -1,0 +1,13 @@
+---
+# defaults file for grub
+
+grub_user: root
+
+grub_set_password: false
+grub_password: changeme
+grub_password_unrestricted: true
+grub_passowrd_unrestricted_files:
+  - 10_linux
+  - 10_linux_xen
+
+grub_timeout: 5
