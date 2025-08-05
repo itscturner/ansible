@@ -54,21 +54,6 @@
     - Unmask systemd-logind
     - Restart systemd-logind
 
-- name: Configure resolved.conf
-  community.general.ini_file:
-    path: /etc/systemd/resolved.conf
-    section: Resolve
-    option: "{{ item.option }}"
-    value: "{{ item.value }}"
-    mode: 0644
-  loop: "{{ systemd_resolved }}"
-  loop_control:
-    label: "{{ item.option }}"
-  when:
-    - systemd_resolved is defined
-  notify:
-    - Restart systemd-resolved
-
 - name: Configure system.conf
   community.general.ini_file:
     path: /etc/systemd/system.conf
