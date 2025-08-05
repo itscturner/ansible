@@ -1,0 +1,20 @@
+---
+# tasks file for grub
+
+- name: Ensure grub packages are installed
+  ansible.builtin.dnf:
+    name: "{{ grub_packages }}"
+    state: present
+
+- name: Configure grub default
+  ansible.builtin.template:
+    src: grub.j2
+    dest: /etc/default/grub
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Update grub
+
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
