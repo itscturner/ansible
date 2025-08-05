@@ -1,2 +1,25 @@
 ---
 # defaults file for systemd
+
+# Default target: "multiuser.target", "graphical.target" or "rescue.target".
+systemd_default_target: "multiuser.target"
+
+# Set options in coredump.conf.
+systemd_coredump:
+  - option: Compress
+    value: "yes"
+
+# Set options in journald.conf.
+systemd_journald:
+  - option: Compress
+    value: "yes"
+
+# Set options in logind.conf.
+systemd_logind:
+  - option: HandlePowerKey
+    value: poweroff
+
+# Set options in system.conf.
+systemd_system:
+  - option: LogLevel
+    value: info
