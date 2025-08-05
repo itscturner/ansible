@@ -3,13 +3,29 @@
 
 grub_user: root
 
-grub_set_password: false
 grub_password: changeme
-grub_password_unrestricted: true
-grub_passowrd_unrestricted_files:
-  - 10_linux
-  - 10_linux_xen
-
-grub_timeout: 5
 
 grub_update_command: "grub2-mkconfig -o /boot/grub2/grub.cfg"
+
+##########
+#grub_set_password: false
+
+#grub_password_unrestricted: true
+#grub_passowrd_unrestricted_files:
+#  - 10_linux
+#  - 10_linux_xen
+
+# grub_options:
+#   - option: cgroup_enable
+#     value: memory
+##########
+
+# /etc/default/grub
+grub_default:
+grub_timeout: 5
+grub_recordfail_timeout: 5
+grub_distributor:
+grub_cmdline_linux:
+grub_disable_submenu:
+grub_disable_recovery:
+grub_terminal_output:
