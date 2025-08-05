@@ -3,13 +3,10 @@
 
 ntp_packages:
   - chrony
+  - tzdata
   - util-linux
 
 ntp_conf: chrony.conf
-
-ntp_state: started
-
-ntp_enabled: true
 
 ntp_interfaces:
   - address: "127.0.0.1"
@@ -19,4 +16,6 @@ ntp_pool:
   - name: "1.pool.ntp.org iburst"
   - name: "2.pool.ntp.org iburst"
 
-ntp_timezone: Etc/UTC
+ntp_timezone: America/Colorado/Denver
+
+ntp_log_dir: /var/log/chrony
