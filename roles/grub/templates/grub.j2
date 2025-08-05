@@ -1,19 +1,10 @@
+# {{ ansible_managed }}
 
-
-GRUB_DEFAULT=
-
-GRUB_TIMEOUT=
-
-GRUB_RECORDFAIL_TIMEOUT=
-
-GRUB_CMDLINE_LINUX=
-
-GRUB_DISTRIBUTOR=
-
-GRUB_DISABLE_SUBMENU=
-
-GRUB_TERMINAL_OUTPUT=
-
-GRUB_DISABLE_RECOVERY=
-
-GRUB_ENABLE_BLSCFG=
+GRUB_DEFAULT={{ grub_default }}
+GRUB_TIMEOUT={{ grub_timeout }}
+GRUB_RECORDFAIL_TIMEOUT={{ grub_recordfail_timeout }}
+GRUB_DISTRIBUTOR={{ grub_distributor }}
+GRUB_CMDLINE_LINUX={{ grub_cmdline_linux }}
+GRUB_DISABLE_SUBMENU={{ grub_disable_submenu }}
+GRUB_DISABLE_RECOVERY={{ grub_disable_recovery }}
+GRUB_TERMINAL_OUTPUT={{ grub_terminal_output }}
