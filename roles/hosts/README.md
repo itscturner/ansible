@@ -1,7 +1,7 @@
 hosts
-=======
+=====
 
-An ansible role to setup hosts file.
+An ansible role to configure hosts file.
 
 Requirements
 ------------
@@ -29,7 +29,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
