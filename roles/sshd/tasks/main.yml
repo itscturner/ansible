@@ -1,3 +1,11 @@
 ---
 # tasks file for sshd
 
+- name: Configure sshd
+  ansible.builtin.template:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ sshd_configs }}"
