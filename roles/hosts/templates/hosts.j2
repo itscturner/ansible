@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+
+127.0.0.1 {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }}
+127.0.0.1 localhost localhost.localdomain
+{{ ansible_default_ipv4.address }} {{ inventory_hostname | lower }} {{ inventory_hostname_short | lower }}
