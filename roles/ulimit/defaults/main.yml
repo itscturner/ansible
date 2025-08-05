@@ -3,12 +3,14 @@
 
 ulimit_conf: /etc/security/limits.conf
 
+ulimit_backup: false
+
 ulimit_domain: '*'
 
 ulimit_limit_type: hard
 
 ulimit_items:
-  - limit_item:
-    domain:
-    limit_type:
-    value:
+  - limit_item: maxlogins
+    domain: '*'
+    limit_type: hard
+    value: 10
