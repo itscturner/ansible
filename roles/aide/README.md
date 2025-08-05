@@ -1,5 +1,5 @@
 aide
-============
+====
 
 An ansible role to install and configure aide.
 
