@@ -1,0 +1,8 @@
+---
+# defaults file for kubectl
+
+kubectl_version:
+
+kubectl_url:
+
+kubectl_validate_certs: false
