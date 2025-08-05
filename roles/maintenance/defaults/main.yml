@@ -1,7 +1,13 @@
 ---
 # defaults file for maintenance
 
-maintenance_journalctl_vacuum: 10d
+#maintenance_journalctl_vacuum: 10d
+
+maintenance_journalctl:
+  - path: /usr/bin/journalctl
+    register: maintenance_usr_bin_journalctl
+  - path: /bin/journalctl
+    register: maintenance_bin_journalctl
 
 # List of files that needs to be emptied.
 maintenance_files_to_empty:
