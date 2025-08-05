@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: itscturner
+  role_name: network
+  description: An ansible role to configure NetworkManager.
+  license: Apache-2.0
+  min_ansible_version: "2.12"
+
+  platforms:
+    - name: RHEL
+      versions:
+        - "9"
+
+  galaxy_tags:
+    - network
+    - system
+
+  dependencies: []
