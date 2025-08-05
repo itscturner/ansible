@@ -10,8 +10,12 @@ REQUIREMENTS
 
 Role Variables
 --------------
-
-ROLE VARIABLES
+```
+username
+git_user_name
+git_user_email
+git_username
+```
 
 Dependencies
 ------------
