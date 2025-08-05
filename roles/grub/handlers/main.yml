@@ -1,0 +1,12 @@
+---
+# handlers file for grub
+
+- name: Update grub
+  ansible.builtin.command:
+    cmd: "{{ grub_update_command }}"
+  changed_when: true
+  notify:
+    - Reboot
+
+- name: Reboot
+  ansible.builtin.reboot:
