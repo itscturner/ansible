@@ -1,12 +1,44 @@
 ---
 # defaults file for usbguard
 
-
-
-usbguard_rulefile: /etc/usbguard/rules.conf
-
 usbguard_configuration_file: /etc/usbguard/usbguard-daemon.conf
 
+# USBGuard Daemon Conf:
+# RuleFile
+usbguard_rulefile: /etc/usbguard/rules.conf
+
+# RuleFolder
+usbguard_rulefolder: /etc/usbguard/rules.d/
+
+# ImplicitPolicyTarget
+usbguard_policytarget: block
+
+# PresentDevicePolicy
+usbguard_devicepolicy: apply-policy
+
+# PresentControllerPolicy
+usbguard_controllerpolicy: keep
+
+# RestoreControllerDeviceState
+usbguard_restorecontrollerdevicestate: false
+
+# DeviceManagerBackend
+usbguard_devicemanagerbackend: uevent
+
+# IPCAllowedUsers
+usbguard_allowedusers: root
+
+# IPCAllowedGroups
+usbguard_allowedgroups: wheel
+
+# IPCAccessControlFiles
+usbguard_accesscontrolfiles: /etc/usbguard/IPCAccessControl.d/
+
+# DeviceRulesWithPort
+usbguard_deviceruleswithport: false
+
+# AuditBackend
+usbguard_auditbackend: LinuxAudit
+
+# AuditFilePath
 usbguard_auditfilepath: /var/log/usbguard/usbguard-audit.log
-
-
