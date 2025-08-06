@@ -8,15 +8,15 @@ RuleFolder={{ usbguard_rulefolder }}
 
 # How to treat USB devices that don’t match any rule in the policy.
 # allow, block (default), or reject.
-ImplicitPolicyTarget={{ usbguard_policytarget }}
+ImplicitPolicyTarget={{ usbguard_policytarget | default('block') }}
 
 # How to treat USB devices that are already connected when the daemon starts.
 # allow, block, reject, keep, or apply-policy (default).
-PresentDevicePolicy={{ usbguard_devicepolicy }}
+PresentDevicePolicy={{ usbguard_devicepolicy | default('apply-policy') }}
 
 # How to treat USB controller devices that are already connected when the daemon starts.
 # allow, block, reject, keep (default), or apply-policy.
-PresentControllerPolicy={{ usbguard_controllerpolicy }}
+PresentControllerPolicy={{ usbguard_controllerpolicy | default('keep') }}
 
 # The USBGuard daemon modifies some attributes of controller devices like the default authorization state of new child device instances.
 # Using this setting, you can control whether the daemon will try to restore the attribute values to the state before modification on shutdown.
@@ -24,23 +24,23 @@ RestoreControllerDeviceState={{ usbguard_restorecontrollerdevicestate }}
 
 # Which device manager backend implementation to use.
 # uevent (default), umockdev.
-DeviceManagerBackend={{ usbguard_devicemanagerbackend }}
+DeviceManagerBackend={{ usbguard_devicemanagerbackend | default('uevent') }}
 
 # A space delimited list of usernames that the daemon will accept IPC connections from.
 IPCAllowedUsers={{ usbguard_allowedusers }}
 
 # A space delimited list of groupnames that the daemon will accept IPC connections from.
-IPAAllowedGroups={{ usbguard_allowedgroups }}
+IPCAllowedGroups={{ usbguard_allowedgroups }}
 
 # The files at this location will be interpreted by the daemon as IPC access control definition files.
-IPAAccessControlFiles={{ usbguard_accesscontrolfiles }}
+IPCAccessControlFiles={{ usbguard_accesscontrolfiles }}
 
 # Generate device specific rules including the "via-port" attribute. 
 DeviceRulesWithPort={{ usbguard_deviceruleswithport }}
 
 # USBGuard audit events log backend.
 # FileAudit (default), or LinuxAudit.
-AuditBackend={{ usbguard_auditbackend }}
+AuditBackend={{ usbguard_auditbackend | default('FileAudit') }}
 
 # USBGuard audit events log file path.
 AuditFilePath={{ usbguard_auditfilepath }}
