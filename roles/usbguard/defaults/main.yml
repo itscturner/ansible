@@ -10,19 +10,19 @@ usbguard_rulefile: /etc/usbguard/rules.conf
 # RuleFolder
 usbguard_rulefolder: /etc/usbguard/rules.d/
 
-# ImplicitPolicyTarget
+# ImplicitPolicyTarget (Default: 'block')
 usbguard_policytarget: block
 
-# PresentDevicePolicy
+# PresentDevicePolicy (Default: 'apply-policy')
 usbguard_devicepolicy: apply-policy
 
-# PresentControllerPolicy
+# PresentControllerPolicy (Default: 'keep')
 usbguard_controllerpolicy: keep
 
 # RestoreControllerDeviceState
 usbguard_restorecontrollerdevicestate: false
 
-# DeviceManagerBackend
+# DeviceManagerBackend (Default: 'uevent')
 usbguard_devicemanagerbackend: uevent
 
 # IPCAllowedUsers
@@ -37,7 +37,7 @@ usbguard_accesscontrolfiles: /etc/usbguard/IPCAccessControl.d/
 # DeviceRulesWithPort
 usbguard_deviceruleswithport: false
 
-# AuditBackend
+# AuditBackend (Default: 'FileAudit')
 usbguard_auditbackend: LinuxAudit
 
 # AuditFilePath
