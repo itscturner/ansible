@@ -1,0 +1,7 @@
+---
+# handlers file for usbguard
+
+- name: Restart usbguard
+  ansible.builtin.service:
+    name: usbguard
+    state: restarted
