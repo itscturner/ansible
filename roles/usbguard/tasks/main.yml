@@ -1,25 +1,32 @@
 ---
 # tasks file for usbguard
 
-- name: Install usbguard
+- name: Install USBGuard
   ansible.builtin.dnf:
     name: usbguard
     state: present
 
-- name: Stat USB device directory
-  ansible.builtin.stat:
-    path: /sys/bus/usb/devices
-  register: usb_devices
+#- name: Stat USB device directory
+#  ansible.builtin.stat:
+#    path: /sys/bus/usb/devices
+#  register: usb_devices
 
-- name: Start and enable usbguard
+- name: Configure USBGuard
+  ansible.builtin.template:
+    src: usbguard-daemon.conf.j2
+    dest: /etc/usbguard/usbguard-daemon.conf
+    owner: root
+    group: root
+    mode: 0600
+
+- name: Start and enable USBGuard
   ansible.builtin.service:
     name: usbguard
     state: started
     enabled: true
 
-- name: Generate usbguard policy
+- name: Generate USBGuard policy
   ansible.builtin.shell:
     cmd: "usbguard generate-policy > /etc/usbguard/rules.conf"
-
-
-
+  notify:
+    - Restart usbguard
