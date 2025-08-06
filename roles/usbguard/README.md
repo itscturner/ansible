@@ -1,7 +1,7 @@
 usbguard
 ========
 
-An ansible role to install and configure usbguard.
+An ansible role to install and configure USBGuard.
 
 Requirements
 ------------
