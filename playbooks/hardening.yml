@@ -1,0 +1,12 @@
+- hosts: all
+  become: true
+  roles:
+    - role: aide
+    - role: auditd
+    - role: fips
+    - role: firewall
+    - role: limits
+    - role: password
+    - role: selinux
+    - role: ulimit
+    - role: usbguard
