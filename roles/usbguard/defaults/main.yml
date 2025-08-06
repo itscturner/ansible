@@ -1,0 +1,12 @@
+---
+# defaults file for usbguard
+
+
+
+usbguard_rulefile: /etc/usbguard/rules.conf
+
+usbguard_configuration_file: /etc/usbguard/usbguard-daemon.conf
+
+usbguard_auditfilepath: /var/log/usbguard/usbguard-audit.log
+
+
