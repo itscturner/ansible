@@ -6,6 +6,11 @@
     name: usbguard
     state: present
 
+- name: Stat USB device directory
+  ansible.builtin.stat:
+    path: /sys/bus/usb/devices
+  register: usb_devices
+
 - name: Start and enable usbguard
   ansible.builtin.service:
     name: usbguard
