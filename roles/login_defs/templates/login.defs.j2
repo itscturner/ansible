@@ -9,16 +9,16 @@ MAIL_DIR        {{ logindefs_maildir }}
 #MAIL_FILE      .mail
 
 # Maximum number of days a password may be used.
-PASS_MAX_DAYS   ##########
+PASS_MAX_DAYS   180
 
 # Minimum number of days allowed between password changes.
-PASS_MIN_DAYS   ##########
+PASS_MIN_DAYS   1
 
 # Minimum acceptable password length.
-PASS_MIN_LEN    ##########
+PASS_MIN_LEN    12
 
 # Number of days warning given before a password expires.
-PASS_WARN_AGE   ##########
+PASS_WARN_AGE   30
 
 # Min/max values for automatic uid selection in useradd.
 UID_MIN                 {{ logindefs_uidmin }}
@@ -33,14 +33,13 @@ GID_MAX                 {{ logindefs_gidmax }}
 #USERDEL_CMD    /usr/sbin/userdel_local
 
 # If useradd should create home directories for users by default. 
-# On RH systems, we do. This option is overridden with the -m flag on useradd command line.
 CREATE_HOME     {{ logindefs_createhome | default('true') }}
 
 # The permission mask is initialized to this value. If not specified, the permission mask will be initialized to 022.
 UMASK           {{ logindefs_umask }}
 
 # This enables userdel to remove user groups if no members exist.
-USERGROUPS_ENAB yes
+USERGROUPS_ENAB {{ logindefs_usergroupsenab }}
 
 # Use SHA512 to encrypt password.
-ENCRYPT_METHOD SHA512
+ENCRYPT_METHOD {{ logindefs_encryptmethod }}
