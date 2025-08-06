@@ -1,0 +1,19 @@
+---
+# defaults file for login_defs
+
+# Directory where mailboxes reside.
+logindefs_maildir: /var/spool/mail
+
+# Min/max values for automatic uid selection in useradd.
+logindefs_uidmin: 500
+logindefs_uidmax: 60000
+
+# Min/max values for automatic gid selection in groupadd.
+logindefs_gidmin: 500
+logindefs_gidmax: 60000
+
+# If useradd should create home directories for users by default.
+logindefs_createhome: true
+
+# The permission mask is initialized to this value.
+logindefs_umask: 022
