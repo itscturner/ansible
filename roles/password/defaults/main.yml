@@ -28,4 +28,73 @@ PASS_WARN_AGE: 7
 
 
 
+# pwquality.conf
+#
+password_difok: 1
+
+#
+password_minlen: 8
+
+#
+password_dcredit: 0
+
+#
+password_ucredit: 0
+
+#
+password_ocredit: 0
+
+#
+password_minclass: 0
+
+#
+password_maxrepeat: 0
+
+#
+password_maxclassrepeat: 0
+
+#
+password_gecoscheck: 0
+
+#
+password_dictcheck: 1
+
+#
+password_usercheck: 1
+
+#
+password_usersubstr: 0
+
+#
+password_enforcing: 1
+
+#
+password_dictpath:
+
+#
+password_retry: 3
+
+#
+password_enforceforroot: true
+
+#
+password_localusersonly: true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
