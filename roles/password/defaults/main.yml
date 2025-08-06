@@ -1,100 +1,75 @@
 ---
 # defaults file for password
 
-
-
-#password_expiration_file: /etc/login.defs
-
+password_logindefs_file: /etc/login.defs
 
 password_complexity_file: /etc/security/pwquality.conf
 
+# login.defs
+# Maximum number of days a password may be used.
+password_passmaxdays: 180
 
+# Minimum number of days allowed between password changes.
+password_passmindays: 1
 
-# Password complexity.
-minlen: 12
-lcredit: -1
-ucredit: -1
-dcredit: -1
-ocredit: -1
+# Minimum acceptable password length.
+password_passminlen: 15
 
-# Password history.
-remember: 12
-
-# Password expiration.
-PASS_MAX_DAYS: 99999
-PASS_MIN_DAYS: 0
-PASS_MIN_LEN: 12
-PASS_WARN_AGE: 7
-
+# Number of days warning given before a password expires.
+password_passwarnage: 30
 
 
 # pwquality.conf
-#
-password_difok: 1
+# Number of characters in the new password that must not be present in the old password.
+password_difok: 6
 
-#
-password_minlen: 8
+# Minimum acceptable size for the new password.
+password_minlen: 16
 
-#
-password_dcredit: 0
+# The maximum credit for having digits in the new password.
+password_dcredit: -1
 
-#
-password_ucredit: 0
+# The maximum credit for having uppercase characters in the new password.
+password_ucredit: -1
 
-#
-password_ocredit: 0
+# The maximum credit for having lowercase characters in the new password.
+password_lcredit: -1
 
-#
-password_minclass: 0
+# The maximum credit for having other characters in the new password.
+password_ocredit: -1
 
-#
+# The minimum number of required classes of characters for the new password (digits, uppercase, lowercase, others).
+password_minclass: 4
+
+# The maximum number of allowed consecutive same characters in the new password.
 password_maxrepeat: 0
 
-#
-password_maxclassrepeat: 0
+# The maximum number of allowed consecutive characters of the same class in the new password.
+password_maxclassrepeat: 3
 
-#
+#  Whether to check for the words from the passwd entry GECOS string of the user.
 password_gecoscheck: 0
 
-#
+# Whether to check for the words from the cracklib dictionary.
 password_dictcheck: 1
 
-#
+# Whether to check if it contains the user name in some form.
 password_usercheck: 1
 
-#
+# Length of substrings from the username to check for in the password.
 password_usersubstr: 0
 
-#
+# Whether the check is enforced by the PAM module and possibly other applications.
 password_enforcing: 1
 
-#
-password_dictpath:
+# Path to the cracklib dictionaries.
+password_dictpath: ""
 
-#
+# Prompt user at most N times before returning with error.
 password_retry: 3
 
-#
+# Enforces pwquality checks on the root user password.
 password_enforceforroot: true
 
-#
+# Skip testing the password quality for users that are not present in the /etc/passwd file.
 password_localusersonly: true
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
