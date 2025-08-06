@@ -1,0 +1,10 @@
+---
+# tasks file for login_defs
+
+- name: Template login.defs file
+  ansible.builtin.template:
+    src: login.defs.j2
+    dest: "{{ logindefs_config_file }}"
+    owner: root
+    group: root
+    mode: 0644
