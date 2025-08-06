@@ -1,9 +1,9 @@
 ---
 # defaults file for password
 
-password_logindefs_file: /etc/login.defs
-
 password_complexity_file: /etc/security/pwquality.conf
+
+password_logindefs_file: /etc/login.defs
 
 # login.defs
 # Maximum number of days a password may be used.
