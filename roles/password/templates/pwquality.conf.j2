@@ -63,13 +63,16 @@ retry = {{ password_retry }}
 #
 # Enforces pwquality checks on the root user password.
 # Enabled if the option is present.
+{% if password_enforceforroot == "true" %}
+enforce_for_root
+{% else %}
 # enforce_for_root
-
-
-
+{% endif %}
 #
 # Skip testing the password quality for users that are not present in the /etc/passwd file.
 # Enabled if the option is present.
+{% if password_localusersonly == "true" %}
+local_users_only
+{% else %}
 # local_users_only
-
-
+{% endif %}
