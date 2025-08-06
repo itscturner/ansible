@@ -1,1 +1,43 @@
 # {{ ansible_managed }}
+
+# The USBGuard daemon will use this file to load the policy rule set from it and to write new rules received via the IPC interface.
+RuleFile={{ usbguard_rulefile }}
+
+# The USBGuard daemon will use this folder to load the policy rule set from it and to write new rules received via the IPC interface.
+RuleFolder={{ usbguard_rulefolder }}
+
+# How to treat USB devices that don’t match any rule in the policy.
+# allow, block (default), or reject.
+ImplicitPolicyTarget={{ usbguard_policytarget }}
+
+# How to treat USB devices that are already connected when the daemon starts.
+# allow, block, reject, keep, or apply-policy (default).
+PresentDevicePolicy={{ usbguard_devicepolicy }}
+
+# How to treat USB controller devices that are already connected when the daemon starts.
+# allow, block, reject, keep (default), or apply-policy.
+PresentControllerPolicy={{ usbguard_controllerpolicy }}
+
+# The USBGuard daemon modifies some attributes of controller devices like the default authorization state of new child device instances.
+# Using this setting, you can control whether the daemon will try to restore the attribute values to the state before modification on shutdown.
+RestoreControllerDeviceState={{ usbguard_restorecontrollerdevicestate }}
+
+# Which device manager backend implementation to use.
+# uevent (default), umockdev.
+DeviceManagerBackend={{ usbguard_devicemanagerbackend }}
+
+# A space delimited list of usernames that the daemon will accept IPC connections from.
+IPCAllowedUsers={{ usbguard_allowedusers }}
+
+# The files at this location will be interpreted by the daemon as IPC access control definition files.
+IPAAccessControlFiles={{ usbguard_accesscontrolfiles }}
+
+# Generate device specific rules including the "via-port" attribute. 
+DeviceRulesWithPort={{ usbguard_deviceruleswithport }}
+
+# USBGuard audit events log backend.
+# FileAudit (default), or LinuxAudit.
+AuditBackend={{ usbguard_auditbackend }}
+
+# USBGuard audit events log file path.
+AuditFilePath={{ usbguard_auditfilepath }}
