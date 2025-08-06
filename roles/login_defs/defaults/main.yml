@@ -19,3 +19,9 @@ logindefs_createhome: true
 
 # The permission mask is initialized to this value.
 logindefs_umask: 022
+
+# This enables userdel to remove user groups if no members exist.
+logindefs_usergroupsenab: yes
+
+# Encryption method to encrypt passwords.
+logindefs_encryptmethod: SHA512
