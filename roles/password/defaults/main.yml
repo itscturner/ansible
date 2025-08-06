@@ -1,0 +1,31 @@
+---
+# defaults file for password
+
+
+
+#password_expiration_file: /etc/login.defs
+
+
+password_complexity_file: /etc/security/pwquality.conf
+
+
+
+# Password complexity.
+minlen: 12
+lcredit: -1
+ucredit: -1
+dcredit: -1
+ocredit: -1
+
+# Password history.
+remember: 12
+
+# Password expiration.
+PASS_MAX_DAYS: 99999
+PASS_MIN_DAYS: 0
+PASS_MIN_LEN: 12
+PASS_WARN_AGE: 7
+
+
+
+
