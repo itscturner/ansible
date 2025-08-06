@@ -1,6 +1,8 @@
 ---
 # defaults file for login_defs
 
+logindefs_config_file: /etc/login.defs
+
 # Directory where mailboxes reside.
 logindefs_maildir: /var/spool/mail
 
