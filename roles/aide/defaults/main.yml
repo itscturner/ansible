@@ -15,26 +15,49 @@ aide_report_url: stdout
 
 
 
-
-
-
-LOG = >
-LSPP = FIPSR+sha512
-DATAONLY =  p+n+u+g+s+acl+selinux+xattrs+sha256
-
 aide_rules:
   - name: "FIPSR Rule"
     rule: "FIPSR"
     attributes: ['p', 'i', 'n', 'u', 'g', 's', 'm', 'c', 'acl', 'selinux', 'xattrs', 'sha256']
+
   - name: "NORMAL Rule"
     rule: "NORMAL"
     attributes: ['FIPSR', 'sha512']
+    paths:
+      - "/boot"
+      - "/bin"
+
+    
   - name: "DIR Rule"
     rule: "DIR"
     attributes: ['p', 'i', 'n', 'u', 'g', 'acl', 'selinux', 'xattrs']
-  - rule: "PERMS"
+
+  - name: "PERMS Rule"
+    rule: "PERMS"
     attributes: ['p', 'i', 'u', 'g', 'acl', 'selinux']
 
+  - name: "LOG Rule"
+    rule: "LOG"
+    attributes: '>'
+    paths:
+      - "/var/log"
+
+  - name: "LSPP Rule"
+    rule: "LSPP"
+    attributes: ['FIPSR', 'sha512']
+
+  - name: "DATAONLY Rule"
+    rule: "DATAONLY"
+    attributes: ['p', 'n', 'u', 'g', 's', 'acl', 'selinux', 'xattrs', 'sha256']    
+
+
+  - name: "IGNORE Rules"
+    rule: "negative"
+    paths:
+      - "/usr/src"
+      - "/etc/mtab"
+
+#####
 
   - name: "ALLXTRAHASHES Rule"
     rule: "ALLXTRAHASHES"
