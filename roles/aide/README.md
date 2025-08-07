@@ -3,21 +3,6 @@ aide
 
 An ansible role to install and configure aide.
 
-Requirements
-------------
-
-REQUIREMENTS
-
-Role Variables
---------------
-
-ROLE VARIABLES
-
-Dependencies
-------------
-
-DEPENDENCIES
-
 Example Playbook
 ----------------
 ```
