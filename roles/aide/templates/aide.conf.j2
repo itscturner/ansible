@@ -6,10 +6,10 @@
 @@define LOGDIR {{ aide_log_dir }}
 
 # The location of the database to be read.
-database=file:@@{DBDIR}/aide.db.gz
+database=file:@@{DBDIR}/{{ aide_db }}
 
 # The location of the database to be written.
-database_out=file:@@{DBDIR}/{{ aide_db }}
+database_out=file:@@{DBDIR}/{{ aide_db_new }}
 
 # Whether to gzip the output to database
 gzip_dbout={{ aide_gzip_dbout }}
@@ -19,16 +19,67 @@ verbose={{ aide_verbose }}
 report_url=file:@@{LOGDIR}/aide.log
 report_url={{ aide_report_url }}
 
+
 FIPSR = p+i+n+u+g+s+m+c+acl+selinux+xattrs+sha256
-
 NORMAL = FIPSR+sha512
-
 DIR = p+i+n+u+g+acl+selinux+xattrs
-
 PERMS = p+i+u+g+acl+selinux
-
 LOG = >
-
 LSPP = FIPSR+sha512
-
 DATAONLY =  p+n+u+g+s+acl+selinux+xattrs+sha256
+
+
+
+
+
+##################################################
+
+
+{% if aide_rules is defined %}
+# Define Rules
+{% for rule in aide_rules %}
+{% if rule.rule != 'negative' %}
+{% if rule.comment is defined %}
+# {{ rule.comment }}
+{% endif %}
+{% if rule.rule is defined %}{{ rule.rule }} = {% endif %}{% if rule.attributes is defined %}{% for item in rule.attributes %}{% if loop.last %}{{ item }}
+{% else %}{{ item }}+{% endif %}{% endfor %}{% endif %}
+{% endif %}
+{% endfor %}
+
+{% endif %}
+{% if aide_rules is defined %}
+# Define Include Paths
+{% for rule in aide_rules %}
+{% if rule.rule != 'negative' %}
+{% if rule.paths is defined %}
+{% for path in rule.paths %}
+{{ path }}   {{ rule.rule }}
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endfor %}
+
+{% endif %}
+{% if aide_rules is defined %}
+# Define Ignore/Exclude Paths
+{% for rule in aide_rules %}
+{% if rule.rule == 'negative' %}
+{% if rule.paths is defined %}
+{% for path in rule.paths %}
+!{{ path }}
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% endif %}
+
+
+
+
+
+
+
+
+
+
