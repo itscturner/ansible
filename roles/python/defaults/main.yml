@@ -1,0 +1,15 @@
+---
+# defaults file for python
+
+#python_version:
+
+#python_executable:
+#python_pip_executable:
+
+python_packages:
+  - python3.12
+  - python3.12-pip
+
+python_pip_modules:
+  - python-jinja2
+  - PyYAML
