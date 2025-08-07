@@ -10,6 +10,9 @@
   ansible.builtin.template:
     src: aide.conf.j2
     dest: /etc/aide.conf
+    owner: root
+    group: root
+    mode: 0600
 
 - name: Stat aide db file
   ansible.builtin.stat:
