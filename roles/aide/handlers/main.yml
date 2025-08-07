@@ -7,3 +7,16 @@
     dest: "{{ aide_db }}"
     mode: 0600
     remote_src: true
+
+
+
+- name: Initialize aide database
+  ansible.builtin.shell:
+    cmd: "aide -i"
+  when: not aide_db_check.stat.exists
+
+- name: Move new aide database
+  ansible.builtin.shell:
+    cmd: "mv {{ aide_db_new }} {{ aide_db }}
+  args:
+    chdir: "{{ aide_db_dir }}"
