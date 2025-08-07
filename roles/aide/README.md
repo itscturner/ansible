@@ -3,6 +3,11 @@ aide
 
 An ansible role to install and configure aide.
 
+Role Variables
+--------------
+
+ROLE VARIABLES
+
 Example Playbook
 ----------------
 ```
