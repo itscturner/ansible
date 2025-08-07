@@ -1,0 +1,10 @@
+---
+# tasks file for python - pip
+
+- name: pip | Template pip.conf
+  ansible.builtin.template:
+    src: pip.conf.j2
+    dest: /etc/pip.conf
+    owner:
+    group:
+    mode: 0644
