@@ -1,6 +1,21 @@
 ---
 # defaults file for aide
 
+aide_db_dir: /var/lib/aide
+aide_db: aide.db.gz
+aide_db_new: aide.db.new.gz
+
+aide_log_dir: /var/log/aide
+
+aide_gzip_dbout: true
+
+aide_verbose: 5
+
+aide_report_url: stdout
+
+
+
+
 aide_cron_jobs:
   - name: AIDE check
     hour: "12"
