@@ -17,12 +17,12 @@
 - name: Stat aide db file
   ansible.builtin.stat:
     path: /var/lib/aide/aide.db.gz
-  register: aide_db_stat
+  register: aide_db_check
 
-- name: Initialize aide if needed
-  ansible.builtin.shell:
-    cmd: "aide -i"
-  when: not aide_db_stat.stat.exists
+#- name: Initialize aide if needed
+#  ansible.builtin.shell:
+#    cmd: "aide -i"
+#  when: not aide_db_stat.stat.exists
 
 - name: Setup aide cron jobs
   ansible.builtin.cron:
