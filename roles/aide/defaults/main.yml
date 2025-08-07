@@ -16,6 +16,39 @@ aide_report_url: stdout
 
 
 
+
+
+LOG = >
+LSPP = FIPSR+sha512
+DATAONLY =  p+n+u+g+s+acl+selinux+xattrs+sha256
+
+aide_rules:
+  - name: "FIPSR Rule"
+    rule: "FIPSR"
+    attributes: ['p', 'i', 'n', 'u', 'g', 's', 'm', 'c', 'acl', 'selinux', 'xattrs', 'sha256']
+  - name: "NORMAL Rule"
+    rule: "NORMAL"
+    attributes: ['FIPSR', 'sha512']
+  - name: "DIR Rule"
+    rule: "DIR"
+    attributes: ['p', 'i', 'n', 'u', 'g', 'acl', 'selinux', 'xattrs']
+  - rule: "PERMS"
+    attributes: ['p', 'i', 'u', 'g', 'acl', 'selinux']
+
+
+  - name: "ALLXTRAHASHES Rule"
+    rule: "ALLXTRAHASHES"
+    attributes: ['sha1', 'rmd160', 'sha256', 'sha512', 'tiger']
+
+  - name: "EVERYTHING Rule"
+    rule: "EVERYTHING"
+    attributes: ['R', 'ALLXTRAHASHES']
+
+
+
+
+
+
 aide_cron_jobs:
   - name: AIDE check
     hour: "12"
