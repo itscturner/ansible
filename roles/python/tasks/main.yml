@@ -1,2 +1,11 @@
 ---
 # tasks file for python
+
+- name: Install python
+  ansible.builtin.dnf:
+    name: "{{ python_packages }}"
+    state: present
+
+- name: Include pip.yml
+  ansible.builtin.include_tasks:
+    file: pip.yml
