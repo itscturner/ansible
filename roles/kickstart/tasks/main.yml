@@ -1,0 +1,16 @@
+---
+# tasks file for kickstart
+
+#- name: Install pykickstart
+#  ansible.builtin.dnf:
+#    name: pykickstart
+#    state: present
+
+- name: Create kickstart file
+  ansible.builtin.template:
+    src: kickstart.ks.j2
+    dest: "{{ kickstart_file }}"
+    owner: root
+    group: root
+    mode: 0660
+

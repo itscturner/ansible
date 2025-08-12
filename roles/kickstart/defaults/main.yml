@@ -1,0 +1,42 @@
+---
+# defaults file for kickstart
+
+kickstart_file: /tmp/kickstart.ks
+
+kickstart_target: graphical
+
+kickstart_keyboard:
+
+kickstart_language:
+
+kickstart_timezone: 'America/Denver'
+
+kickstart_timesource:
+
+kickstart_bootloader:
+
+kickstart_clearpart: ''
+
+kickstart_masterbootrecord:
+
+kickstart_partitions:
+  - 
+
+kickstart_logical_volumes:
+  -
+
+kickstart_volume_groups:
+  -
+
+kickstart_services:
+  - sshd
+
+kickstart_firewall: "firewall --enabled --ssh"
+
+kickstart_selinux: "selinux --enforcing"
+
+kickstart_authselect: ''
+
+kickstart_packages:
+  - 
+
