@@ -1,6 +1,10 @@
 ---
 # defaults file for kickstart
 
+
+
+
+
 # Kickstart File Location
 kickstart_file_location: /tmp/kickstart.ks
 
