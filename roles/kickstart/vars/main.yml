@@ -1,2 +1,9 @@
 ---
 # vars file for kickstart
+
+# Kickstart Packages
+kickstart_packages:
+  workstation:
+    -
+  server:
+    - 
