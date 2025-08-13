@@ -1,56 +1,106 @@
 # {{ ansible_managed }}
 
 lang {{ kickstart_language | default('en_US') }}
+
 keyboard --xlayouts='{{ kickstart_keyboard | default('us') }}'
+
 timezone {{ kickstart_timezone | default('America/Denver') }}
+
 eula --agreed
+
 {{ kickstart_mode | default('graphical') }}
+
 bootloader --location={{ kickstart_bootloader_location | default('mbr') }} --append={{ kickstart_bootloader_append | default(omit) }}
+
 url --url {{ kickstart_install_url }}
+
 {{ kickstart_completion_method | default('reboot') }}
 
-# clearpart
 
-# device
+
+########## CLEARPART ##########
+# clearpart --drives=hda,hdb --all
+# clearpart --list=sda2,sda3,sdb1
+{{ kickstart_clearpart }}
+
+
 
 firewall --{{ kickstart_firewall_status | default('disabled') }}
 firstboot --{{ kickstart_firstboot | default('disabled') }}
 
+
+########## LOGGING ##########
 # logging --host={{ kickstart_logging_host }} --port={{ kickstart_logging_port }} --level={{ kickstart_logging_level | default('info') }}
 
-# logvol
+
+########## LOGVOL ##########
 # logvol mntpoint --vgname=name --name=name [options]
+
 
 network --bootproto={{ kickstart_bootproto | default('dhcp') }}
 # network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver=192.168.2.1,192.168.3.1
 # network --device=eno1 --bootproto=dhcp --onboot=yes --activate --noipv6
 
-# part
-# part / --fstype=xfs --onpart=sda1
 
-# realm
+########## PART ##########
+# part / --fstype=xfs --onpart=sda1
+# - "part /boot/efi --asprimary --ondrive=vda --size=512      --fstype=efi   --fsoptions=\"umask=0077,shortname=winnt\""
+{% if kickstart_partitions | default([]) | length > 0 %}
+{% for partition in kickstart_partitions %}
+{{ partition }}
+{% endfor %}
+{% endif %}
+
+########## REALM ##########
 # realm join [options] domain
 
-# repo
-# repo --name=repoid [--baseurl=<url>|--mirrorlist=url] [options]
 
-# rescue
+########## REPO ##########
+# repo --name=repoid [--baseurl=<url>|--mirrorlist=url] [options]
+# - "repo --baseurl=https://ftp.fau.de/pub/fedora/linux/updates/42/Everything/x86_64/ --name=fedora-updates --cost=0"
+{% if kickstart_repos | default([]) | length > 0 %}
+{% for repo in kickstart_repos %}
+{{ repo }}
+{% endfor %}
+{% endif %}
+
+
+########## RESCUE ##########
 # rescue [--nomount|--romount]
+
+
 
 rootpw --iscrypted {{ kickstart_rootpw }}
 
+
 selinux --{{ kickstart_selinux }}
+
 
 services --enabled={{ kickstart_services_enabled | join(',') }} --disabled={{ kickstart_serviced_disabled | join(',') }}
 
-# user
-# group
 
-# volgroup
+########## USERS / GROUPS ##########
+
+# group --name=name [--gid=gid]
+
+
+########## IGNORE DISK ##########
+# ignoredisk --drives=drive1,drive2,...
+# ignoredisk --only-use=sda
+#{{ kickstart_ignoredisk }}
+
+
+########## VOLUME GROUPS ##########
+
+
 
 {% if kickstart_zerombr == 'true' %}
 zerombr
 {% endif %}
+
+
+
+
 
 %include
 # INCLUDE
