@@ -2,148 +2,77 @@
 
 lang {{ kickstart_language | default('en_US') }}
 keyboard --xlayouts='{{ kickstart_keyboard | default('us') }}'
-timezone {{ kickstart_timezone | default('America/Denver') }}{% if kickstart_utc %}--utc{% endif %}
+timezone {{ kickstart_timezone | default('America/Denver') }}
 eula --agreed
 {{ kickstart_mode | default('graphical') }}
 bootloader --location={{ kickstart_bootloader_location | default('mbr') }} --append={{ kickstart_bootloader_append | default(omit) }}
+url --url {{ kickstart_install_url }}
+{{ kickstart_completion_method | default('reboot') }}
 
 # clearpart
+
 # device
 
 firewall --{{ kickstart_firewall_status | default('disabled') }}
 firstboot --{{ kickstart_firstboot | default('disabled') }}
 
-# install
-# url --url {{ kickstart_install_url }}
-
 # logging --host={{ kickstart_logging_host }} --port={{ kickstart_logging_port }} --level={{ kickstart_logging_level | default('info') }}
-
-
 
 # logvol
 # logvol mntpoint --vgname=name --name=name [options]
 
-
-
-#network
+network --bootproto={{ kickstart_bootproto | default('dhcp') }}
 # network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver=192.168.2.1,192.168.3.1
-# network --bootproto={{ kickstart_bootproto | default('dhcp') }}
-#network --device=eno1 --bootproto=dhcp --onboot=yes --activate --noipv6
-
+# network --device=eno1 --bootproto=dhcp --onboot=yes --activate --noipv6
 
 # part
-
+# part / --fstype=xfs --onpart=sda1
 
 # realm
-
-
-reboot
-
+# realm join [options] domain
 
 # repo
 # repo --name=repoid [--baseurl=<url>|--mirrorlist=url] [options]
 
-
-
 # rescue
+# rescue [--nomount|--romount]
 
-
-# rootpw
-# rootpw [--iscrypted|--plaintext] [--lock] password
-
-
+rootpw --iscrypted {{ kickstart_rootpw }}
 
 selinux --{{ kickstart_selinux }}
 
 services --enabled={{ kickstart_services_enabled | join(',') }} --disabled={{ kickstart_serviced_disabled | join(',') }}
-
-
 
 # user
 # group
 
 # volgroup
 
-# zerombr
-
-
-
-
-
+{% if kickstart_zerombr == 'true' %}
+zerombr
+{% endif %}
 
 %include
 # INCLUDE
 %end
 
-
 %packages --ignoremissing
-{{ kickstart_packages | join('\n') }}
+#{{ kickstart_packages | join('\n') }}
+# kickstart_default_packages + kickstart_packages(FROM VARS)
 %end
-
 
 %addon
 # ADDON
 %end
 
-
 %pre --interpreter={{ kickstart_preinstall_interpreter | default(omit) }} --log={{ kickstart_preinstall_log }}
 # PRE
 %end
-
 
 %anaconda
 # ANACONDA
 %end
 
-
 %post --interpreter={{ kickstart_postinstall_interpreter | default(omit) }} --log={{ kickstart_postinstall_log }}
 # POST
 %end
-
-
-
-
-
-
-
-
-
-##################################################
-
-#rootpw  --iscrypted ROOT_PW
-
-
-
-{% if kickstart_reboot %}reboot{% endif %}
-
-
-
-{{ kickstart_target }}
-#text {% if kickstart_text_noninteractive %}--non-interactive{% endif %}
-
-
-
-url --url={{ kickstart_url }}
-
-
-reqpart
-
-
-bootloader --location=boot --append="rhgb quiet crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M" --iscrypted --password=
-
-
-
-
-authselect
-
-
-
-firstboot --{{ kickstart_firstboot }}
-
-
-
-
-
-
-
-
