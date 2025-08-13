@@ -1,62 +1,136 @@
 ---
 # defaults file for kickstart
 
-#
+# Kickstart File Location
 kickstart_file: /tmp/kickstart.ks
 
-#
-#kickstart_install_log:
-
-#
+# Kickstart Language - Default: 'en_US'
 kickstart_language: en_US
 
-#
+# Kickstart Keyboard Layout - Default: 'us'
 kickstart_keyboard: us
 
-#
+# Kickstart Timezone - Default: 'America/Denver --utc'
 kickstart_timezone: 'America/Denver'
 kickstart_utc: true
 
-#
+# Kickstart Mode - 'graphical' (default), or 'text'
+kickstart_mode: text
+
+# Kickstart Bootloader - Location Default: 'mbr' / Append Default: ''
+kickstart_bootloader_location:
+kickstart_bootloader_append:
+
+# Kickstart Clear Partition
+
+# Kickstart Device
+
+# Kickstart Firewall - 'enabled', or 'disabled' (default)
+kickstart_firewall_status: disabled
+
+# Kickstart First Boot - 'enabled', 'reconfig', or 'disabled' (default)
+kickstart_firstboot: disabled
+
+# Kickstart Install
+kickstart_install_url:
+
+# Kickstart Logging Host
+kickstart_logging_host:
+# Kickstart Logging Port
+kickstart_logging_port:
+# Kickstart Logging Level - 'debug', 'info' (default), 'error', 'critical'
+kickstart_logging_level: 'error'
+
+# Kickstart Logical Volumes
+
+# Kickstart Network Bootproto - 'dhcp' (default), ##########
+kickstart_bootproto:
+# Kickstart IP Address
+kickstart_ip:
+# Kickstart Netmask
+kickstart_netmask:
+# Kickstart Gateway
+kickstart_gateway:
+# Kickstart Nameserver
+kickstart_nameserver:
+
+# Kickstart Part
+
+# Kickstart Realm
+
+# Kickstart Reboot
+
+# Kickstart Repo
+
+# Kickstart Rescue
+
+# Kickstart Root Password
+
+# Kickstart SELinux Context - 'enforcing', 'permissive', or 'disabled'
+kickstart_selinux: 'permissive'
+
+# Kickstart Services - Enabled
+kickstart_services_enabled:
+  - sshd
+
+# Kickstart Services - Disabled
+kickstart_services_disabled:
+  - firewalld
+
+# Kickstart Users & Groups
+
+# Kickstart Volume Groups
+
+# Kickstart Zero MBR
+
+
+
+
+# Kickstart Root Password
 kickstart_rootpw:
 
-#
+# Kickstart Reboot
 kickstart_reboot: true
 
 #
 #kickstart_text:
 kickstart_text_noninteractive: true
 
-#
+# Kickstart URL
 kickstart_url: https://1.2.3.4
 
 #
 kickstart_reqpart:
 
-#
+# Kickstart Bootloader
 kickstart_bootloader:
 
-#
+# Kickstart Network Bootproto
 kickstart_bootproto:
 
-#
+# Kickstart Firstboot
 kickstart_firstboot: disable
 
-#
-kickstart_selinux: permissive
 
-# Kickstart Firewall - Enabled or Disabled
+
+# Kickstart Firewall - 'enabled' or 'disabled'
 kickstart_firewall: disabled
 
+# Kickstart Target - 'graphical' or 'text'
+kickstart_target: text
 
 
-#
+
+
+
+
+# Kickstart Pre-Install Log
 kickstart_preinstall_log: /root/kickstart_preinstall.log
 
 #
 kickstart_pre:
 
-#
+# Kickstart Post-Install Log
 kickstart_postinstall_log: /root/kickstart_postinstall.log
 
 #
@@ -65,7 +139,7 @@ kickstart_post:
 
 
 
-#
+# Kickstart Packages
 # Workstation Packages:
 kickstart_packages:
   - @^workstation-product-environment
