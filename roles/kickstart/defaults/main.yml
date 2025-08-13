@@ -66,9 +66,10 @@ kickstart_nameserver: ''
 # Kickstart Repo
 
 # Kickstart Rescue
+kickstart_rescue:
 
 # Kickstart Root Password
-kickstart_rootpw:
+kickstart_rootpassword: ''
 
 # Kickstart SELinux Context - 'enforcing', 'permissive', or 'disabled'
 kickstart_selinux: 'permissive'
@@ -91,7 +92,7 @@ kickstart_ignoredisk:
 # Kickstart Zero MBR - 'true' or 'false'
 kickstart_zerombr: false
 
-# Kickstart Include
+# Kickstart Include Files
 kickstart_include: ''
 
 # Kickstart Default Packages - Server Packages and Workstation Packages are listed in 'vars'
@@ -115,4 +116,3 @@ kickstart_postinstall_log: /root/kickstart_postinstall.log
 
 # Kickstart Post-Installation Script
 kickstart_post: ''
-
