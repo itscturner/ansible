@@ -1,47 +1,70 @@
 # {{ ansible_managed }}
 
-lang en_US
-keyboard --xlayouts='us'
-timezone America/Denver --utc
-rootpw  --iscrypted
-reboot
-text
-url --url=http://1.2.3.4
+lang {{ kickstart_language | default('en_US') }}
+keyboard --xlayouts='{{ kickstart_keyboard | default('us') }}'
+timezone {{ kickstart_timezone | default('America/Denver') }}{% if kickstart_utc %}--utc{% endif %}
+eula --agreed
+
+
+
+
+rootpw  --iscrypted ROOT_PW
+
+
+
+{% if kickstart_reboot %}reboot{% endif %}
+
+
+
+text {% if kickstart_text_noninteractive %}--non-interactive{% endif %}
+
+
+
+url --url={{ kickstart_url }}
+
+
 reqpart
+
+
 bootloader --location=boot --append="rhgb quiet crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M" --iscrypted --password=
+
+
 network --bootproto=dhcp
-firstboot --disable
-selinux --permissive
 
-%pre
-PRE
+
+authselect
+
+
+firstboot --{{ kickstart_firstboot }}
+
+selinux --{{ kickstart_selinux }}
+
+firewall --{{ kickstart_firewall }}
+
+
+services
+services --enabled=sshd --disabled=filewalld
+
+
+
+
+
+
+
+
+
+%pre --log={{ kickstart_preinstall_log }}
+# PRE
 %end
 
-%post  
-POST
-%end
-
-%packages
-@^workstation-product-environment
-@gnome-desktop
-gedit-plugins
-gnome-backgrounds
-gnome-shell-extension-apps-menu
-gnome-shell-extension-auto-move-windows
-gnome-shell-extension-dash-to-dock
-gnome-shell-extension-desktop-icons
-gnome-shell-extension-drive-menu
-gnome-shell-extension-launch-new-instance
-gnome-shell-extension-native-window-placement
-gnome-shell-extension-places-menu
-gnome-shell-extension-screenshot-window-sizer
-gnome-shell-extension-user-theme
-gnome-shell-extension-window-list
-gnome-shell-extension-windowsNavigator
-gnome-shell-extension-workspace-indicator
-@remote-desktop-clients
-tigervnc
+%post --log={{ kickstart_postinstall_log }}
+# POST
 %end
 
 
+
+
+%packages --ignoremissing
+{{ kickstart_packages | join('\n') }}
+%end
 
