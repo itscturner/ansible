@@ -73,7 +73,7 @@ network --bootproto={{ kickstart_bootproto | default('dhcp') }}
 
 
 
-rootpw --iscrypted {{ kickstart_rootpw }}
+rootpw --iscrypted {{ kickstart_rootpassword }}
 
 
 selinux --{{ kickstart_selinux }}
@@ -83,7 +83,7 @@ services --enabled={{ kickstart_services_enabled | join(',') }} --disabled={{ ki
 
 
 ########## USERS / GROUPS ##########
-
+# user --name=username [options]
 # group --name=name [--gid=gid]
 
 
@@ -107,26 +107,27 @@ zerombr
 
 
 %include
-# INCLUDE
+# {{ kickstart_include }}
 %end
 
 %packages --ignoremissing
-#{{ kickstart_packages | join('\n') }}
 # kickstart_default_packages + kickstart_packages(FROM VARS)
+{{ kickstart_default_packages | join('\n') }}
+{{ kickstart_packages | join('\n') }}
 %end
 
 %addon
-# ADDON
+# {{ kickstart_addon }}
 %end
 
 %pre --interpreter={{ kickstart_preinstall_interpreter | default(omit) }} --log={{ kickstart_preinstall_log }}
-# PRE
+# {{ kickstart_pre }}
 %end
 
 %anaconda
-# ANACONDA
+# {{ kickstart_anaconda }}
 %end
 
 %post --interpreter={{ kickstart_postinstall_interpreter | default(omit) }} --log={{ kickstart_postinstall_log }}
-# POST
+# {{ kickstart_post }}
 %end
