@@ -4,11 +4,113 @@ lang {{ kickstart_language | default('en_US') }}
 keyboard --xlayouts='{{ kickstart_keyboard | default('us') }}'
 timezone {{ kickstart_timezone | default('America/Denver') }}{% if kickstart_utc %}--utc{% endif %}
 eula --agreed
+{{ kickstart_mode | default('graphical') }}
+bootloader --location={{ kickstart_bootloader_location | default('mbr') }} --append={{ kickstart_bootloader_append | default(omit) }}
+
+# clearpart
+# device
+
+firewall --{{ kickstart_firewall_status | default('disabled') }}
+firstboot --{{ kickstart_firstboot | default('disabled') }}
+
+# install
+# url --url {{ kickstart_install_url }}
+
+# logging --host={{ kickstart_logging_host }} --port={{ kickstart_logging_port }} --level={{ kickstart_logging_level | default('info') }}
+
+
+
+# logvol
+# logvol mntpoint --vgname=name --name=name [options]
+
+
+
+#network
+# network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver=192.168.2.1,192.168.3.1
+# network --bootproto={{ kickstart_bootproto | default('dhcp') }}
+#network --device=eno1 --bootproto=dhcp --onboot=yes --activate --noipv6
+
+
+# part
+
+
+# realm
+
+
+reboot
+
+
+# repo
+# repo --name=repoid [--baseurl=<url>|--mirrorlist=url] [options]
+
+
+
+# rescue
+
+
+# rootpw
+# rootpw [--iscrypted|--plaintext] [--lock] password
+
+
+
+selinux --{{ kickstart_selinux }}
+
+services --enabled={{ kickstart_services_enabled | join(',') }} --disabled={{ kickstart_serviced_disabled | join(',') }}
+
+
+
+# user
+# group
+
+# volgroup
+
+# zerombr
 
 
 
 
-rootpw  --iscrypted ROOT_PW
+
+
+%include
+# INCLUDE
+%end
+
+
+%packages --ignoremissing
+{{ kickstart_packages | join('\n') }}
+%end
+
+
+%addon
+# ADDON
+%end
+
+
+%pre --interpreter={{ kickstart_preinstall_interpreter | default(omit) }} --log={{ kickstart_preinstall_log }}
+# PRE
+%end
+
+
+%anaconda
+# ANACONDA
+%end
+
+
+%post --interpreter={{ kickstart_postinstall_interpreter | default(omit) }} --log={{ kickstart_postinstall_log }}
+# POST
+%end
+
+
+
+
+
+
+
+
+
+##################################################
+
+#rootpw  --iscrypted ROOT_PW
 
 
 
@@ -16,7 +118,8 @@ rootpw  --iscrypted ROOT_PW
 
 
 
-text {% if kickstart_text_noninteractive %}--non-interactive{% endif %}
+{{ kickstart_target }}
+#text {% if kickstart_text_noninteractive %}--non-interactive{% endif %}
 
 
 
@@ -29,42 +132,18 @@ reqpart
 bootloader --location=boot --append="rhgb quiet crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M" --iscrypted --password=
 
 
-network --bootproto=dhcp
 
 
 authselect
 
 
+
 firstboot --{{ kickstart_firstboot }}
 
-selinux --{{ kickstart_selinux }}
-
-firewall --{{ kickstart_firewall }}
-
-
-services
-services --enabled=sshd --disabled=filewalld
 
 
 
 
 
 
-
-
-
-%pre --log={{ kickstart_preinstall_log }}
-# PRE
-%end
-
-%post --log={{ kickstart_postinstall_log }}
-# POST
-%end
-
-
-
-
-%packages --ignoremissing
-{{ kickstart_packages | join('\n') }}
-%end
 
