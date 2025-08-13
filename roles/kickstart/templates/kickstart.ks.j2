@@ -169,3 +169,95 @@ zerombr
 
 
 
+
+
+
+##################################################
+
+
+lang en_US.UTF-8
+# Keyboard layouts
+keyboard --vckeymap=us --xlayouts='us'
+timezone UTC --utc
+timesource --ntp-server ip-time-0.cern.ch
+timesource --ntp-server ip-time-1.cern.ch
+timesource --ntp-server ip-time-2.cern.ch
+# Use text mode install
+text
+# Do not configure the X Window System
+skipx
+# Reboot after installation
+reboot
+# SELinux configuration
+selinux --enforcing
+# Firewall configuration for SSH
+firewall --enabled --ssh
+# Network information
+network  --bootproto=dhcp
+# No firstboot
+firstboot --disable
+rootpw --iscrypted [this-is-not-a-root-password]
+# Clear the Master Boot Record
+zerombr
+# Remove partitions from the system
+clearpart --all --initlabel
+# Bootloader configuration
+bootloader --location=mbr --driveorder=sda --append="rhgb quiet crashkernel=auto"
+# Create partitions automatically
+autopart
+# Use only sda disk
+ignoredisk --only-use=sda
+
+# We can't use OS tarball at the moment because of Red Hat Bugzilla – Bug 2290398
+# DO NOT REMOVE. Required by Ironic
+# liveimg --url {{ ks_options.liveimg_url }}
+
+# base image depending on the OS
+url --url http://linuxsoft.cern.ch/cern/rhel/9/baseos/$basearch/os/
+
+repo --name="CERN"  --baseurl http://linuxsoft.cern.ch/cern/rhel/9/CERN/$basearch
+repo --name="EPEL"  --baseurl http://linuxsoft.cern.ch/epel/9/Everything/$basearch --excludepkgs=puppet,puppet-server,puppet-agent
+repo --name="AppStream"  --baseurl http://linuxsoft.cern.ch/cern/rhel/9/appstream/$basearch/os
+
+# External repos are added by Koji tags
+%packages --exclude-weakdeps
+@^minimal-environment
+cloud-init
+%end
+
+# DO NOT REMOVE. Required by Ironic
+%pre
+/usr/bin/curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'X-OpenStack-Ironic-API-Version: 1.72' -d '{"callback_url": "", "agent_token": "{{ ks_options.agent_token }}", "agent_status": "start", "agent_status_message": "Deployment starting. Running pre-installation scripts."}' {{ ks_options.heartbeat_url }}
+%end
+
+# DO NOT REMOVE. Required by Ironic
+%onerror
+/usr/bin/curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'X-OpenStack-Ironic-API-Version: 1.72' -d '{"callback_url": "", "agent_token": "{{ ks_options.agent_token }}", "agent_status": "error", "agent_status_message": "Error: Deploying using anaconda. Check console for more information."}' {{ ks_options.heartbeat_url }}
+%end
+
+# DO NOT REMOVE. Required by Ironic
+{{ ks_options.config_drive }}
+
+%post
+# lock root account
+passwd -d root
+passwd -l root
+
+# root - enabled, cloud user - disabled. Keep if wanted to ssh as root
+if [ -e /etc/cloud/cloud.cfg ]; then
+    sed -i 's|^disable_root: .*|disable_root: 0|' /etc/cloud/cloud.cfg
+    sed -i 's|\- default||' /etc/cloud/cloud.cfg
+    sed -i 's|^users:||' /etc/cloud/cloud.cfg
+fi
+
+# The sync makes sure that the data is flushed out to disk,
+# before rebooting.
+sync
+
+# DO NOT REMOVE. Required by Ironic
+/usr/bin/curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H 'X-OpenStack-Ironic-API-Version: 1.72' -d '{"callback_url": "", "agent_token": "{{ ks_options.agent_token }}", "agent_status": "end", "agent_status_message": "Deployment completed successfully."}' {{ ks_options.heartbeat_url }}
+
+# DO NOT REMOVE. AIMS deregistration. Mandatory to avoid infinite boot loop
+curl -4 --max-time 20 --output /root/aims2-deregistration-ipv4.txt --silent http://aims.cern.ch/aims/reboot || :
+curl -6 --max-time 20 --output /root/aims2-deregistration-ipv6.txt --silent http://aims.cern.ch/aims/reboot || :
+%end
