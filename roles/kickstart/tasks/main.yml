@@ -9,8 +9,10 @@
 - name: Create kickstart file
   ansible.builtin.template:
     src: kickstart.ks.j2
-    dest: "{{ kickstart_file }}"
+    dest: "{{ kickstart_file_location }}"
     owner: root
     group: root
     mode: 0660
-
+#    validate: ksvalidator --version={{ ks.version }} %s
+#  vars:
+#    ks: "{{ kickstart_defaults | combine(item, recursive=True) }}"
