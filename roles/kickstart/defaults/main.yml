@@ -4,6 +4,9 @@
 # Kickstart File Location
 kickstart_file_location: /tmp/kickstart.ks
 
+# Kickstart File Version
+kickstart_file_version: 1
+
 # Kickstart Language - Default: 'en_US'
 kickstart_language: en_US
 
