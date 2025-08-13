@@ -27,9 +27,8 @@ kickstart_install_url: https://1.2.3.4
 # Kickstart Completion Method - 'reboot' (default), 'halt', 'poweroff', or 'shutdown'
 kickstart_completion_method: reboot
 
-# Kickstart Clear Partition
-
-# Kickstart Device
+# Kickstart Clear Partition - Removes partitions from the system, prior to creation of new partitions.
+kickstart_clearpart: ''
 
 # Kickstart Firewall - 'enabled', or 'disabled' (default)
 kickstart_firewall_status: disabled
@@ -80,6 +79,9 @@ kickstart_services_disabled:
   - firewalld
 
 # Kickstart Users & Groups
+
+# Kickstart Ignore Disks - Causes the installation program to ignore the specified disks.
+kickstart_ignoredisk:
 
 # Kickstart Volume Groups
 
