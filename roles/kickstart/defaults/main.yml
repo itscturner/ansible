@@ -2,7 +2,7 @@
 # defaults file for kickstart
 
 # Kickstart File Location
-kickstart_file: /tmp/kickstart.ks
+kickstart_file_location: /tmp/kickstart.ks
 
 # Kickstart Language - Default: 'en_US'
 kickstart_language: en_US
@@ -10,16 +10,22 @@ kickstart_language: en_US
 # Kickstart Keyboard Layout - Default: 'us'
 kickstart_keyboard: us
 
-# Kickstart Timezone - Default: 'America/Denver --utc'
+# Kickstart Timezone - Default: 'America/Denver'
 kickstart_timezone: 'America/Denver'
-kickstart_utc: true
 
-# Kickstart Mode - 'graphical' (default), or 'text'
-kickstart_mode: text
+# Kickstart Mode - 'graphical' (default), 'text', or 'text --non-interactive'
+kickstart_mode: 'text --non-interactive'
 
-# Kickstart Bootloader - Location Default: 'mbr' / Append Default: ''
-kickstart_bootloader_location:
+# Kickstart Bootloader Location - Default: 'mbr'
+kickstart_bootloader_location: 'mbr'
+# Kickstart Bootloader Append - Default: ''
 kickstart_bootloader_append:
+
+# Kickstart Install URL
+kickstart_install_url: https://1.2.3.4
+
+# Kickstart Completion Method - 'reboot' (default), 'halt', 'poweroff', or 'shutdown'
+kickstart_completion_method: reboot
 
 # Kickstart Clear Partition
 
@@ -31,40 +37,36 @@ kickstart_firewall_status: disabled
 # Kickstart First Boot - 'enabled', 'reconfig', or 'disabled' (default)
 kickstart_firstboot: disabled
 
-# Kickstart Install
-kickstart_install_url:
-
 # Kickstart Logging Host
-kickstart_logging_host:
+kickstart_logging_host: ''
 # Kickstart Logging Port
-kickstart_logging_port:
+kickstart_logging_port: ''
 # Kickstart Logging Level - 'debug', 'info' (default), 'error', 'critical'
 kickstart_logging_level: 'error'
 
 # Kickstart Logical Volumes
 
 # Kickstart Network Bootproto - 'dhcp' (default), ##########
-kickstart_bootproto:
+kickstart_bootproto: 'dhcp'
 # Kickstart IP Address
-kickstart_ip:
+kickstart_ip: ''
 # Kickstart Netmask
-kickstart_netmask:
+kickstart_netmask: ''
 # Kickstart Gateway
-kickstart_gateway:
+kickstart_gateway: ''
 # Kickstart Nameserver
-kickstart_nameserver:
+kickstart_nameserver: ''
 
-# Kickstart Part
+# Kickstart Partitions
 
 # Kickstart Realm
-
-# Kickstart Reboot
 
 # Kickstart Repo
 
 # Kickstart Rescue
 
 # Kickstart Root Password
+kickstart_rootpw:
 
 # Kickstart SELinux Context - 'enforcing', 'permissive', or 'disabled'
 kickstart_selinux: 'permissive'
@@ -81,127 +83,31 @@ kickstart_services_disabled:
 
 # Kickstart Volume Groups
 
-# Kickstart Zero MBR
+# Kickstart Zero MBR - 'true' or 'false'
+kickstart_zerombr: false
 
+# Kickstart Include
+kickstart_include: ''
 
+# Kickstart Default Packages - Server Packages and Workstation Packages are listed in 'vars'
+kickstart_default_packages:
+  - ansible
 
-
-# Kickstart Root Password
-kickstart_rootpw:
-
-# Kickstart Reboot
-kickstart_reboot: true
-
-#
-#kickstart_text:
-kickstart_text_noninteractive: true
-
-# Kickstart URL
-kickstart_url: https://1.2.3.4
-
-#
-kickstart_reqpart:
-
-# Kickstart Bootloader
-kickstart_bootloader:
-
-# Kickstart Network Bootproto
-kickstart_bootproto:
-
-# Kickstart Firstboot
-kickstart_firstboot: disable
-
-
-
-# Kickstart Firewall - 'enabled' or 'disabled'
-kickstart_firewall: disabled
-
-# Kickstart Target - 'graphical' or 'text'
-kickstart_target: text
-
-
-
-
-
+# Kickstart Addon
+kickstart_addon: ''
 
 # Kickstart Pre-Install Log
 kickstart_preinstall_log: /root/kickstart_preinstall.log
 
-#
-kickstart_pre:
+# Kickstart Pre-Installation Script
+kickstart_pre: ''
+
+# Kickstart Anaconda
+kickstart_anaconda: ''
 
 # Kickstart Post-Install Log
 kickstart_postinstall_log: /root/kickstart_postinstall.log
 
-#
-kickstart_post:
-
-
-
-
-# Kickstart Packages
-# Workstation Packages:
-kickstart_packages:
-  - @^workstation-product-environment
-  - @gnome-desktop
-  - @remote-desktop-clients
-  - ansible
-  - gnome-backgrounds
-  - gnome-shell-extension-apps-menu
-  - gnome-shell-extension-auto-move-windows
-  - gnome-shell-extension-dash-to-dock
-  - gnome-shell-extension-desktop-icons
-  - gnome-shell-extension-drive-menu
-  - gnome-shell-extension-launch-new-instance
-  - gnome-shell-extension-native-window-placement
-  - gnome-shell-extension-places-menu
-  - gnome-shell-extension-screenshot-window-sizer
-  - gnome-shell-extension-user-theme
-  - gnome-shell-extension-window-list
-  - gnome-shell-extension-windowsNavigator
-  - gnome-shell-extension-workspace-indicator
-  - tigervnc
-
-
-
-
-
-
-
-
-##########
-
-kickstart_target: graphical
-
-
-
-
-kickstart_timesource:
-
-kickstart_bootloader:
-
-kickstart_clearpart: ''
-
-kickstart_masterbootrecord:
-
-kickstart_partitions:
-  - 
-
-kickstart_logical_volumes:
-  -
-
-kickstart_volume_groups:
-  -
-
-kickstart_services:
-  - sshd
-
-kickstart_firewall: "firewall --enabled --ssh"
-
-kickstart_selinux: "selinux --enforcing"
-
-kickstart_authselect: ''
-
-kickstart_packages:
-  - 
+# Kickstart Post-Installation Script
+kickstart_post: ''
 
