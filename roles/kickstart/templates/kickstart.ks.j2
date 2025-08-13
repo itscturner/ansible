@@ -1,21 +1,29 @@
 # {{ ansible_managed }}
 
-# {{ kickstart_file_location }} - {{ kickstart_file_version }}
+# Kickstart File Version: {{ kickstart_file_version }}
 
+# LANGUAGE
 lang {{ kickstart_language | default('en_US') }}
 
+# KEYBOARD
 keyboard --xlayouts='{{ kickstart_keyboard | default('us') }}'
 
+# TIMEZONE
 timezone {{ kickstart_timezone | default('America/Denver') }}
 
+# EULA
 eula --agreed
 
+# KICKSTART MODE
 {{ kickstart_mode | default('graphical') }}
 
+# BOOTLOADER
 bootloader --location={{ kickstart_bootloader_location | default('mbr') }} --append={{ kickstart_bootloader_append | default(omit) }}
 
+# INSTALL / URL
 url --url {{ kickstart_install_url }}
 
+# KICKSTART COMPLETION METHOD
 {{ kickstart_completion_method | default('reboot') }}
 
 
@@ -23,12 +31,15 @@ url --url {{ kickstart_install_url }}
 ########## CLEARPART ##########
 # clearpart --drives=hda,hdb --all
 # clearpart --list=sda2,sda3,sdb1
-{{ kickstart_clearpart }}
+# {{ kickstart_clearpart }}
+# cleartpart --drives={{ kickstart_clearpart_drives | join(',') }}
+# clearpart --list={{ kickstart_clearpart_list | join(',') }}
 
 
-
+# FIREWALL
 firewall --{{ kickstart_firewall_status | default('disabled') }}
 
+# FIRSTBOOT
 firstboot --{{ kickstart_firstboot | default('disabled') }}
 
 
@@ -38,8 +49,10 @@ firstboot --{{ kickstart_firstboot | default('disabled') }}
 
 ########## LOGVOL ##########
 # logvol mntpoint --vgname=name --name=name [options]
+# logvol mntpoint --vgname={{ kickstart_logvol_vgname }} --name={{ kickstart_logvol_name }} {{ kickstart_logvol_options | join(',') }}
 
 
+# NETWORK
 network --bootproto={{ kickstart_bootproto | default('dhcp') }}
 # network --bootproto=static --ip=10.0.2.15 --netmask=255.255.255.0 --gateway=10.0.2.254 --nameserver=192.168.2.1,192.168.3.1
 # network --device=eno1 --bootproto=dhcp --onboot=yes --activate --noipv6
@@ -48,38 +61,40 @@ network --bootproto={{ kickstart_bootproto | default('dhcp') }}
 ########## PART ##########
 # part / --fstype=xfs --onpart=sda1
 # - "part /boot/efi --asprimary --ondrive=vda --size=512      --fstype=efi   --fsoptions=\"umask=0077,shortname=winnt\""
-{% if kickstart_partitions | default([]) | length > 0 %}
-{% for partition in kickstart_partitions %}
-{{ partition }}
-{% endfor %}
-{% endif %}
+#{% if kickstart_partitions | default([]) | length > 0 %}
+#{% for partition in kickstart_partitions %}
+#{{ partition }}
+#{% endfor %}
+#{% endif %}
 
 ########## REALM ##########
 # realm join [options] domain
+# realm join {{ kickstart_realmjoin_options | join(',') }} {{ kickstart_realmjoin_domain }}
 
 
 ########## REPO ##########
 # repo --name=repoid [--baseurl=<url>|--mirrorlist=url] [options]
 # - "repo --baseurl=https://ftp.fau.de/pub/fedora/linux/updates/42/Everything/x86_64/ --name=fedora-updates --cost=0"
-{% if kickstart_repos | default([]) | length > 0 %}
-{% for repo in kickstart_repos %}
-{{ repo }}
-{% endfor %}
-{% endif %}
+#{% if kickstart_repos | default([]) | length > 0 %}
+#{% for repo in kickstart_repos %}
+#{{ repo }}
+#{% endfor %}
+#{% endif %}
 
 
 ########## RESCUE ##########
 # rescue [--nomount|--romount]
+# rescue --{{ kickstart_rescue_option }}
 
-
-
+# ROOT PW
 rootpw --iscrypted {{ kickstart_rootpassword }}
 
+# SELINUX
+selinux --{{ kickstart_selinux_context }}
 
-selinux --{{ kickstart_selinux }}
-
-
+# SERVICES
 services --enabled={{ kickstart_services_enabled | join(',') }} --disabled={{ kickstart_serviced_disabled | join(',') }}
+
 
 
 ########## USERS / GROUPS ##########
@@ -91,43 +106,66 @@ services --enabled={{ kickstart_services_enabled | join(',') }} --disabled={{ ki
 # ignoredisk --drives=drive1,drive2,...
 # ignoredisk --only-use=sda
 #{{ kickstart_ignoredisk }}
+# ignoredisk --drives={{ kickstart_ignore_drives | join(',') }}
+# ignoredisk --only-use={{ kickstart_only_use_drive }}
 
 
 ########## VOLUME GROUPS ##########
+# volgroup name partition [options]
+# volgroup rhel00 --useexisting --noformat
+# Create the partition first, then create the logical volume group, and then create the logical volume. For example:
+# part pv.01 --size 10000
+# volgroup volgrp pv.01 
+# logvol / --vgname=volgrp --size=2000 --name=root
 
 
 
-
+# ZEROMBR
 {% if kickstart_zerombr == 'true' %}
 zerombr
 {% endif %}
 
 
 
+##########
 
 
+# INCLUDE
 %include
 # {{ kickstart_include }}
 %end
 
+
+# PACKAGES
 %packages --ignoremissing
 # kickstart_default_packages + kickstart_packages(FROM VARS)
 {{ kickstart_default_packages | join('\n') }}
 {{ kickstart_packages | join('\n') }}
 %end
 
+
+# ADDON
 %addon
 # {{ kickstart_addon }}
 %end
 
+
+# PRE
 %pre --interpreter={{ kickstart_preinstall_interpreter | default(omit) }} --log={{ kickstart_preinstall_log }}
 # {{ kickstart_pre }}
 %end
 
+
+# ANACONDA
 %anaconda
 # {{ kickstart_anaconda }}
 %end
 
+
+# POST
 %post --interpreter={{ kickstart_postinstall_interpreter | default(omit) }} --log={{ kickstart_postinstall_log }}
 # {{ kickstart_post }}
 %end
+
+
+
