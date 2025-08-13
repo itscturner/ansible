@@ -1,6 +1,47 @@
 # {{ ansible_managed }}
 
+lang en_US
+keyboard --xlayouts='us'
+timezone America/Denver --utc
+rootpw  --iscrypted
+reboot
+text
+url --url=http://1.2.3.4
+reqpart
+bootloader --location=boot --append="rhgb quiet crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M" --iscrypted --password=
+network --bootproto=dhcp
+firstboot --disable
+selinux --permissive
 
+%pre
+PRE
+%end
+
+%post  
+POST
+%end
+
+%packages
+@^workstation-product-environment
+@gnome-desktop
+gedit-plugins
+gnome-backgrounds
+gnome-shell-extension-apps-menu
+gnome-shell-extension-auto-move-windows
+gnome-shell-extension-dash-to-dock
+gnome-shell-extension-desktop-icons
+gnome-shell-extension-drive-menu
+gnome-shell-extension-launch-new-instance
+gnome-shell-extension-native-window-placement
+gnome-shell-extension-places-menu
+gnome-shell-extension-screenshot-window-sizer
+gnome-shell-extension-user-theme
+gnome-shell-extension-window-list
+gnome-shell-extension-windowsNavigator
+gnome-shell-extension-workspace-indicator
+@remote-desktop-clients
+tigervnc
+%end
 
 
 
