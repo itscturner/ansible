@@ -13,6 +13,6 @@
     owner: root
     group: root
     mode: 0660
-#    validate: ksvalidator --version={{ ks.version }} %s
+#    validate: ksvalidator -v RHEL9 /path/to/kickstart.ks
 #  vars:
 #    ks: "{{ kickstart_defaults | combine(item, recursive=True) }}"
