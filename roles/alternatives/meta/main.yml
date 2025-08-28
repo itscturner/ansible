@@ -7,7 +7,7 @@ galaxy_info:
   platforms:
     - name: RHEL
       versions:
-        - all
+        - "9"
 
   galaxy_tags:
     - alternatives
