@@ -15,3 +15,6 @@ logrotate_keep: 7
 
 # Whether to compress rotated logs or not.
 logrotate_compress: true
+
+# Whether to use date extension on log file names or not.
+logrotate_dateext: false
