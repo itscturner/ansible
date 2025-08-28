@@ -1,8 +1,11 @@
 ---
 # defaults file for logrotate
 
-# Logrotate package.
+# Logrotate package name.
 logrotate_package: logrotate
+
+# Logrotate service name.
+logrotate_service: logrotate
 
 # Logrotate configuration directory.
 logrotate_directory: /etc/logrotate.d
