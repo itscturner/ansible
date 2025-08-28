@@ -27,6 +27,9 @@ logrotate_keep
 
 Whether to compress rotated logs or not:
 logrotate_compress
+
+Whether to use date extension on log file names or not:
+logrotate_dateext
 ```
 
 Dependencies
