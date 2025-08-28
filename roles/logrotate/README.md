@@ -46,6 +46,12 @@ Example Playbook
   - hosts: all
     roles:
       - role: logrotate
+    vars:
+      logrotate_entries:
+        - name: example
+          path: "/var/log/example/*.log"
+        - name: example-absent
+          state: absent
 ```
 
 License
