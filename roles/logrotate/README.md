@@ -6,22 +6,38 @@ An ansible role to configure logrotate.
 Requirements
 ------------
 
-REQUIREMENTS
+None
 
 Role Variables
 --------------
 
-ROLE VARIABLES
+The default values for the variables are set in `defaults/main.yml`
+```
+Logrotate package:
+logrotate_package
+
+Logrotate configuration directory:
+logrotate_directory
+
+How often to rotate logs (Either daily, weekly or monthly):
+logrotate_frequency
+
+How many files to keep:
+logrotate_keep
+
+Whether to compress rotated logs or not:
+logrotate_compress
+```
 
 Dependencies
 ------------
 
-DEPENDENCIES
+None
 
 Example Playbook
 ----------------
 ```
-  - hosts: servers
+  - hosts: all
     roles:
       - role: logrotate
 ```
@@ -29,7 +45,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
