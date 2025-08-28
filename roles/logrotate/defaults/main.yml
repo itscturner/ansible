@@ -1,12 +1,17 @@
 ---
 # defaults file for logrotate
 
+# Logrotate package.
 logrotate_package: logrotate
 
+# Logrotate configuration directory.
 logrotate_directory: /etc/logrotate.d
 
-logrotate_keep: 14
-
+# How often to rotate logs. Either daily, weekly or monthly.
 logrotate_frequency: daily
 
+# How many files to keep.
+logrotate_keep: 7
+
+# Whether to compress rotated logs or not.
 logrotate_compress: true
