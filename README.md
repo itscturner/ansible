@@ -7,3 +7,4 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 <br>
 [Aide](https://github.com/itscturner/ansible/tree/main/roles/aide) <br>
 [Alternatives](https://github.com/itscturner/ansible/tree/main/roles/alternatives) <br>
+[Logrotate](https://github.com/itscturner/ansible/tree/main/roles/logrotate) <br>
