@@ -1,10 +1,12 @@
 ---
 # defaults file for alternatives
 
+# List of alternatives packages.
 alternatives_packages:
   - alternatives
   - chkconfig
 
+# List of alternatives.
 alternatives_list:
   - name: python
     link: /usr/bin/python3.7
