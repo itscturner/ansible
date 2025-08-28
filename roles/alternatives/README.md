@@ -6,17 +6,24 @@ An ansible role for alternatives.
 Requirements
 ------------
 
-REQUIREMENTS
+None
 
 Role Variables
 --------------
 
-ROLE VARIABLES
+The default values for the variables are set in `defaults/main.yml`
+```
+List of alternatives packages:
+alternatives_packages
+
+List of alternatives:
+alternatives_list
+```
 
 Dependencies
 ------------
 
-DEPENDENCIES
+None
 
 Example Playbook
 ----------------
@@ -29,7 +36,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
