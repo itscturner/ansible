@@ -6,17 +6,21 @@ An ansible role for creating custom facts.
 Requirements
 ------------
 
-REQUIREMENTS
+None
 
 Role Variables
 --------------
 
-ROLE VARIABLES
+The default values for the variables are set in `defaults/main.yml`
+```
+List of custom facts:
+facts
+```
 
 Dependencies
 ------------
 
-DEPENDENCIES
+None
 
 Example Playbook
 ----------------
@@ -33,7 +37,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
