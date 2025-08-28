@@ -16,7 +16,7 @@ The default values for the variables are set in `defaults/main.yml`
 Logrotate package name:
 logrotate_package
 
-Logrotate service name.
+Logrotate service name:
 logrotate_service
 
 Logrotate configuration directory:
