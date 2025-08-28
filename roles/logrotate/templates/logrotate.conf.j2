@@ -2,3 +2,30 @@
 
 # see "man logrotate" for details
 
+# How often to rotate logs.
+{{ logrotate_frequency }}
+
+# How many weeks of backlogs to keep.
+rotate {{ logrotate_keep }}
+
+# Create new log files after rotating the old ones.
+create
+
+# Use date extension on log file names.
+{% if logrotate_dateext %}
+dateext
+{% else %}
+#dateext
+{% endif %}
+
+# Compress log files.
+{% if logrotate_compress %}
+compress
+{% else %}
+#compress
+{% endif %}
+
+# Include files in the logrotate confd directory.
+include {{ logrotate_directory }}
+
+# Configure system-specific logs here:
