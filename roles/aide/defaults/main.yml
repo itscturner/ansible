@@ -22,7 +22,6 @@ aide_verbose: 5
 # The URL that the output is written to.
 aide_report_url: stdout
 
-
 # Aide rules.
 aide_rules:
   - name: "FIPSR Rule"
@@ -35,7 +34,6 @@ aide_rules:
     paths:
       - "/boot"
       - "/bin"
-
     
   - name: "DIR Rule"
     rule: "DIR"
@@ -59,7 +57,6 @@ aide_rules:
     rule: "DATAONLY"
     attributes: ['p', 'n', 'u', 'g', 's', 'acl', 'selinux', 'xattrs', 'sha256']    
 
-
   - name: "IGNORE Rules"
     rule: "negative"
     paths:
@@ -75,10 +72,6 @@ aide_rules:
   - name: "EVERYTHING Rule"
     rule: "EVERYTHING"
     attributes: ['R', 'ALLXTRAHASHES']
-
-
-
-
 
 # Aide cron jobs.
 aide_cron_jobs:
