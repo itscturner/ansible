@@ -1,20 +1,29 @@
 ---
 # defaults file for aide
 
+# Aide database directory.
 aide_db_dir: /var/lib/aide
+
+# Aide database name.
 aide_db: aide.db.gz
+
+# Aide new database name.
 aide_db_new: aide.db.new.gz
 
+# Aide log directory.
 aide_log_dir: /var/log/aide
 
+# Whether to gzip the output to database or not.
 aide_gzip_dbout: true
 
+# Set how verbose aide is.
 aide_verbose: 5
 
+# The URL that the output is written to.
 aide_report_url: stdout
 
 
-
+# Aide rules.
 aide_rules:
   - name: "FIPSR Rule"
     rule: "FIPSR"
@@ -71,7 +80,7 @@ aide_rules:
 
 
 
-
+# Aide cron jobs.
 aide_cron_jobs:
   - name: AIDE check
     hour: "12"
