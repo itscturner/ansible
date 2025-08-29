@@ -4,6 +4,9 @@
 # Rust version.
 # rust_version:
 
+# Should rust be updated?
+rust_update: false
+
 # Rust dependenices.
 rust_dependencies:
   # - cmake
@@ -16,3 +19,9 @@ rust_installer_download_destination: /tmp/sh.rustup.rs
 # Additional packages for rust.
 rust_additional_packages:
   - ferris-says
+
+#  
+#rust_shell_profiles:
+#  - .bash_profile
+#  - .bashrc
+#  - .zshrc
