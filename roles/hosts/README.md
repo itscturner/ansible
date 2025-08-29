@@ -1,22 +1,25 @@
 hosts
 =====
 
-An ansible role to configure hosts file.
+An ansible role to configure the hosts and hostnames file.
 
 Requirements
 ------------
 
-REQUIREMENTS
+None
 
 Role Variables
 --------------
 
-ROLE VARIABLES
+The default values for the variables are set in `defaults/main.yml`
+```
+
+```
 
 Dependencies
 ------------
 
-DEPENDENCIES
+None
 
 Example Playbook
 ----------------
