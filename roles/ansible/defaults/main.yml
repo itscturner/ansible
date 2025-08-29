@@ -1,10 +1,19 @@
 ---
 # defaults file for ansible
 
+# List of ansible packages.
 ansible_packages:
   - ansible
   - ansible_lint
 
-ansible_configuration_directory: /etc/ansible
-ansible_config_file: ansible.cfg
+# List of ansible collections.
+ansible_collections:
+  - ansible.posix
+  - ansible.utils
+  - community.general
 
+# Ansible configuration file directory.
+ansible_configuration_directory: /etc/ansible
+
+# Ansible configuration file name.
+ansible_config_file: ansible.cfg
