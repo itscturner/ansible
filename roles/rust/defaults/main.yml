@@ -10,5 +10,5 @@ rust_dependencies:
   # - curl
   - gcc
 
-#
+# Where the rust installer will be downloaded to.
 rust_installer_download_destination: /tmp/sh.rustup.rs
