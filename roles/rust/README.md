@@ -7,7 +7,8 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
-
+Where the rust installer will be downloaded to:
+rust_installer_download_destination
 ```
 
 Example Playbook
