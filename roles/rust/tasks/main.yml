@@ -1,2 +1,45 @@
 ---
 # tasks file for rust
+
+#- name: Ensure rust dependencies are installed
+#  ansible.builtin.dnf:
+#    name: "{{ rust_dependencies }}"
+#    state: present
+
+
+#- name: Install rust
+#  ansible.builtin.shell:
+#    cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
+
+#- name: Ensure rust is up to date
+#  ansible.builtin.shell:
+#    cmd: "rustup update"
+
+
+#- name: Check rust version
+#  ansible.builtin.shell:
+#    cmd: "rustc --version"
+#  register: rust_version
+#  ignore_errors: true
+
+##########
+
+- name: Check if rust is installed
+  ansible.builtin.shell:
+    cmd: "command -v cargo"
+  register: cargo_installed
+
+- name: Download rust installer
+  ansible.builtin.uri:
+    url:
+    dest: "{{ rust_installer_download_destination }}"
+    mode: 0755
+    force: true
+  # when: cargo_installed is failed
+
+- name: Install rust and cargo
+  ansible.builtin.shell:
+    cmd: "{{ rust_installer_download_destination }} -y"
+  # when: cargo_installed is failed
+
+
