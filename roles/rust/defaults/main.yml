@@ -2,13 +2,13 @@
 # defaults file for rust
 
 # Rust version.
-rust_version:
+# rust_version:
 
 # Rust dependenices.
 rust_dependencies:
-  - cmake
-  # - curl
-  - gcc
+  # - cmake
+  - curl
+  # - gcc
 
 # Where the rust installer will be downloaded to.
 rust_installer_download_destination: /tmp/sh.rustup.rs
