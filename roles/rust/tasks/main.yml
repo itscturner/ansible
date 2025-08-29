@@ -42,4 +42,6 @@
     cmd: "{{ rust_installer_download_destination }} -y"
   # when: cargo_installed is failed
 
-
+- name: Source cargo env
+  ansible.builtin.lineinfile:
+    [ -f ~/.cargo/env ] && source $HOME/.cargo/env
