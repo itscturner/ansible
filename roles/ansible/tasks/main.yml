@@ -6,6 +6,10 @@
     name: "{{ ansible_packages }}"
     state: present
 
+- name: Install ansible collections
+  ansible.builtin.shell:
+    cmd: "ansible-galaxy collection install {{ ansible_collections }}"
+
 - name: Ensure ansible directory exists
   ansible.builtin.file:
     path: "{{ ansible_configuration_directory }}"
@@ -17,4 +21,3 @@
     src: "{{ ansible_config_file }}.j2"
     dest: "{{ ansible_configuration_directory }}/{{ ansible_config_file }}"
     mode: 0644
-
