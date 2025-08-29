@@ -12,3 +12,8 @@ rust_dependencies:
 
 # Where the rust installer will be downloaded to.
 rust_installer_download_destination: /tmp/sh.rustup.rs
+
+# Additional packages for rust (Crates).
+#rust_crates:
+rust_additional_packages:
+  - ferris-says
