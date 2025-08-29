@@ -1,33 +1,19 @@
 ---
 # tasks file for rust
 
-#- name: Ensure rust dependencies are installed
-#  ansible.builtin.dnf:
-#    name: "{{ rust_dependencies }}"
-#    state: present
+- name: Ensure rust dependencies are installed
+  ansible.builtin.dnf:
+    name: "{{ rust_dependencies }}"
+    state: present
 
+- name: Check if cargo is installed
+  ansible.builtin.shell:
+    cmd: "command -v cargo"
+  register: cargo_installed
 
 #- name: Install rust
 #  ansible.builtin.shell:
 #    cmd: "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
-
-#- name: Ensure rust is up to date
-#  ansible.builtin.shell:
-#    cmd: "rustup update"
-
-
-#- name: Check rust version
-#  ansible.builtin.shell:
-#    cmd: "rustc --version"
-#  register: rust_version
-#  ignore_errors: true
-
-##########
-
-- name: Check if rust is installed
-  ansible.builtin.shell:
-    cmd: "command -v cargo"
-  register: cargo_installed
 
 - name: Download rust installer
   ansible.builtin.uri:
@@ -35,13 +21,27 @@
     dest: "{{ rust_installer_download_destination }}"
     mode: 0755
     force: true
-  # when: cargo_installed is failed
+   when: cargo_installed is failed
 
 - name: Install rust and cargo
   ansible.builtin.shell:
     cmd: "{{ rust_installer_download_destination }} -y"
-  # when: cargo_installed is failed
+   when: cargo_installed is failed
 
-- name: Source cargo env
-  ansible.builtin.lineinfile:
-    [ -f ~/.cargo/env ] && source $HOME/.cargo/env
+- name: Ensure rust is up to date
+  ansible.builtin.shell:
+    cmd: "rustup update"
+
+#- name: Source cargo env
+#    [ -f ~/.cargo/env ] && source $HOME/.cargo/env
+
+- name: Install additional rust packages
+  community.general.cargo:
+    name: "{{ rust_additional_packages }}"
+    state: latest
+
+#- name: Check rust version
+#  ansible.builtin.shell:
+#    cmd: "rustc --version"
+#  register: rust_version
+#  ignore_errors: true
