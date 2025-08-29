@@ -1,7 +1,7 @@
 hosts
 =====
 
-An ansible role to configure the hosts and hostnames file.
+An ansible role to configure the hosts and hostname files.
 
 Requirements
 ------------
