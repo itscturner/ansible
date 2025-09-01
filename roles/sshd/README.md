@@ -3,20 +3,12 @@ sshd
 
 An ansible role to configure sshd.
 
-Requirements
-------------
-
-REQUIREMENTS
-
 Role Variables
 --------------
+The default values for the variables are set in `defaults/main.yml`
+```
 
-ROLE VARIABLES
-
-Dependencies
-------------
-
-DEPENDENCIES
+```
 
 Example Playbook
 ----------------
