@@ -1,6 +1,11 @@
 ---
 # tasks file for sshd
 
+- name: Ensure sshd packages are installed
+  ansible.builtin.dnf:
+    name: "{{ sshd_packages }}"
+    state: present
+
 - name: Configure sshd
   ansible.builtin.template:
     src: "{{ item }}.j2"
