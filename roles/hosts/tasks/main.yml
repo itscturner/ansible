@@ -1,13 +1,11 @@
 ---
 # tasks file for hosts
 
-- name: Configure hostname file
-  ansible.builtin.template:
-    src: hostname.j2
-    dest: "{{ hostname_file }}"
-    owner: root
-    group: root
-    mode: 0644
+- name: Set hostname
+  ansible.builtin.hostname:
+    name: "{{ hosts_hostname }}"
+  notify:
+    - Reboot
 
 - name: Configure hosts file
   ansible.builtin.template:
