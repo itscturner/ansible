@@ -5,7 +5,7 @@
   ansible.builtin.hostname:
     name: "{{ hosts_hostname }}"
   notify:
-    - Reboot
+    - Hosts Reboot
 
 - name: Configure hosts file
   ansible.builtin.template:
