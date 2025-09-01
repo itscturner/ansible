@@ -1,10 +1,17 @@
 ---
 # defaults file for helm
 
+# Helm URL.
 helm_url: "https://get.helm.sh"
 
+# Helm version.
 helm_version: 'v3.18.4'
+
+# Helm platform.
 helm_platform: linux
+
+# Helm architecture.
 helm_arch: amd64
 
+# Helm bin path.
 helm_bin_path: /usr/local/bin/helm
