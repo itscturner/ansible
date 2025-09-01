@@ -19,20 +19,33 @@ httpd_service: httpd
 # httpd server name.
 httpd_servername: "{{ ansible_fqdn }}"
 
-# httpd port.
+
+# Allows you to bind Apache to specific IP addresses and/or ports, instead of the default.
 httpd_port: 80
 
 
-
+#
+httpd_user: apache
 
 #
-httpd_directory: /etc/httpd
+httpd_group: apache
 
-# httpd data directory.
-httpd_data_directory: /var/www/html
+#
+httpd_server_admin: root@localhost
+
+
+
+# The top of the directory tree under which the server's configuration, error, and log files are kept.
+httpd_server_root: /etc/httpd
+
+# The directory out of which you will serve your documents.
+httpd_document_root: /var/www/html
 
 #
 httpd_config_directory: /etc/httpd/conf.d
+
+# Control the number of messages logged to the error_log. Possible values include: debug, info, notice, warn, error, crit, alert, emerg.
+httpd_log_level: warn
 
 
 
