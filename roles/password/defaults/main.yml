@@ -1,8 +1,10 @@
 ---
 # defaults file for password
 
+# Password quality file location.
 password_complexity_file: /etc/security/pwquality.conf
 
+# Login definitions file location.
 password_logindefs_file: /etc/login.defs
 
 # login.defs
@@ -17,7 +19,6 @@ password_passminlen: 15
 
 # Number of days warning given before a password expires.
 password_passwarnage: 30
-
 
 # pwquality.conf
 # Number of characters in the new password that must not be present in the old password.
