@@ -3,20 +3,12 @@ ulimit
 
 An ansible role to configure ulimit.
 
-Requirements
-------------
-
-REQUIREMENTS
-
 Role Variables
 --------------
+The default values for the variables are set in `defaults/main.yml`
+```
 
-ROLE VARIABLES
-
-Dependencies
-------------
-
-DEPENDENCIES
+```
 
 Example Playbook
 ----------------
