@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: itscturner
+  role_name: ulimit
   description: An ansible role to configure ulimit.
   license: Apache-2.0
   min_ansible_version: "2.12"
@@ -11,7 +12,7 @@ galaxy_info:
         - "9"
 
   galaxy_tags:
-    - ulimit
     - system
+    - ulimit
 
   dependencies: []
