@@ -4,6 +4,6 @@
 - name: Install kubectl
   ansible.builtin.get_url:
     url: "{{ kubectl_url }}"
-    dest: /usr/bin/kubectl
+    dest: "{{ kubectl_bin_path }}"
     mode: 0755
     validate_certs: "{{ kubectl_validate_certs }}"
