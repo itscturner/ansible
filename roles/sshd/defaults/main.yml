@@ -57,7 +57,7 @@ sshd_print_motd:
 sshd_print_lastlog:
 
 # Max sessions.
-sshd_max_sessions:
+sshd_max_sessions: 10
 
 # Max startups.
 sshd_max_startups:
