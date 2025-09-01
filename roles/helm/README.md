@@ -3,25 +3,33 @@ helm
 
 An ansible role to install and configure helm.
 
-Requirements
-------------
-
-REQUIREMENTS
 
 Role Variables
 --------------
 
-ROLE VARIABLES
+The default values for the variables are set in `defaults/main.yml`
+```
+Helm URL:
+helm_url
 
-Dependencies
-------------
+Helm version:
+helm_version
 
-DEPENDENCIES
+Helm platform:
+helm_platform
+
+Helm architecture:
+helm_arch
+
+Helm bin path:
+helm_bin_path
+```
+
 
 Example Playbook
 ----------------
 ```
-  - hosts: all
+  - hosts: workstations
     roles:
       - role: helm
 ```
