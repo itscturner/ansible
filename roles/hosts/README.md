@@ -6,7 +6,7 @@ An ansible role to configure the hosts and hostname files.
 Requirements
 ------------
 
-None
+None.
 
 Role Variables
 --------------
@@ -32,7 +32,7 @@ hosts_hostname_reboot
 Dependencies
 ------------
 
-None
+None.
 
 Example Playbook
 ----------------
