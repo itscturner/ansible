@@ -7,7 +7,8 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
-
+MOTD file location:
+motd_file
 ```
 
 Example Playbook
