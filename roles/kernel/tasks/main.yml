@@ -1,2 +1,8 @@
 ---
 # tasks file for kernel
+
+- name: Install kernel requirements
+  ansible.builtin.dnf:
+    name: "{{ kernel_requirements }}"
+    state: present
+
