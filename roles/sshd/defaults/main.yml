@@ -11,3 +11,58 @@ sshd_config_directory: /etc/ssh
 sshd_configs:
   - ssh_config
   - sshd_config
+
+# ssh port.
+sshd_ssh_port: 22
+
+# Use PAM authentication.
+sshd_ssh_pam: true
+
+# Permit root login.
+sshd_permit_root_login: "no"
+
+#
+sshd_pubkey_authentication: "yes"
+
+# Password authentication.
+sshd_password_authentication: "no"
+
+# List of sshd ciphers.
+sshd_ciphers:
+  - 
+
+#
+sshd_kexalgorithms:
+  - 
+
+# Allow X11 forwarding.
+sshd_x11_forwarding:
+
+# Print MOTD.
+sshd_print_motd:
+
+# Print last log.
+sshd_print_lastlog:
+
+# Max sessions.
+sshd_max_sessions:
+
+# Max startups.
+sshd_max_startups:
+
+#
+sshd_accept_env: "SSH_USER"
+
+# ssh banner file location.
+sshd_banner: "/etc/banner"
+
+# Challenge response authentication.
+sshd_challenge_response_authentication: "no"
+
+
+
+
+
+
+
+
