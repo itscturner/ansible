@@ -1,21 +1,33 @@
 ---
 # defaults file for ntp
 
+# List of ntp packages.
 ntp_packages:
   - chrony
   - tzdata
   - util-linux
 
+# NTP service name.
+ntp_service:
+
+# NTP configuration file.
 ntp_conf: chrony.conf
 
+# List of IP Addresses to listen on.
 ntp_interfaces:
   - address: "127.0.0.1"
 
+List of NTP pools.
 ntp_pool:
-  - name: "0.pool.ntp.org iburst"
-  - name: "1.pool.ntp.org iburst"
-  - name: "2.pool.ntp.org iburst"
+  - "0.pool.ntp.org iburst"
+  - "1.pool.ntp.org iburst"
+  - "2.pool.ntp.org iburst"
 
+# NTP Timezone.
 ntp_timezone: America/Colorado/Denver
 
+# NTP logging directory.
 ntp_log_dir: /var/log/chrony
+
+# Minimum number of selectable sources required to adjust the system clock.
+ntp_min_sources: 2
