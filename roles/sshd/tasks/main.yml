@@ -13,6 +13,6 @@
     owner: root
     group: root
     mode: 0644
-  with_items: "{{ sshd_configs }}"
+  with_items: "{{ sshd_config_files }}"
   notify:
     - Restart sshd
