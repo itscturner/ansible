@@ -1,1 +1,18 @@
+---
+galaxy_info:
+  author: itscturner
+  role_name: limits
+  description: An ansible role to manage system limits.
+  license: Apache-2.0
+  min_ansible_version: "2.12"
 
+  platforms:
+    - name: RHEL
+      versions:
+        - "9"
+
+  galaxy_tags:
+    - limits
+    - system
+
+  dependencies: []
