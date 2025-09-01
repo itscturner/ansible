@@ -22,8 +22,60 @@ httpd_servername: "{{ ansible_fqdn }}"
 # httpd port.
 httpd_port: 80
 
+
+
+
+#
+httpd_directory: /etc/httpd
+
 # httpd data directory.
-httpd_data_directory:
+httpd_data_directory: /var/www/html
+
+#
+httpd_config_directory: /etc/httpd/conf.d
+
+
+
+# Remove default index.html.
+httpd_remove_default_index: true
+
+
+
+
+
+#
+https_ssl_enabled:
+
+#
+httpd_locations:
+
+#
+httpd_vhosts:
+
+#
+httpd_directories:
+
+
+
+
+
+
+########## SSL.CONF.J2 ##########
+#
+httpd_modules_path:
+
+#
+httpd_ssl_port:
+
+#
+httpd_ssl_servername:
+
+#
+httpd_openssl_crt:
+
+#
+httpd_openssl_key:
+
 
 
 
