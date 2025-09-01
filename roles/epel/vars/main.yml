@@ -1,8 +1,2 @@
 ---
 # vars file for epel
-
-_epel_version:
-  default: "{{ ansible_distribution_major_version }}"
-
-_epel_next:
-  default: false
