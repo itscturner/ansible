@@ -2,7 +2,7 @@
 galaxy_info:
   author: itscturner
   role_name: kernel
-  description: An ansible role to install and configure the kernel.
+  description: An ansible role to build and install a kernel.
   license: Apache-2.0
   min_ansible_version: "2.12"
 
