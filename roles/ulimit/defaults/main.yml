@@ -1,15 +1,20 @@
 ---
 # defaults file for ulimit
 
+# Configuration file location.
 ulimit_conf: /etc/security/limits.conf
 
+# Create a backup of limits.conf on changes?
 ulimit_backup: false
 
+# Default domain. This can be overwritten per item.
 ulimit_domain: '*'
 
+# Default limit type. This can be overwritten per item.
 ulimit_limit_type: hard
 
-ulimit_items:
+# Ulimit configurations.
+ulimit_configurations:
   - limit_item: maxlogins
     domain: '*'
     limit_type: hard
