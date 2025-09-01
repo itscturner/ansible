@@ -1,9 +1,30 @@
 ---
 # defaults file for httpd
 
-#
-httpd_servername:
 
-#
-httpd_port:
+# httpd binary.
+#httpd_binary:
+
+# httpd packages.
+httpd_packages:
+  - httpd
+  - mod_ssl
+  - openssl
+
+# httpd service name.
+httpd_service: httpd
+
+
+
+# httpd server name.
+httpd_servername: "{{ ansible_fqdn }}"
+
+# httpd port.
+httpd_port: 80
+
+# httpd data directory.
+httpd_data_directory:
+
+
+
 
