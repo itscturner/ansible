@@ -13,7 +13,17 @@ Role Variables
 
 The default values for the variables are set in `defaults/main.yml`
 ```
+Hostname. By default, this is set to whatever the inventory is set to.
+hosts_hostname
 
+Fully qualified domain name. By default, this is set to whatever the inventory is set to.
+hosts_hostname_fqdn
+
+Location of the hosts file:
+hosts_file
+
+Whether or not to reboot the host when the hostname is changed:
+hosts_hostname_reboot
 ```
 
 Dependencies
