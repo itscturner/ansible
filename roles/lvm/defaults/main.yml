@@ -1,3 +1,12 @@
 ---
 # defaults file for lvm
 
+#
+lvm_packages:
+  - lvm2
+  - sg3_utils
+  - xfsprogs
+
+#
+lvm_groups:
+
