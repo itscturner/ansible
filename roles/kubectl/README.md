@@ -3,25 +3,17 @@ kubectl
 
 An ansible role to install kubectl.
 
-Requirements
-------------
-
-REQUIREMENTS
-
 Role Variables
 --------------
+The default values for the variables are set in `defaults/main.yml`
+```
 
-ROLE VARIABLES
-
-Dependencies
-------------
-
-DEPENDENCIES
+```
 
 Example Playbook
 ----------------
 ```
-  - hosts: all
+  - hosts: workstations
     roles:
       - role: kubectl
 ```
