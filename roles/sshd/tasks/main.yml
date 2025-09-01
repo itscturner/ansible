@@ -4,7 +4,7 @@
 - name: Configure sshd
   ansible.builtin.template:
     src: "{{ item }}.j2"
-    dest: "{{ sshd_config_path }}/{{ item }}"
+    dest: "{{ sshd_config_directory }}/{{ item }}"
     owner: root
     group: root
     mode: 0644
