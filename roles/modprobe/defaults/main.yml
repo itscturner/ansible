@@ -1,9 +1,13 @@
 ---
 # defaults file for modprobe
 
-#
+# List of requirements for modprobe.
+modprobe_requirements:
+  - kmod
+
+# List of modprobe modules to install.
 modprobe_modules:
+  - nfs
 
-
-
-
+# List of modprobe modules to remove.
+modprobe_modules_remove: []
