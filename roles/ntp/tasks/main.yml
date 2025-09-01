@@ -20,6 +20,6 @@
 
 - name: Start and enable ntp service
   ansible.builtin.service:
-    name:
+    name: "{{ ntp_service }}"
     state: started
     enabled: true
