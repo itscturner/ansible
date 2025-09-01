@@ -1,2 +1,23 @@
 ---
 # defaults file for resolv
+
+# Resolv configuration file location.
+resolv_conf_file: /etc/resolv.conf
+
+# Name server IP addresses.
+resolv_nameservers:
+  - 8.8.8.8
+
+# Resolv domain.
+resolv_domain: ""
+
+# Search list for host-name lookup.
+resolv_search: []
+#  -
+
+# Allows addresses returned by gethostbyname to be sorted.
+resolv_sortlist: ""
+
+# Resolv Options allows certain internal resolver variables to be modified.
+resolv_options:
+  - 'timeout:2'
