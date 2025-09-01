@@ -8,58 +8,41 @@
 
 - name: Configure httpd
   ansible.builtin.template:
-    src:
-    dest:
-    owner:
-    group:
-    mode: 0644
-  notify:
-    - Test httpd configuration
-    - Restart httpd
-
-
-- name: Template ssl configuration file
-  ansible.builtin.template:
-    src: ssl.conf.j2
-    dest: "{{ httpd_config_directory }}/ssl.conf"
+    src: httpd.conf.j2
+    dest: "{{ httpd_directory }}/conf/httpd.conf"
     owner: root
     group: root
     mode: 0644
   notify:
     - Test httpd configuration
-    - Restart httpd 
+    - Restart httpd
 
+- name: Import ssl.yml
+  ansible.builtin.import_tasks:
+    file: ssl.yml
+  when:
+    - https_ssl_enabled
 
-# SSL:
-- name: Configure redirect from http to https
+- name: Import locations.yml
+  ansible.builtin.import_tasks:
+    file: locations.yml
+  when:
+    - httpd_locations is defined
 
+- name: Import vhosts.yml
+  ansible.builtin.import_tasks:
+    file: vhosts.yml
+  when:
+    - httpd_vhosts is defined
 
-- name: LOCATIONS
+- name: Import directories.yml
+  ansible.builtin.import_tasks:
+    file: directories.yml
+  when:
+    - httpd_directories is defined
 
-
-
-
-
-- name: Configure ports
-
-
-
-
-
-- name: Create directories
-
-- name: Configure directories
-
-
-
-
-
-
-
-
-
-
-
+- name: Flush handlers
+  ansible.builtin.meta: flush_handlers
 
 - name: Remove default html
   ansible.builtin.file:
