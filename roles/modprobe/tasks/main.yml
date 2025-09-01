@@ -1,2 +1,15 @@
 ---
 # tasks file for modprobe
+
+- name: Ensure modprobe requirements are installed
+  ansible.builtin.dnf:
+    name: "{{ modprobe_requirements }}"
+    state: present
+
+- name: Load requested modules
+  community.general.modprobe:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ modprobe_modules }}"
+  when:
+    - modprobe_modules is defined
