@@ -7,7 +7,14 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
+List of requirements for modprobe:
+modprobe_requirements
 
+List of modprobe modules to install:
+modprobe_modules
+
+List of modprobe modules to remove:
+modprobe_modules_remove
 ```
 
 Example Playbook
