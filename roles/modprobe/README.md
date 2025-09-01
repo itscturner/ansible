@@ -1,7 +1,7 @@
 modprobe
 ========
 
-An ansible role to install and configure modprobe.
+An ansible role to configure kernel modules with modprobe.
 
 Role Variables
 --------------
