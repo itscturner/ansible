@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: itscturner
+  role_name: umask
   description: An ansible role to configure umask.
   license: Apache-2.0
   min_ansible_version: "2.12"
