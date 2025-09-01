@@ -11,9 +11,22 @@ None.
 Role Variables
 --------------
 ```
-username
+List of packages to install for git:
+git_packages
+
+List of users to configure for git:
+git_users
+
+Username of git user on system:
+system_username
+
+Name of git user:
 git_user_name
+
+Email of git user:
 git_user_email
+
+Username of git user:
 git_username
 ```
 
