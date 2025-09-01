@@ -13,6 +13,9 @@ Role Variables
 
 The default values for the variables are set in `defaults/main.yml`
 ```
+Hosts packages:
+hosts_packages
+
 Hostname. By default, this is set to whatever the inventory is set to.
 hosts_hostname
 
