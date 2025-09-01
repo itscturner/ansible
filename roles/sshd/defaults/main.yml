@@ -1,6 +1,10 @@
 ---
 # defaults file for sshd
 
+# List of sshd packages.
+sshd_packages:
+  - 
+
 # sshd service name.
 sshd_service: sshd
 
@@ -29,6 +33,10 @@ sshd_password_authentication: "no"
 
 # List of sshd ciphers.
 sshd_ciphers:
+  - 
+
+# List of sshd macs.
+sshd_macs:
   - 
 
 #
