@@ -3,7 +3,8 @@
 
 # List of sshd packages.
 sshd_packages:
-  - 
+  - openssh
+  - openssh-server
 
 # sshd service name.
 sshd_service: sshd
@@ -12,9 +13,12 @@ sshd_service: sshd
 sshd_config_directory: /etc/ssh
 
 # List of sshd configuration files.
-sshd_configs:
+sshd_config_files:
   - ssh_config
   - sshd_config
+
+# ??????????
+sshd_sysconfig_file: /etc/sysconfig/sshd
 
 # ssh port.
 sshd_ssh_port: 22
