@@ -9,7 +9,16 @@
 - name: Load requested modules
   community.general.modprobe:
     name: "{{ item.name }}"
-    state: "{{ item.state | default(present) }}"
+    state: present
   loop: "{{ modprobe_modules }}"
   when:
     - modprobe_modules is defined
+
+- name: Remove modules
+  community.general.modprobe:
+    name: "{{ item.name }}"
+    state: absent
+  loop: "{{ modprobe_modules_remove }}"
+  when:
+    - modprobe_modules_remove is defined
+  
