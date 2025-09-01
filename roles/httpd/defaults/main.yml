@@ -1,0 +1,9 @@
+---
+# defaults file for httpd
+
+#
+httpd_servername:
+
+#
+httpd_port:
+
