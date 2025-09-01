@@ -1,9 +1,31 @@
 ---
 # defaults file for limits
 
-limits_enabled: true
+#
+limits_pamd_files:
+  - su
 
-limits_path: /etc/security/limits.d/tune.conf
+# Limits configuration file.
+# limits_conf_file: /etc/security/limits.d/custom.conf
 
+#
+limits_sysctl:
+  - name: 'net.ipv4.tcp_tw_recycle'
+    value: '1'
+  - name: 'net.ipv4.tcp_tw_reuse'
+    value: '1'
+
+# Configurations for limits.conf.
 limits_configure:
-  - "*     -     nofile     65535"
+  - "*      hard  maxlogins    10"
+
+# Limits hosts files.
+limits_hosts_files:
+  - hosts.allow
+  - hosts.deny
+
+# Limits hosts allow.
+limits_hosts_allow: []
+
+# Limits hosts deny.
+limits_hosts_deny: []
