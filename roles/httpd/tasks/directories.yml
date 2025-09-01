@@ -2,7 +2,26 @@
 # tasks file for httpd - directories
 
 - name: directories | Create directories
-
-
+  ansible.builtin.file:
+    path: "{{ item.path }}"
+    state: directory
+    # owner: 
+    # group:
+    mode: 0755
+  loop: "{{ httpd_directories }}"
+  loop_control:
+    label: "{{ item.path }}"
 
 - name: directories | Configure directories
+  ansible.builtin.template:
+    src: directory.conf.j2
+    dest: "{{ httpd_config_directory }}/{{ item.name }}.conf"
+    # owner:
+    # group:
+    mode: 0644
+  loop: "{{ httpd_directories }}"
+  loop_control:
+    label: "{{ item.name }}"
+  notify:
+    - Test httpd configuration
+    - Restart httpd
