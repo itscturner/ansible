@@ -15,3 +15,5 @@ selinux_policy: targeted
 selinux_booleans:
   - 
 
+# Should the machine be rebooted after changes?
+selinux_reboot: true
