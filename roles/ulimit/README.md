@@ -7,7 +7,20 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
+Configuration file location:
+ulimit_conf
 
+Create a backup of limits.conf on changes:
+ulimit_backup
+
+Default domain:
+ulimit_domain
+
+Default limit type:
+ulimit_limit_type
+
+Ulimit configurations:
+ulimit_configurations
 ```
 
 Example Playbook
