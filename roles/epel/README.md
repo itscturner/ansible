@@ -6,17 +6,20 @@ An ansible role to configure epel.
 Requirements
 ------------
 
-REQUIREMENTS
+None.
 
 Role Variables
 --------------
 
-ROLE VARIABLES
+The default values for the variables are set in `defaults/main.yml`
+```
+
+```
 
 Dependencies
 ------------
 
-DEPENDENCIES
+None.
 
 Example Playbook
 ----------------
@@ -30,7 +33,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
