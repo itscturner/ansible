@@ -3,17 +3,19 @@
 
 # List of SELinux packages.
 selinux_packages:
-  - 
+  - python3-dnf
+  - python3-libselinux
+  - python3-libsemanage
+  - python3-policycoreutils
 
 # SELinux state: enforcing, permissive, or disabled.
-selinux_state:
+selinux_state: enforcing
 
 # SELinux policy.
 selinux_policy: targeted
 
 # You can enable (or disable) booleans by specifying them in this list.
-selinux_booleans:
-  - 
+selinux_booleans: [] 
 
 # Should the machine be rebooted after changes?
 selinux_reboot: true
