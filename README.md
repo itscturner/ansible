@@ -19,6 +19,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [MOTD](https://github.com/itscturner/ansible/tree/main/roles/motd) <br>
 [NTP](https://github.com/itscturner/ansible/tree/main/roles/ntp) <br>
 [Resolv](https://github.com/itscturner/ansible/tree/main/roles/resolv) <br>
+[SELinux](https://github.com/itscturner/ansible/tree/main/roles/selinux) <br>
 [Ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
 [Umask](https://github.com/itscturner/ansible/tree/main/roles/umask) <br>
 [VSCode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
