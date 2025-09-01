@@ -9,9 +9,6 @@
 - name: Template git configuration file
   ansible.builtin.template:
     src: gitconfig.j2
-    dest: "/home/{{ username }}/.gitconfig"
+    dest: "/home/{{ system_username }}/.gitconfig"
     mode: 0644
-  when:
-    - git_user_name is defined
-    - git_user_email is defined
-    - git_username is defined
+  with_items: "{{ git_users }}"
