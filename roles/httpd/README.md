@@ -1,7 +1,7 @@
 httpd
 =====
 
-An ansible role to install and configure aide.
+An ansible role to install and configure httpd.
 
 Role Variables
 --------------
