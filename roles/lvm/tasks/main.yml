@@ -1,0 +1,9 @@
+---
+# tasks file for lvm
+
+- name: Ensure required packages are installed
+  ansible.builtin.dnf:
+    name: "{{ lvm_packages }}"
+    state: present
+
+- name: 
