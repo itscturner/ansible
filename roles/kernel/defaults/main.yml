@@ -1,0 +1,11 @@
+---
+# defaults file for kernel
+
+#
+kernel_version:
+
+#
+kernel_build_location:
+
+#
+kernel_parameters:
