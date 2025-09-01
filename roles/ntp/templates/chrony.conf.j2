@@ -1,11 +1,11 @@
 # {{ ansible_managed }}
 
 {% for ntp_server in ntp_pool %}
-pool {{ ntp_server.name }}
+pool {{ ntp_server }}
 {% endfor %}
 
 # Minimum number of selectable sources required to adjust the system clock.
-minsources 2
+minsources {{ ntp_min_sources }}
 
 # Record the rate at which the system clock gains/losses time.
 driftfile /var/lib/chrony/drift
