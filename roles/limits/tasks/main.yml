@@ -1,3 +1,34 @@
 ---
 # tasks file for limits
 
+- name: Enable pam limits
+  ansible.builtin.lineinfile:
+    dest: "/etc/pam.d/{{ item }}"
+    regexp: "^session    required   pam_limits.so"
+    line: "session    required   pam_limits.so"
+    state: present
+  with_items: "{{ limits_pamd_files }}"
+
+- name: Configure limits
+  ansible.builtin.template:
+    src: limits.conf.j2
+    dest: "{{ limits_conf_file }}"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Update sysctl
+  ansible.builtin.sysctl:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+  with_items: "{{ limits_sysctl }}"
+
+- name: Configure hosts.allow and hosts.deny
+  ansible.builtin.template:
+    src: "{{ item }}.j2"
+    dest: "/etc/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ limits_hosts_files }}"
+  
