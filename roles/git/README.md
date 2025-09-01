@@ -6,7 +6,7 @@ An ansible role to install and configure git.
 Requirements
 ------------
 
-REQUIREMENTS
+None.
 
 Role Variables
 --------------
@@ -20,7 +20,7 @@ git_username
 Dependencies
 ------------
 
-DEPENDENCIES
+None.
 
 Example Playbook
 ----------------
@@ -33,7 +33,7 @@ Example Playbook
 License
 -------
 
-LICENSE
+Apache-2.0
 
 Author Information
 ------------------
