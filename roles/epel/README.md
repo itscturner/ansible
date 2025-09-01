@@ -13,7 +13,14 @@ Role Variables
 
 The default values for the variables are set in `defaults/main.yml`
 ```
+EPEL repo file path:
+epel_repofile
 
+EPEL repo GPG key:
+epel_repo_gpg_key
+
+EPEL repo URL:
+epel_repo_url
 ```
 
 Dependencies
