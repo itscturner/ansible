@@ -1,9 +1,13 @@
 ---
 # defaults file for auditd
 
+# Auditd service name.
 auditd_service: auditd
 
+# Auditd configuration directory.
 auditd_config_directory: /etc/audit
+
+# Auditd configuration file.
 auditd_config_file: auditd.conf
 
 # /etc/audit/auditd.conf
