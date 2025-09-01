@@ -1,0 +1,32 @@
+---
+# tasks file for httpd
+
+- name: Install httpd packages
+  ansible.builtin.dnf:
+    name: "{{ httpd_packages }}"
+    state: present
+
+- name: Configure httpd
+  ansible.builtin.template:
+    src:
+    dest:
+    owner:
+    group:
+    mode: 0644
+  notify:
+    - Test httpd configuration
+    - Restart httpd
+
+
+
+
+
+
+
+
+
+- name: Start and enable httpd
+  ansible.builtin.service:
+    name: "{{ httpd_service }}"
+    state: started
+    enabled: true
