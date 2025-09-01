@@ -2,10 +2,25 @@
 # defaults file for kernel
 
 #
+kernel_requirements:
+  - bc
+  - diffutils
+  - flex
+  - hostname
+  - openssl-devel
+
+#
 kernel_version:
 
 #
 kernel_build_location:
 
 #
+kernel_installation_location: /boot/vmlinuz
+
+#
 kernel_parameters:
+
+#
+kernel_modules_location: /usr/lib/modules/{{ kernel_version }}*
+
