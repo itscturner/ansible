@@ -13,10 +13,10 @@
 # documentation: https://docs.ansible.com/ansible/latest/reference_appendices/config.html.
 
 [defaults]
-inventory      = /etc/ansible/hosts
-roles_path    = /etc/ansible/roles
-library        = /usr/share/my_modules/
-module_utils   = /usr/share/my_module_utils/
+inventory      = {{ ansible_inventory_path }}
+roles_path    = {{ ansible_roles_path }}
+library        = {{ ansible_library_path }}
+module_utils   = {{ ansible_module_utils_path }}
 remote_tmp     = $HOME/.ansible/tmp
 forks          = 15
 sudo_user      = root
@@ -90,7 +90,7 @@ gathering = smart
 
 # logging is off by default unless this path is defined
 # if so defined, consider logrotate
-log_path = /var/log/ansible.log
+log_path = {{ ansible_log_path }}
 
 # default module name for /usr/bin/ansible
 #module_name = command
@@ -119,7 +119,7 @@ log_path = /var/log/ansible.log
 
 # If set, configures the path to the Vault password file as an alternative to
 # specifying --vault-password-file on the command line.
-#vault_password_file = /path/to/vault_password_file
+vault_password_file = {{ ansible_vault_password_file }}
 
 # format of string {{ ansible_managed }} available within Jinja2
 # templates indicates to users editing templates files will be replaced.
@@ -127,7 +127,6 @@ log_path = /var/log/ansible.log
 #ansible_managed = Ansible managed: {file} modified on %Y-%m-%d %H:%M:%S by {uid} on {host}
 # {file}, {host}, {uid}, and the timestamp can all interfere with idempotence
 # in some situations so the default is a static string:
-#ansible_managed = Ansible managed 
 ansible_managed = Ansible Managed: Modified on %m-%d-%Y at %H:%M:%S
 
 # by default, ansible-playbook will display "Skipping [host]" if it determines a task
@@ -155,12 +154,12 @@ display_skipped_hosts = True
 # system running ansible itself. This may include warnings about 3rd party packages or
 # other conditions that should be resolved if possible.
 # to disable these warnings, set the following value to False:
-#system_warnings = True
+system_warnings = {{ ansible_system_warnings }}
 
 # by default (as of 1.4), Ansible may display deprecation warnings for language
 # features that should no longer be used and will be removed in future versions.
 # to disable these warnings, set the following value to False:
-deprecation_warnings = False
+deprecation_warnings = {{ ansible_deprecation_warnings }}
 
 # (as of 1.8), Ansible can optionally warn when usage of the shell and
 # command module appear to be simplified by using a default Ansible module
@@ -168,7 +167,7 @@ deprecation_warnings = False
 # setting or adding warn=yes or warn=no to the end of the command line
 # parameter string.  This will for example suggest using the git module
 # instead of shelling out to the git command.
-command_warnings = True
+command_warnings = {{ ansible_command_warnings }}
 
 # set plugin path directories here, separate with colons
 #action_plugins     = /usr/share/ansible/plugins/action
@@ -202,13 +201,12 @@ filter_plugins     = /usr/share/ansible_plugins/filter_plugins:$HOME/.ansible/pl
 
 # don't like cows?  that's unfortunate.
 # set to 1 if you don't want cowsay support or export ANSIBLE_NOCOWS=1
-#nocows = 1
+nocows = {{ ansible_nocows }}
 
 # set which cowsay stencil you'd like to use by default. When set to 'random',
 # a random stencil will be selected for each task. The selection will be filtered
 # against the `cow_whitelist` option below.
-#cow_selection = default
-#cow_selection = random
+cow_selection = {{ ansible_cow_selection | join(',') }}
 
 # when using the 'random' option for cowsay, stencils will be restricted to this list.
 # it should be formatted as a comma-separated list with no spaces between names.
@@ -263,7 +261,7 @@ filter_plugins     = /usr/share/ansible_plugins/filter_plugins:$HOME/.ansible/pl
 # controls the compression level of variables sent to
 # worker processes. At the default of 0, no compression
 # is used. This value must be an integer from 0 to 9.
-#var_compression_level = 9
+var_compression_level = {{ ansible_var_compression_level }}
 
 # controls what compression method is used for new-style ansible modules when
 # they are sent to the remote system.  The compression types depend on having
@@ -286,7 +284,7 @@ filter_plugins     = /usr/share/ansible_plugins/filter_plugins:$HOME/.ansible/pl
 #merge_multiple_cli_flags = True
 
 # Controls showing custom stats at the end, off by default
-#show_custom_stats = True
+show_custom_stats = True
 
 # Controls which files to ignore when using a directory as inventory with
 # possibly multiple sources (both static and dynamic)
@@ -319,13 +317,12 @@ filter_plugins     = /usr/share/ansible_plugins/filter_plugins:$HOME/.ansible/pl
 #unparsed_is_failed=False
 
 [privilege_escalation]
-#become=True
-#become_method=sudo
-#become_user=root
-#become_ask_pass=False
+become={{ ansible_become }}
+become_method={{ ansible_become_method }}
+become_user={{ ansible_become_user }}
+become_ask_pass={{ ansible_become_ask_pass }}
 
 [paramiko_connection]
-
 # uncomment this line to cause the paramiko connection plugin to not record new host
 # keys encountered.  Increases performance on new host additions.  Setting works independently of the
 # host key checking setting above.
@@ -349,11 +346,10 @@ filter_plugins     = /usr/share/ansible_plugins/filter_plugins:$HOME/.ansible/pl
 #host_key_auto_add = True
 
 [connection]
-
 # ssh arguments to use
 # Leaving off ControlPersist will result in poor performance, so use
 # paramiko on older platforms rather than removing it, -C controls compression use
-#ssh_args = -C -o ControlMaster=auto -o ControlPersist=60s
+ssh_args = {{ ansible_ssh_args }}
 
 # The base directory for the ControlPath sockets.
 # This is the "%(directory)s" in the control_path option
@@ -375,7 +371,7 @@ filter_plugins     = /usr/share/ansible_plugins/filter_plugins:$HOME/.ansible/pl
 # first disable 'requiretty' in /etc/sudoers
 # By default, this option is disabled to preserve compatibility with
 # sudoers configurations that have requiretty (the default on many distros).
-#pipelining = False
+pipelining = {{ ansible_pipelining }}
 
 # Control the mechanism for transferring files (old)
 #   * smart = try sftp and then try scp [default]
@@ -406,7 +402,6 @@ filter_plugins     = /usr/share/ansible_plugins/filter_plugins:$HOME/.ansible/pl
 #retries = 3
 
 [persistent_connection]
-
 # Configures the persistent connection timeout value in seconds.  This value is
 # how long the persistent connection will remain idle before it is destroyed.
 # If the connection doesn't receive a request before the timeout value
