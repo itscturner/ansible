@@ -17,3 +17,9 @@
   notify:
     - Test sshd configuration
     - Restart sshd
+
+- name: Start and enable sshd
+  ansible.builtin.service:
+    name: "{{ sshd_service }}"
+    state: started
+    enabled: true
