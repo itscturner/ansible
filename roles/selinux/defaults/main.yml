@@ -1,0 +1,17 @@
+---
+# defaults file for selinux
+
+# List of SELinux packages.
+selinux_packages:
+  - 
+
+# SELinux state: enforcing, permissive, or disabled.
+selinux_state:
+
+# SELinux policy.
+selinux_policy: targeted
+
+# You can enable (or disable) booleans by specifying them in this list.
+selinux_booleans:
+  - 
+
