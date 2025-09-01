@@ -8,7 +8,7 @@ ntp_packages:
   - util-linux
 
 # NTP service name.
-ntp_service:
+ntp_service: chronyd
 
 # NTP configuration file.
 ntp_conf: chrony.conf
