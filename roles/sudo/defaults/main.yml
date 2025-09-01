@@ -1,2 +1,31 @@
 ---
 # defaults file for sudo
+
+# Sudo package name.
+sudo_package: sudo
+
+# Path of the sudoers configuration file.
+sudo_sudoers_file: /etc/sudoers
+
+# Path of the sudoers.d directory.
+sudo_sudoersd_directory: /etc/sudoers.d
+
+
+# List of sudo users.
+sudo_users:
+  - user: cturner
+    nopasswd: yes
+    
+
+# List of files in the sudoers.d directory.
+#sudo_sudoersd_files:
+#  - 
+
+
+
+
+
+
+
+
+
