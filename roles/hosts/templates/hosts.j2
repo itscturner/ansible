@@ -1,12 +1,5 @@
 # {{ ansible_managed }}
 
 127.0.0.1 localhost localhost.localdomain
-127.0.0.1 {{ inventory_hostname_short | lower }} {{ inventory_hostname | lower }}
-{{ ansible_default_ipv4.address }} {{ inventory_hostname_short | lower }} {{ inventory_hostname | lower }}
-
-##########
-
-{% for definition in hosts_all_hosts: %}
-{{ definition.address }}{% for hostname in definition.hostnames %} {{ hostname }}{% endfor %}
-
-{% endfor %}
+127.0.0.1 {{ hosts_hostname }} {{ hosts_hostname_fqdn }}
+{{ ansible_default_ipv4.address }} {{ hosts_hostname }} {{ hosts_hostname_fqdn }}
