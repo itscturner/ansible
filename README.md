@@ -11,6 +11,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [Auditd](https://github.com/itscturner/ansible/tree/main/roles/auditd) <br>
 [EPEL](https://github.com/itscturner/ansible/tree/main/roles/epel) <br>
 [Facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
+[Git](https://github.com/itscturner/ansible/tree/main/roles/git) <br>
 [Helm](https://github.com/itscturner/ansible/tree/main/roles/helm) <br>
 [Hosts](https://github.com/itscturner/ansible/tree/main/roles/hosts) <br>
 [Kubectl](https://github.com/itscturner/ansible/tree/main/roles/kubectl) <br>
