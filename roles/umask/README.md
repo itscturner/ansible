@@ -3,20 +3,16 @@ umask
 
 An ansible role to configure umask.
 
-Requirements
-------------
-
-REQUIREMENTS
-
 Role Variables
 --------------
+The default values for the variables are set in `defaults/main.yml`
+```
+Set umask:
+umask
 
-ROLE VARIABLES
-
-Dependencies
-------------
-
-DEPENDENCIES
+Which users to set umask:
+umask_users
+```
 
 Example Playbook
 ----------------
