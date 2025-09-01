@@ -1,0 +1,15 @@
+---
+# tasks file for httpd - ssl
+
+- name: ssl | Template ssl configuration file
+  ansible.builtin.template:
+    src: ssl.conf.j2
+    dest: "{{ httpd_config_directory }}/ssl.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Test httpd configuration
+    - Restart httpd 
+
+- name: ssl | Configure redirect from http to https
