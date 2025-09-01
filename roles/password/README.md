@@ -7,7 +7,11 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
+Password quality file location:
+password_complexity_file
 
+Login definitions file location:
+password_logindefs_file
 ```
 
 Example Playbook
