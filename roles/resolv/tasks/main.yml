@@ -4,7 +4,5 @@
 - name: Configure resolv.conf
   ansible.builtin.template:
     src: resolv.conf.j2
-    dest: /etc/resolv.conf
+    dest: "{{ resolv_conf_file }}"
     mode: 0644
-
-
