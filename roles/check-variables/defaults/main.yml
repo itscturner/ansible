@@ -1,0 +1,4 @@
+---
+# defaults file for check-variables
+
+check-variables-default-variable: "DEFAULTS VARIABLE"
