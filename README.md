@@ -17,6 +17,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [Kubectl](https://github.com/itscturner/ansible/tree/main/roles/kubectl) <br>
 [Logrotate](https://github.com/itscturner/ansible/tree/main/roles/logrotate) <br>
 [MOTD](https://github.com/itscturner/ansible/tree/main/roles/motd) <br>
+[NTP](https://github.com/itscturner/ansible/tree/main/roles/ntp) <br>
 [Resolv](https://github.com/itscturner/ansible/tree/main/roles/resolv) <br>
 [Ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
 [Umask](https://github.com/itscturner/ansible/tree/main/roles/umask) <br>
