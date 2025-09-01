@@ -3,11 +3,6 @@ git
 
 An ansible role to install and configure git.
 
-Requirements
-------------
-
-None.
-
 Role Variables
 --------------
 ```
@@ -29,11 +24,6 @@ git_user_email
 Username of git user:
 git_username
 ```
-
-Dependencies
-------------
-
-None.
 
 Example Playbook
 ----------------
