@@ -15,4 +15,5 @@
     mode: 0644
   with_items: "{{ sshd_config_files }}"
   notify:
+    - Test sshd configuration
     - Restart sshd
