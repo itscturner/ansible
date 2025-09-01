@@ -18,12 +18,55 @@
     - Restart httpd
 
 
+- name: Template ssl configuration file
+  ansible.builtin.template:
+    src: ssl.conf.j2
+    dest: "{{ httpd_config_directory }}/ssl.conf"
+    owner: root
+    group: root
+    mode: 0644
+  notify:
+    - Test httpd configuration
+    - Restart httpd 
+
+
+# SSL:
+- name: Configure redirect from http to https
+
+
+- name: LOCATIONS
+
+
+
+
+
+- name: Configure ports
+
+
+
+
+
+- name: Create directories
+
+- name: Configure directories
 
 
 
 
 
 
+
+
+
+
+
+
+- name: Remove default html
+  ansible.builtin.file:
+    path: "{{ httpd_data_directory }}/index.html"
+    state: absent
+  when:
+    - httpd_remove_default_index
 
 - name: Start and enable httpd
   ansible.builtin.service:
