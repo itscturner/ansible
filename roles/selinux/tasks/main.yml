@@ -1,0 +1,25 @@
+---
+# tasks file for selinux
+
+- name: Ensure required packages are installed
+  ansible.builtin.dnf:
+    name: "{{ selinux_packages }}"
+    state: present
+
+- name: Manage selinux state
+  ansible.posix.selinux:
+    state: "{{ selinux_state }}"
+    policy: "{{ selinux_policy }}"
+  notify:
+    - Reboot
+
+- name: Manage selinux booleans
+  ansible.posix.seboolean:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('yes') }}"
+    persistent: "{{ item.persistent }}"
+  loop:
+  loop_control:
+    label: "{{ item.name }}"
+  when:
+    - selinux_booleans is defined
