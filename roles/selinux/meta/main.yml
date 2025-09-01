@@ -1,0 +1,19 @@
+---
+galaxy_info:
+  author: itscturner
+  role_name: selinux
+  description: An ansible role to install and configure selinux.
+  license: Apache-2.0
+  min_ansible_version: "2.12"
+
+  platforms:
+    - name: RHEL
+      versions:
+        - "9"
+
+  galaxy_tags:
+    - security
+    - selinux
+    - system
+
+  dependencies: []
