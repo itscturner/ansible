@@ -1,3 +1,5 @@
 ---
 # defaults file for motd
 
+# MOTD file location.
+motd_file: /etc/motd
