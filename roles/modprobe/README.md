@@ -14,7 +14,7 @@ List of modprobe modules to install:
 modprobe_modules
 
 List of modprobe modules to remove:
-modprobe_modules_remove
+modprobe_blacklisted_modules
 ```
 
 Example Playbook
