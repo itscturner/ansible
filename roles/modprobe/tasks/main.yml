@@ -18,7 +18,7 @@
   community.general.modprobe:
     name: "{{ item.name }}"
     state: absent
-  loop: "{{ modprobe_modules_remove }}"
+  loop: "{{ modprobe_blacklisted_modules }}"
   when:
-    - modprobe_modules_remove is defined
+    - modprobe_blacklisted_modules is defined
   
