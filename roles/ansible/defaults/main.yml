@@ -14,7 +14,7 @@ ansible_collections:
   - ansible.utils
   - community.general
 
-# Ansible configuration file directory.
+# Ansible configuration directory.
 ansible_configuration_directory: /etc/ansible
 
 # Ansible configuration file name.
