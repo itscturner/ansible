@@ -1,18 +1,7 @@
 ---
 # defaults file for vscode
 
-# VSCode download mirror.
-vscode_mirror: "https://packages.microsoft.com"
-
-# VSCode package name.
-vscode_package: "code"
-
-# VSCode dependencies.
-vscode_dependencies:
-  - libxshmfence
-  - libX11-xcb
-
-# VSCode extensions.
+# List of VSCode extensions.
 vscode_extensions:
   - esbenp.prettier-vscode
   - one-monokai
