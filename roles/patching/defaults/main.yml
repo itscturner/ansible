@@ -1,3 +1,9 @@
 ---
 # defaults file for patching
 
+# List of packages to update.
+patching_package_list:
+  - "*"
+
+# Message to be displayed when patching is complete, and system is rebooting.
+patching_reboot_message: "Patching complete, rebooting system."
