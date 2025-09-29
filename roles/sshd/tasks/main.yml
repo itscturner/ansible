@@ -6,6 +6,8 @@
     name: "{{ sshd_packages }}"
     state: present
 
+
+
 - name: Configure sshd
   ansible.builtin.template:
     src: "{{ item }}.j2"
@@ -17,6 +19,8 @@
   notify:
     - Test sshd configuration
     - Restart sshd
+
+
 
 - name: Start and enable sshd
   ansible.builtin.service:
