@@ -6,12 +6,13 @@ Ansible
 A collection of Ansible playbooks, roles, and inventory files for automating server provisioning and configuration management. <br>
 <br>
 
-[Ansible](https://github.com/itscturner/ansible/tree/main/roles/ansible) <br>
-[Debug](https://github.com/itscturner/ansible/tree/main/roles/debug) <br>
-[Facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
-[Git](https://github.com/itscturner/ansible/tree/main/roles/git) <br>
-[Patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
-🚧 [Repos](https://github.com/itscturner/ansible/tree/main/roles/repos) 🚧 <br>
-[Sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
-[Ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
-[VSCode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
+[ansible](https://github.com/itscturner/ansible/tree/main/roles/ansible) <br>
+🚧 [auditd](https://github.com/itscturner/ansible/tree/main/roles/auditd) 🚧 <br>
+[debug](https://github.com/itscturner/ansible/tree/main/roles/debug) <br>
+[facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
+[git](https://github.com/itscturner/ansible/tree/main/roles/git) <br>
+[patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
+🚧 [repos](https://github.com/itscturner/ansible/tree/main/roles/repos) 🚧 <br>
+[sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
+[ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
+[vscode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
