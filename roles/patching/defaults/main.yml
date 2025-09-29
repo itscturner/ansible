@@ -6,4 +6,4 @@ patching_package_list:
   - "*"
 
 # Message to be displayed when patching is complete, and system is rebooting.
-patching_reboot_message: "Patching complete, rebooting system now."
+patching_reboot_message: "Patching complete, rebooting system in 60 seconds."
