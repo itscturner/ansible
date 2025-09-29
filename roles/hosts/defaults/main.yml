@@ -1,10 +1,6 @@
 ---
 # defaults file for hosts
 
-# Hosts packages.
-hosts_packages:
-  - hostname
-
 # Hostname. By default, this is set to whatever the inventory is set to.
 hosts_hostname: "{{ inventory_hostname_short }}"
 
