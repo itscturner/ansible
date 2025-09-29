@@ -86,16 +86,21 @@ sudo_sudoers_host_aliases:
 
 
 #
-sudo_sudoers_user_aliases: []
-#  - name:
-#    user:
+sudo_sudoers_user_aliases:
+  - name: "ADMINS"
+    users:
+      - cturner
 
 
 
 #
-sudo_sudoers_command_aliases: []
-#  - name: 
-#    command:
+sudo_sudoers_command_aliases:
+  - name: "NETWORKING"
+    commands:
+      - "/bin/ping"
+      - "/sbin/route"
+      - "/sbin/ifconfig"
+      - "/sbin/iwconfig"
 
 
 #
@@ -106,8 +111,7 @@ sudo_sudoers_secure_path:
   - "/usr/bin"
 
 
-#
-sudo_sudoers_
+
 
 
 
