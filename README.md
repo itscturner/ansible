@@ -11,6 +11,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [debug](https://github.com/itscturner/ansible/tree/main/roles/debug) <br>
 [facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
 [git](https://github.com/itscturner/ansible/tree/main/roles/git) <br>
+[motd](https://github.com/itscturner/ansible/tree/main/roles/motd) <br>
 [patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
 🚧 [repos](https://github.com/itscturner/ansible/tree/main/roles/repos) 🚧 <br>
 [sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
