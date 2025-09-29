@@ -4,6 +4,38 @@
 # See the sudoers man page for the details on how to write a sudoers file.
 
 
+{% for default in sudo_sudoers_defaults %}
+Defaults  {{ default }}
+{% endfor %}
+
+
+Defaults  env_reset
+{% for env_keep in sudo_sudoers_env_keep %}
+Defaults  env_keep {% if not loop.first %}+{% endif %}= "{{ items | list | join(' ') }}"
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+{% for sudo_user in sudo_sudoers_users %}
+{{ sudo_user.user }}  {{ sudo_user.hosts }}=({{ sudo_user.operators }}) {% if nopasswd %}NOPASSWD:{% endif %} {{ sudo_user.commands }}
+{% endfor %}
+
+
+{% for sudo_group in sudo_sudoers_groups %}
+{{ sudo_group.group }}  {{ sudo_group.hosts }}=({{ sudo_group.operators }}) {% if nopasswd %}NOPASSWD:{% endif %} {{ sudo_group.commands }}
+{% endfor %}
+
+
+
 
 
 
