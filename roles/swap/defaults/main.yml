@@ -1,8 +1,0 @@
----
-# defaults file for swap
-
-swap_enabled: true
-
-swap_files:
-  - path:
-    size:
