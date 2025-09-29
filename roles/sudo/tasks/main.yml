@@ -3,14 +3,14 @@
 
 - name: Ensure sudo package is installed - Debian
   ansible.builtin.apt:
-    name: "{{ sudo_package }}"
+    name: "{{ sudo_packages }}"
     state: present
     install_recommends: true
   when: ansible_os_family == 'Debian'
 
 - name: Ensure sudo package is installed - RedHat
   ansible.builtin.dnf:
-    name: "{{ sudo_package }}"
+    name: "{{ sudo_packages }}"
     state: present
   when: ansible_os_family == 'RedHat'
 
