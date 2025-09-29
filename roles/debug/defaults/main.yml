@@ -1,0 +1,5 @@
+---
+# defaults file for debug
+
+# Specific variable to debug.
+debug_variable: ansible_distribution_major_version
