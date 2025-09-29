@@ -54,7 +54,7 @@ sudo_sudoers_env_keep:
 
 
 #
-sudo_sudoers_users:
+sudo_sudoers_user_specification:
 #sudo_sudoers_user_spec:
   - user: "root"
     hosts: "ALL"
@@ -63,7 +63,7 @@ sudo_sudoers_users:
     commands: "ALL"
 
 #
-sudo_sudoers_groups:
+sudo_sudoers_group_specification:
   - group: "%wheel"
     hosts: "ALL"
     operators: "ALL"
@@ -79,18 +79,23 @@ sudo_sudoers_includedir: /etc/sudoers.d
 
 #
 sudo_sudoers_host_aliases:
-  - 
+  - name: fileservers
+    hosts:
+      - fileserver1
+      - fileserver2
 
 
 #
-sudo_sudoers_user_aliases:
-  - 
+sudo_sudoers_user_aliases: []
+#  - name:
+#    user:
 
 
 
 #
-sudo_sudoers_command_aliases:
-  - 
+sudo_sudoers_command_aliases: []
+#  - name: 
+#    command:
 
 
 #
