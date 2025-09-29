@@ -7,12 +7,18 @@ galaxy_info:
   min_ansible_version: "2.12"
 
   platforms:
-    - name: RHEL
+    - name: Debian
       versions:
+        - all
+    - name: EL
+      versions:
+        - "8"
         - "9"
 
   galaxy_tags:
+    - code
     - development
     - ide
+    - vscode
 
   dependencies: []
