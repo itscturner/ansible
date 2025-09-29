@@ -2,7 +2,7 @@
 # tasks file for sshd
 
 - name: Ensure sshd packages are installed
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: "{{ sshd_packages }}"
     state: present
 
