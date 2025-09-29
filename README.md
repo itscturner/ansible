@@ -7,3 +7,4 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 <br>
 
 [Ansible](https://github.com/itscturner/ansible/tree/main/roles/ansible) <br>
+[Sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
