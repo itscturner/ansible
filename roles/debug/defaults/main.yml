@@ -4,5 +4,5 @@
 # Show all variables.
 debug_all_variables: false
 
-# Specific variable to debug.
+# Show specific variable.
 debug_variable: ansible_distribution_major_version
