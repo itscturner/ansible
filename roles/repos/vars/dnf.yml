@@ -1,1 +1,11 @@
+---
+# vars file for repos - dnf
 
+repo_list:
+  - name:
+    baseurl:
+    enabled:
+    gpgcheck:
+    gpgkey:
+    skip_if_unavailable:
+    sslverify:
