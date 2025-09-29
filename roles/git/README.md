@@ -31,6 +31,11 @@ Example Playbook
   - hosts: all
     roles:
       - role: git
+        git_users:
+          - system_username: cturner
+            git_user_name: "C. Turner"
+            git_username: itscturner
+            git_user_email: itscturner@email.com
 ```
 
 License
