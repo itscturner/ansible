@@ -1,7 +1,7 @@
 sudo
 ====
 
-An ansible role to installs and configures sudo.
+An ansible role to install and configure sudo.
 
 Role Variables
 --------------
