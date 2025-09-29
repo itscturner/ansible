@@ -12,3 +12,4 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [Patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
 🚧 [Repos](https://github.com/itscturner/ansible/tree/main/roles/repos) 🚧 <br>
 [Sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
+[VSCode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
