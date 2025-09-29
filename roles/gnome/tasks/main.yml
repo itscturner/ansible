@@ -1,5 +1,9 @@
 ---
 # tasks file for gnome
 
+- name: Install gnome packages
+  ansible.builtin.package:
+    name: "{{ gnome_packages }}"
+    state: present
 
 
