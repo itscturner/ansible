@@ -10,22 +10,55 @@ sudo_sudoers_file: /etc/sudoers
 # Path of the sudoers.d directory.
 sudo_sudoersd_directory: /etc/sudoers.d
 
+##########
 
-# List of sudo users.
-sudo_users:
-  - user: cturner
-    nopasswd: yes
-    
+#
+sudo_sudoers_defaults:
+  - "!visiblepw"
+  - "always_set_home"
+  - "match_group_by_gid"
+  - "always_query_group_plugin"
 
-# List of files in the sudoers.d directory.
-#sudo_sudoersd_files:
-#  - 
+#
+sudo_sudoers_env_keep:
+  - "COLORS"
+  - "DISPLAY"
+  - "HOSTNAME"
+  - "HISTSIZE"
+  - "KDEDIR"
+  - "LS_COLORS"
+  - "MAIL"
+  - "PS1"
+  - "PS2"
+  - "QTDIR"
+  - "USERNAME"
+  - "LANG"
+  - "LC_ADDRESS"
+  - "LC_CTYPE"
+  - "LC_COLLATE"
+  - "LC_IDENTIFICATION"
+  - "LC_MEASUREMENT"
+  - "LC_MESSAGES"
+  - "LC_MONETARY"
+  - "LC_NAME"
+  - "LC_NUMERIC"
+  - "LC_PAPER"
+  - "LC_TELEPHONE"
+  - "LC_TIME"
+  - "LC_ALL"
+  - "LANGUAGE"
+  - "LINGUAS"
+  - "_XKB_CHARSET"
+  - "XAUTHORITY"
+
+
+#
+sudo_sudoers_users:
+  - 
 
 
 
-
-
-
-
+#
+sudo_sudoers_includedir: /etc/sudoers.d
 
 
