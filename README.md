@@ -13,6 +13,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [git](https://github.com/itscturner/ansible/tree/main/roles/git) <br>
 [hosts](https://github.com/itscturner/ansible/tree/main/roles/hosts) <br>
 [kubectl](https://github.com/itscturner/ansible/tree/main/roles/kubectl) <br>
+[login_defs](https://github.com/itscturner/ansible/tree/main/roles/login_defs) <br>
 [motd](https://github.com/itscturner/ansible/tree/main/roles/motd) <br>
 [patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
 🚧 [repos](https://github.com/itscturner/ansible/tree/main/roles/repos) 🚧 <br>
