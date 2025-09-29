@@ -7,16 +7,7 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
-VSCode download mirror:
-vscode_mirror
-
-VSCode package name:
-vscode_package
-
-VSCode dependencies:
-vscode_dependencies
-
-VSCode extensions:
+List of VSCode extensions:
 vscode_extensions
 ```
 
