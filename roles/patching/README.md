@@ -7,7 +7,11 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
+List of packages to update:
+patching_package_list
 
+Message to be displayed when patching is complete, and system is rebooting:
+patching_reboot_message
 ```
 
 Example Playbook
