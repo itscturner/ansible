@@ -2,7 +2,7 @@
 # tasks file for git
 
 - name: Install git
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: "{{ git_packages }}"
     state: present
 
