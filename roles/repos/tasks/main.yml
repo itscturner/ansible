@@ -1,16 +1,14 @@
 ---
 # tasks file for repos
 
-- name: Configure repos
-  ansible.builtin.template:
-    src: main.j2
-    dest: /etc/yum.repos.d/main.repo
-    owner: root
-    group: root
-    mode: 0644
-
-- name: Update cache
-  ansible.builtin.shell:
-    cmd: "dnf clean all"
+- name: Include apt.yml
+  ansible.builtin.include_tasks:
+    file: apt.yml
   when:
-    - repos_update_cache
+    - ansible_pkg_mgr in [ "apt" ]
+
+- name: Include dnf.yml
+  ansible.builtin.include_tasks:
+    file: dnf.yml
+  when:
+    - ansible_pkg_mgr in [ "dnf", "dnf5", "yum" ]
