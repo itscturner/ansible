@@ -3,11 +3,6 @@ hosts
 
 An ansible role to configure the hosts and hostname files.
 
-Requirements
-------------
-
-None.
-
 Role Variables
 --------------
 
@@ -28,11 +23,6 @@ hosts_file
 Whether or not to reboot the host when the hostname is changed:
 hosts_hostname_reboot
 ```
-
-Dependencies
-------------
-
-None.
 
 Example Playbook
 ----------------
