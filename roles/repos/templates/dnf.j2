@@ -2,9 +2,9 @@
 [{{ repo.name }}]
 name = {{ repo.name }}
 baseurl = {{ repo.baseurl }}
-enabled = 1
-gpgcheck = 1
-gpgkey = ###############
-skip_if_unavailable = 
-sslverify =
+enabled = {{ repo.enabled }}
+gpgcheck = {{ repo.gpgcheck }}
+gpgkey = {{ repo.gpgkey }}
+skip_if_unavailable = {{ repo.skip_if_unavailable }}
+sslverify = {{ repo.sslverify }}
 {% endfor %}
