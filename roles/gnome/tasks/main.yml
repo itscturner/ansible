@@ -6,4 +6,26 @@
     name: "{{ gnome_packages }}"
     state: present
 
+#- name: Template GDM configuration file
+#  ansible.builtin.template:
+#    src: custom.conf.j2
+#    dest: /etc/gdm/custom.conf
+#    owner: root
+#    group: root
+#    mode: 0644
 
+- name: Disable gnome services
+  ansible.builtin.template:
+    src: gnomeservice.j2
+    dest: "/usr/share/dbus-1/services/org.gnome.{{ item }}.service"
+    owner: root
+    group: root
+    mode: 0644
+  with_items: "{{ gnome_disable_services }}"
+
+- name: Start and enable gnome display manager
+  ansible.builtin.service:
+    name: gdm
+    state: started
+    enabled: true
+    
