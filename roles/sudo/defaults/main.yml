@@ -55,10 +55,20 @@ sudo_sudoers_env_keep:
 
 #
 sudo_sudoers_users:
-  - user:
-    hosts:
-    operators:
-    commands:
+#sudo_sudoers_user_spec:
+  - user: "root"
+    hosts: "ALL"
+    operators: "ALL"
+    nopasswd: false
+    commands: "ALL"
+
+#
+sudo_sudoers_groups:
+  - group: "%wheel"
+    hosts: "ALL"
+    operators: "ALL"
+    nopasswd: true
+    commands: "ALL"
 
 
 
