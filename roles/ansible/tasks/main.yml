@@ -1,14 +1,9 @@
 ---
 # tasks file for ansible
 
-- name: Install ansible packages
-  ansible.builtin.dnf:
-    name: "{{ ansible_packages }}"
-    state: present
-
-- name: Install ansible collections
-  ansible.builtin.shell:
-    cmd: "ansible-galaxy collection install {{ ansible_collections }}"
+- name: Include install.yml
+  ansible.builtin.include_tasks:
+    file: install.yml
 
 - name: Ensure ansible directory exists
   ansible.builtin.file:
