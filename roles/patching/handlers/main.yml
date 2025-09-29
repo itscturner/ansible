@@ -1,0 +1,6 @@
+---
+# handlers file for patching
+
+- name: Reboot after patching
+  ansible.builtin.reboot:
+    msg: "{{ patching_reboot_message }}"
