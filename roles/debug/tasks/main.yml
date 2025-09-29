@@ -7,12 +7,14 @@
 - name: Collect service facts
   ansible.builtin.service_facts:
 
-- name: Show variables
+- name: Show all variables
   ansible.builtin.debug:
     var: vars
-  when: debug_all_variables == true
+  when:
+    - debug_all_variables == true
 
 - name: Show specific variable
   ansible.builtin.debug:
     var: "{{ debug_variable }}"
-  when: debug_variable is defined
+  when:
+    - debug_variable is defined
