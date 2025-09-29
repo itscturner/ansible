@@ -1,8 +1,9 @@
 ---
 # defaults file for sudo
 
-# Sudo package name.
-sudo_package: sudo
+# List of sudo packages.
+sudo_packages:
+  - sudo
 
 # Path of the sudoers configuration file.
 sudo_sudoers_file: /etc/sudoers
@@ -54,11 +55,63 @@ sudo_sudoers_env_keep:
 
 #
 sudo_sudoers_users:
-  - 
+  - user:
+    hosts:
+    operators:
+    commands:
 
 
 
 #
 sudo_sudoers_includedir: /etc/sudoers.d
+
+
+
+#
+sudo_sudoers_host_aliases:
+  - 
+
+
+#
+sudo_sudoers_user_aliases:
+  - 
+
+
+
+#
+sudo_sudoers_command_aliases:
+  - 
+
+
+#
+sudo_sudoers_secure_path:
+  - "/sbin"
+  - "/bin"
+  - "/usr/sbin"
+  - "/usr/bin"
+
+
+#
+sudo_sudoers_
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
