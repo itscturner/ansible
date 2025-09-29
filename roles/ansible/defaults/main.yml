@@ -17,7 +17,7 @@ ansible_collections:
 # Ansible configuration directory.
 ansible_configuration_directory: /etc/ansible
 
-# Ansible configuration file name.
+# Ansible configuration file.
 ansible_config_file: ansible.cfg
 
 # Ansible inventory path.
@@ -52,13 +52,11 @@ ansible_nocows: 0
 
 # List of cows to print. To get all options, use: 'cowsay -l'.
 ansible_cow_selection:
-  - bunny
   - default
-  - elephant
   - fox
   - koala
   - moose
-  - turtle
+  - small
   - tux
 
 # Ansible compression level of variables sent to worker processes. Default is '0'.
