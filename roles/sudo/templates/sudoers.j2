@@ -16,33 +16,31 @@ Defaults  env_keep {% if not loop.first %}+{% endif %}= "{{ items | list | join(
 
 
 
-#####
-
 {% if sudo_sudoers_host_aliases is defined %}
 {% for host_alias in sudo_sudoers_host_aliases %}
 Host_Alias  {{ host_alias.name }} = {{ host_alias.hosts | join(',') }}
 {% endfor %}
 {% endif %}
 
-#####
+
+
 
 {% if sudo_sudoers_user_aliases is defined %}
-
-
-
-
+{% for user_alias in sudo_sudoers_user_aliases %}
+User_Alias  {{ user_alias.name }} = {{ user_alias.users | join(',') }}
+{% endfor %}
 {% endif %}
 
-#####
+
+
 
 {% if sudo_sudoers_command_aliases is defined %}
-
-
-
-
+{% for command_alias in sudo_sudoers_command_aliases %}
+Cmnd_Alias  {{ command_alias.name }} = {{ command_alias.commands | join(',') }}
+{% endfor %}
 {% endif %}
 
-#####
+
 
 
 
