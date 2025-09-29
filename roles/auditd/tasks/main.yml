@@ -2,7 +2,7 @@
 # tasks file for auditd
 
 - name: Ensure audit packages are installed
-  ansible.builtin.dnf:
+  ansible.builtin.package:
     name: "{{ auditd_packages }}"
     state: present
 
