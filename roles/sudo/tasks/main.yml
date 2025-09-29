@@ -1,11 +1,18 @@
 ---
 # tasks file for sudo
 
-- name: Ensure sudo package is installed
+- name: Ensure sudo package is installed - Debian
+  ansible.builtin.apt:
+    name: "{{ sudo_package }}"
+    state: present
+    install_recommends: true
+  when: ansible_os_family == 'Debian'
+
+- name: Ensure sudo package is installed - RedHat
   ansible.builtin.dnf:
     name: "{{ sudo_package }}"
     state: present
-
+  when: ansible_os_family == 'RedHat'
 
 - name: Configure sudoers file
   ansible.builtin.template:
@@ -16,6 +23,8 @@
     mode: 0440
     validate: /usr/sbin/visudo -cf %s
 
+
+
 - name: Configure sudoers.d files
   ansible.builtin.template:
     src:
@@ -25,4 +34,3 @@
     mode:
     validate: /usr/sbin/visudo -cf %s
   with_items: "{{ sudo_sudoersd_files }}"
-
