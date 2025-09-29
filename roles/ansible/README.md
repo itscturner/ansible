@@ -1,7 +1,7 @@
 ansible
 =======
 
-An ansible role to setup ansible.
+An ansible role to configure ansible.
 
 Role Variables
 --------------
