@@ -1,8 +1,0 @@
----
-# tasks file for arch
-
-- name: Include packages.yml
-  ansible.builtin.include_tasks:
-    file: packages.yml
-    
-
