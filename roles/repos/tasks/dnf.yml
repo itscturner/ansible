@@ -1,28 +1,16 @@
 ---
 # tasks file for repos - dnf
 
-- name: dnf | 
-
-
-
-
-
-
-
-- name: Configure repos
+- name: dnf | Configure repos
   ansible.builtin.template:
-    src: main.j2
+    src: dnf.j2
     dest: /etc/yum.repos.d/main.repo
     owner: root
     group: root
     mode: 0644
 
-- name: Update cache
+- name: dnf | Update cache
   ansible.builtin.shell:
     cmd: "dnf clean all"
   when:
     - repos_update_cache
-
-
-
-
