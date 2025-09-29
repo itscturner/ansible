@@ -1,4 +1,78 @@
 # {{ ansible_managed }}
 
-# This is the ssh client system-wide configuration file.
-# See sshd_config(5) for more information on any settings used. Comments will be added only to clarify why a configuration was chosen.
+# This is the sshd server system-wide configuration file.
+# See sshd_config(5) for more information.
+
+#
+Port {{ sshd_port }}
+
+#
+Protocol {{ sshd_protocol }}
+
+#
+UsePrivilegeSeparation {{ sshd_use_privilege_separation }}
+
+
+# Logging
+SyslogFacility {{ sshd_syslog_facility }}
+LogLevel {{ sshd_log_level }}
+
+# Authentication
+LoginGraceTime {{ sshd_login_grace_time }}
+PermitRootLogin {{ sshd_permit_root_login }}
+StrictModes {{ sshd_strict_modes }}
+
+RSAAuthentication {{ sshd_rsa_authentication }}
+PubkeyAuthentication {{ sshd_pubkey_authentication }}
+AuthorizedKeysFile {{ sshd_authorized_keys_file }}
+
+IgnoreRhosts {{ sshd_ignore_rhosts }}
+RhostsRSAAuthentication {{ sshd_rhosts_rsa_authentication }}
+HostbasedAuthentication {{ sshd_hostbased_authentication }}
+IgnoreUserKnownHosts {{ sshd_ignore_user_known_hosts }}
+
+
+
+PermitEmptyPasswords {{ sshd_permit_empty_passwords }}
+
+ChallengeResponseAuthentication {{ sshd_challenge_response_authentication }}
+
+PasswordAuthentication {{ sshd_password_authentication }}
+
+# Kerberos Options
+#KerberosAuthentication no
+#KerberosGetAFSToken no
+#KerberosOrLocalPasswd yes
+#KerberosTicketCleanup yes
+
+# GSSAPI Options
+#GSSAPIAuthentication no
+#GSSAPICleanupCredentials yes
+
+X11Forwarding {{ sshd_x11_forwarding }}
+X11DisplayOffset {{ sshd_x11_display_offset }}
+PrintMotd {{ sshd_print_motd }}
+PrintLastLog {{ sshd_print_lastlog }}
+TCPKeepAlive {{ sshd_tcp_keep_alive }}
+UseLogin {{ sshd_use_login }}
+
+#MaxStartups 10:30:60
+#Banner /etc/issue.net
+
+# Allow client to pass locale environment variables
+AcceptEnv LANG LC_*
+
+Subsystem sftp /usr/lib/openssh/sftp-server
+
+# Set this to 'yes' to enable PAM authentication, account processing,
+# and session processing. If this is enabled, PAM authentication will
+# be allowed through the ChallengeResponseAuthentication and
+# PasswordAuthentication.  Depending on your PAM configuration,
+# PAM authentication via ChallengeResponseAuthentication may bypass
+# the setting of "PermitRootLogin without-password".
+# If you just want the PAM account and session checks to run without
+# PAM authentication, then enable this but set PasswordAuthentication
+# and ChallengeResponseAuthentication to 'no'.
+UsePAM yes
+
+
