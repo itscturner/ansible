@@ -1,5 +1,20 @@
 ---
 # defaults file for gnome
 
-
+# List of gnome packages to install.
+gnome_packages:
+  - gdm
+  - gnome-session
+  - gnome-shell-extension-auto-move-windows
+  - gnome-shell-extension-dash-to-dock
+  - gnome-shell-extension-drive-menu
+  - gnome-shell-extension-native-window-placement
+  - gnome-shell-extension-panel-favorites
+  - gnome-shell-extension-systemMonitor
+  - gnome-shell-extension-top-icons
+  - gnome-shell-extension-updates-dialog
+  - gnome-shell-extension-window-grouper
+  - gnome-shell-extension-windowsNavigator
+  - gnome-shell-extension-workspace-indicator
+  - gnome-tweaks
 
