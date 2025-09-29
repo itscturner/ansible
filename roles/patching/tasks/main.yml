@@ -1,3 +1,18 @@
 ---
 # tasks file for patching
 
+- name: Update system packages - Debian
+  ansible.builtin.apt:
+    name: "{{ patching_package_list }}"
+    state: latest
+  notify:
+    - Reboot after patching
+  when: ansible_os_family == 'Debian'
+
+- name: Update system packages - RedHat
+  ansible.builtin.dnf:
+    name: "{{ patching_package_list }}"
+    state: latest
+  notify:
+    - Reboot after patching
+  when: ansible_os_family == 'RedHat'
