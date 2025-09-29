@@ -6,3 +6,23 @@
 
 
 
+
+
+
+- name: Configure repos
+  ansible.builtin.template:
+    src: main.j2
+    dest: /etc/yum.repos.d/main.repo
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Update cache
+  ansible.builtin.shell:
+    cmd: "dnf clean all"
+  when:
+    - repos_update_cache
+
+
+
+
