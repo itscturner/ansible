@@ -20,6 +20,7 @@ Example Playbook
   - hosts: all
     roles:
       - role: debug
+        debug_variable: ansible_distribution_major_version
 ```
 
 License
