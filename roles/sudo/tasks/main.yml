@@ -22,15 +22,3 @@
     group: root
     mode: 0440
     validate: /usr/sbin/visudo -cf %s
-
-
-
-- name: Configure sudoers.d files
-  ansible.builtin.template:
-    src:
-    dest:
-    owner:
-    group:
-    mode:
-    validate: /usr/sbin/visudo -cf %s
-  with_items: "{{ sudo_sudoersd_files }}"
