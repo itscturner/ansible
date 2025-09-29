@@ -1,0 +1,4 @@
+---
+# tasks file for vscode - apt
+
+- name: apt | 
