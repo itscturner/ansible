@@ -16,22 +16,44 @@ Defaults  env_keep {% if not loop.first %}+{% endif %}= "{{ items | list | join(
 
 
 
+#####
+
+{% if sudo_sudoers_host_aliases is defined %}
+{% for host_alias in sudo_sudoers_host_aliases %}
+Host_Alias  {{ host_alias.name }} = {{ host_alias.hosts | join(',') }}
+{% endfor %}
+{% endif %}
+
+#####
+
+{% if sudo_sudoers_user_aliases is defined %}
 
 
 
 
+{% endif %}
+
+#####
+
+{% if sudo_sudoers_command_aliases is defined %}
 
 
 
 
+{% endif %}
 
-{% for sudo_user in sudo_sudoers_users %}
-{{ sudo_user.user }}  {{ sudo_user.hosts }}=({{ sudo_user.operators }}) {% if nopasswd %}NOPASSWD:{% endif %} {{ sudo_user.commands }}
+#####
+
+
+
+
+{% for sudo_user in sudo_sudoers_user_specification %}
+{{ sudo_user.user }}  {{ sudo_user.hosts }}=({{ sudo_user.operators }}) {% if nopasswd %}NOPASSWD: {% endif %}{{ sudo_user.commands }}
 {% endfor %}
 
 
-{% for sudo_group in sudo_sudoers_groups %}
-{{ sudo_group.group }}  {{ sudo_group.hosts }}=({{ sudo_group.operators }}) {% if nopasswd %}NOPASSWD:{% endif %} {{ sudo_group.commands }}
+{% for sudo_group in sudo_sudoers_group_specification %}
+{{ sudo_group.group }}  {{ sudo_group.hosts }}=({{ sudo_group.operators }}) {% if nopasswd %}NOPASSWD: {% endif %}{{ sudo_group.commands }}
 {% endfor %}
 
 
