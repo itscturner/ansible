@@ -1,10 +1,6 @@
 ---
 # handlers file for sshd
 
-- name: Test sshd configuration
-  ansible.builtin.shell:
-    cmd: sshd -t
-
 - name: Restart sshd
   ansible.builtin.service:
     name: "{{ sshd_service }}"
