@@ -1,28 +1,26 @@
 ---
 # tasks file for vscode
 
-- name: Enable VSCode repository
-  ansible.builtin.yum_repository:
-    name: vscode
-    description: Visual Studio Code Repository
-    state: present
-    baseurl: "{{ vscode_mirror }}/yumrepos/vscode"
-    gpgkey: "{{ vscode_mirror }}/keys/microsoft.asc"
-    gpgcheck: true
-    # includepkgs: "{{ vscode_package }}"
+- name: Include apt.yml
+  ansible.builtin.include_tasks:
+    file: apt.yml
+  when:
+    - ansible_pkg_mgr in [ "apt" ]
 
-- name: Ensure VSCode dependencies are installed
-  ansible.builtin.dnf:
-    name: "{{ vscode_dependencies }}"
-    state: present
+- name: Include dnf.yml
+  ansible.builtin.include_tasks:
+    file: dnf.yml
+  when:
+    - ansible_pkg_mgr in [ "dnf", "dnf5", "yum" ]
 
 - name: Install VSCode
-  ansible.builtin.dnf:
-    name: "{{ vscode_package }}"
+  ansible.builtin.package:
+    name: code
     state: present
 
 - name: Install VSCode extensions
   ansible.builtin.shell:
     cmd: "code --install-extension {{ item }}"
   with_items: "{{ vscode_extensions }}"
-  changed_when: "'alreade installed' not in result.stdout"
+  changed_when: "'already installed' not in result.stdout"
+  
