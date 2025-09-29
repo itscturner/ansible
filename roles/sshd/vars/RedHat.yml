@@ -1,2 +1,4 @@
 ---
 # vars file for sshd - RedHat
+
+sshd_service: sshd
