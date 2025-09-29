@@ -6,8 +6,4 @@ git_packages:
   - git
 
 # List of users to configure for git.
-git_users:
-  - system_username: cturner
-    git_user_name: "C. Turner"
-    git_username: itscturner
-    git_user_email: itscturner@email.com
+git_users: []
