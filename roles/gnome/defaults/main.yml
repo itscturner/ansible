@@ -18,3 +18,8 @@ gnome_packages:
   - gnome-shell-extension-workspace-indicator
   - gnome-tweaks
 
+#
+gnome_disable_services:
+  - Identity
+  - OnlineAccounts
+
