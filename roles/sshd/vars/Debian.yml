@@ -1,2 +1,4 @@
 ---
 # vars file for sshd - Debian
+
+sshd_service: ssh
