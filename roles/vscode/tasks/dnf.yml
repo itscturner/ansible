@@ -1,3 +1,10 @@
 ---
 # tasks file for vscode - dnf
 
+- name: dnf | Place yum repository
+  ansible.builtin.yum_repository:
+    name: code
+    description: Visual Studio Code
+    baseurl: "https://packages.microsoft.com/yumrepos/vscode"
+    gpgcheck: true
+    gpgkey: "https://packages.microsoft.com/keys/microsoft.asc"
