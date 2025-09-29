@@ -1,0 +1,19 @@
+---
+# tasks file for ansible - install
+
+- name: install | Install ansible packages on RedHat
+  ansible.builtin.dnf:
+    name: "{{ ansible_packages }}"
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: install | Install ansible packages on Debian
+  ansible.builtin.apt:
+    name: "{{ ansible_packages }}"
+    state: present
+    install_recommends: true
+  when: ansible_os_family == 'Debian'
+
+- name: Install ansible collections
+  ansible.builtin.shell:
+    cmd: "ansible-galaxy collection install {{ ansible_collections }}"
