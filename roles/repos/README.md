@@ -1,22 +1,15 @@
 repos
 =====
 
-An ansible role to configure repos.
-
-Requirements
-------------
-
-REQUIREMENTS
+An ansible role to configure repositories.
 
 Role Variables
 --------------
 
-ROLE VARIABLES
+The default values for the variables are set in `defaults/main.yml`
+```
 
-Dependencies
-------------
-
-DEPENDENCIES
+```
 
 Example Playbook
 ----------------
