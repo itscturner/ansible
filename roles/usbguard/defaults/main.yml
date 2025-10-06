@@ -10,10 +10,6 @@ usbguard_packages:
   - usbguard
   - usbutils
 
-
-
-
-
 # USBGuard Daemon Conf:
 # RuleFile
 usbguard_rulefile: /etc/usbguard/rules.conf
