@@ -10,6 +10,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 🚧 [auditd](https://github.com/itscturner/ansible/tree/main/roles/auditd) <br>
 [Debug](https://github.com/itscturner/ansible/tree/main/roles/debug) <br>
 [Facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
+🚧 [fips](https://github.com/itscturner/ansible/tree/main/roles/fips) <br>
 [git](https://github.com/itscturner/ansible/tree/main/roles/git) <br>
 🚧 [gnome](https://github.com/itscturner/ansible/tree/main/roles/gnome) <br>
 [helm](https://github.com/itscturner/ansible/tree/main/roles/helm) <br>
