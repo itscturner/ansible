@@ -1,9 +1,9 @@
 ---
 # tasks file for usbguard
 
-- name: Install USBGuard
+- name: Install USBGuard packages
   ansible.builtin.dnf:
-    name: usbguard
+    name: "{{ usbguard_packages }}"
     state: present
 
 #- name: Stat USB device directory
