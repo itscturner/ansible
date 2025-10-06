@@ -1,3 +1,5 @@
 ---
 # defaults file for fips
 
+# FIPS policy, options are: "DEFAULT", "FUTURE", "FIPS" or "LEGACY".
+fips_policy: DEFAULT
