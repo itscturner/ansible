@@ -7,6 +7,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 <br>
 
 ## Roles:
+🚧 [AIDE](https://github.com/itscturner/ansible/tree/main/roles/aide) <br>
 [ansible](https://github.com/itscturner/ansible/tree/main/roles/ansible) <br>
 🚧 [auditd](https://github.com/itscturner/ansible/tree/main/roles/auditd) <br>
 [Debug](https://github.com/itscturner/ansible/tree/main/roles/debug) <br>
