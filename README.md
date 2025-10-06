@@ -8,18 +8,19 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 
 [ansible](https://github.com/itscturner/ansible/tree/main/roles/ansible) <br>
 🚧 [auditd](https://github.com/itscturner/ansible/tree/main/roles/auditd) <br>
-[debug](https://github.com/itscturner/ansible/tree/main/roles/debug) <br>
-[facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
+[Debug](https://github.com/itscturner/ansible/tree/main/roles/debug) <br>
+[Facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
 [git](https://github.com/itscturner/ansible/tree/main/roles/git) <br>
 🚧 [gnome](https://github.com/itscturner/ansible/tree/main/roles/gnome) <br>
 [helm](https://github.com/itscturner/ansible/tree/main/roles/helm) <br>
-[hosts](https://github.com/itscturner/ansible/tree/main/roles/hosts) <br>
+[Hosts](https://github.com/itscturner/ansible/tree/main/roles/hosts) <br>
 [kubectl](https://github.com/itscturner/ansible/tree/main/roles/kubectl) <br>
 [login_defs](https://github.com/itscturner/ansible/tree/main/roles/login_defs) <br>
-[motd](https://github.com/itscturner/ansible/tree/main/roles/motd) <br>
+[MOTD](https://github.com/itscturner/ansible/tree/main/roles/motd) <br>
 [patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
-🚧 [repos](https://github.com/itscturner/ansible/tree/main/roles/repos) <br>
+🚧 [Repos](https://github.com/itscturner/ansible/tree/main/roles/repos) <br>
 🚧 [sshd](https://github.com/itscturner/ansible/tree/main/roles/sshd) <br>
 [sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
 [ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
-[vscode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
+🚧 [USBGuard](https://github.com/itscturner/ansible/tree/main/roles/usbguard) <br>
+[VSCode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
