@@ -19,6 +19,13 @@
     group: root
     mode: 0600
 
+
+
+rules.conf.j2
+/etc/usbguard/rules.conf
+
+
+
 - name: Start and enable USBGuard
   ansible.builtin.service:
     name: usbguard
