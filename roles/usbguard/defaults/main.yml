@@ -1,7 +1,18 @@
 ---
 # defaults file for usbguard
 
+# USBGuard configuration file.
 usbguard_configuration_file: /etc/usbguard/usbguard-daemon.conf
+
+# List of packages required by USBGuard.
+usbguard_packages:
+  - udisks2
+  - usbguard
+  - usbutils
+
+
+
+
 
 # USBGuard Daemon Conf:
 # RuleFile
