@@ -1,2 +1,19 @@
 ---
 # handlers file for fips
+
+- name: Get default kernel
+  ansible.builtin.command:
+    cmd: grubby --default-kernel
+  register: fips_default_kernel
+  changed_when: false
+
+- name: Update default kernel arguments
+  ansible.builtin.command:
+    cmd: grubby --update-kernel=$(grubby --default-kernel) --args=fips=1
+  changed_when: true
+  notify:
+    - Reboot
+
+- name: Reboot
+  ansible.builtin.reboot:
+    msg: "Ansible fips role requires reboot. Rebooting now."
