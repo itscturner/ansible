@@ -24,7 +24,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 🚧 [logrotate](https://github.com/itscturner/ansible/tree/main/roles/logrotate) <br>
 [MOTD](https://github.com/itscturner/ansible/tree/main/roles/motd) <br>
 🚧 [Network](https://github.com/itscturner/ansible/tree/main/roles/network) <br>
-🚧 [Password](https://github.com/itscturner/ansible/tree/main/roles/password) <br>
+[Password](https://github.com/itscturner/ansible/tree/main/roles/password) <br>
 [patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
 🚧 [Repos](https://github.com/itscturner/ansible/tree/main/roles/repos) <br>
 🚧 [resolv](https://github.com/itscturner/ansible/tree/main/roles/resolv) <br>
