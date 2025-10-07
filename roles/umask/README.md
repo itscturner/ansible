@@ -7,7 +7,7 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
-Set umask:
+Set default umask:
 umask
 
 Which users to set umask:
