@@ -1,2 +1,19 @@
 ---
 # tasks file for groups
+
+- name: Add groups
+  ansible.builtin.group:
+    name: "{{ group.name }}"
+    state: "{{ group.state | default('present') }}"
+    gid: "{{ group.gid | default(omit) }}"
+    system: "{{ group.system | default(omit) }}"
+    local: "{{ group.local | default(omit) }}"
+  with_items: "{{ groups }}"
+
+- name: Remove groups
+  ansible.builtin.group:
+    name: "{{ group.name }}"
+    state: absent
+  with_items: "{{ groups }}"
+  when:
+    - group.state == "absent"
