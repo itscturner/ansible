@@ -20,6 +20,8 @@ Example Playbook
   - hosts: all
     roles:
       - role: umask
+        umask_users:
+          - cturner
 ```
 
 License
