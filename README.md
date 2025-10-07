@@ -33,6 +33,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 🚧 [sshd](https://github.com/itscturner/ansible/tree/main/roles/sshd) <br>
 [sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
 [ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
+[umask](https://github.com/itscturner/ansible/tree/main/roles/umask) <br>
 🚧 [USBGuard](https://github.com/itscturner/ansible/tree/main/roles/usbguard) <br>
 [Users](https://github.com/itscturner/ansible/tree/main/roles/users) <br>
 [VSCode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
