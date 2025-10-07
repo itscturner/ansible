@@ -3,20 +3,13 @@ network
 
 An ansible role to configure NetworkManager.
 
-Requirements
-------------
-
-REQUIREMENTS
-
 Role Variables
 --------------
+The default values for the variables are set in `defaults/main.yml`
+```
 
-ROLE VARIABLES
 
-Dependencies
-------------
-
-DEPENDENCIES
+```
 
 Example Playbook
 ----------------
