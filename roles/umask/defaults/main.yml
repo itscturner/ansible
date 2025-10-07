@@ -1,7 +1,7 @@
 ---
 # defaults file for umask
 
-# Set umask.
+# Set default umask.
 umask: "0022"
 
 # Which users to set umask.
