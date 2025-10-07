@@ -5,5 +5,4 @@
 umask: "0022"
 
 # Which users to set umask.
-umask_users:
-  - root
+umask_users: []
