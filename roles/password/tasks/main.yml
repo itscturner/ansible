@@ -12,7 +12,6 @@
 - name: Enforce password policies in login.defs
   ansible.builtin.lineinfile:
     dest: "{{ password_logindefs_file }}"
-    #####
     backup: yes
     state: present
     dest: '{{ password_expiration_file }}'
@@ -24,18 +23,12 @@
       - { search: 'PASS_MIN_LEN', replace: 'PASS_MIN_LEN  {{ password_passminlen }}' }
       - { search: 'PASS_WARN_AGE', replace: 'PASS_WARN_AGE  {{ password_passwarnage }}' }
 
-
-
-##########
-
-- name: Enforce password history for pam
-
-#- name: Enforce Password History
+#- name: Enforce password history for pam
 #  pamd:
 #    name: 'system-auth'
 #    type: password
 #    control: sufficient 
 #    module_path: pam_unix.so
 #    module_arguments:
-#     - 'remember={{ remember }}'
+#      - 'remember={{ remember }}'
 #    state: args_present
