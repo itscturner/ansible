@@ -17,6 +17,10 @@ Example Playbook
   - hosts: all
     roles:
       - role: groups
+          - name: addgroup
+            gid: 1234
+          - name: removegroup
+            state: absent
 ```
 
 License
