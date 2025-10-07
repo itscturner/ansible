@@ -34,5 +34,5 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [sudo](https://github.com/itscturner/ansible/tree/main/roles/sudo) <br>
 [ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
 🚧 [USBGuard](https://github.com/itscturner/ansible/tree/main/roles/usbguard) <br>
-🚧 [Users](https://github.com/itscturner/ansible/tree/main/roles/users) <br>
+[Users](https://github.com/itscturner/ansible/tree/main/roles/users) <br>
 [VSCode](https://github.com/itscturner/ansible/tree/main/roles/vscode) <br>
