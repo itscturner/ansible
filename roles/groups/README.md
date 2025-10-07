@@ -7,8 +7,8 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
-
-
+List of groups to manage:
+groups
 ```
 
 Example Playbook
