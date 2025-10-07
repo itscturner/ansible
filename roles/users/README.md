@@ -3,12 +3,29 @@ users
 
 An ansible role to manage users.
 
+Role Variables
+--------------
+The default values for the variables are set in `defaults/main.yml`
+```
+
+```
+
 Example Playbook
 ----------------
 ```
   - hosts: all
     roles:
       - role: users
+          - name: cturner
+            uid:
+            group:
+            groups: ["sudo", "wheel"]
+            comment: "itscturner"
+            home_create: true
+            home: /home/cturner
+            shell: /bin/zsh
+          - name: remove_user
+            state: absent
 ```
 
 License
