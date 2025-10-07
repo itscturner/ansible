@@ -1,2 +1,5 @@
 ---
 # defaults file for groups
+
+# List of groups to manage.
+groups: []
