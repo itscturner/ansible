@@ -24,7 +24,7 @@ Example Playbook
             home_create: true
             home: /home/cturner
             shell: /bin/zsh
-          - name: remove_user
+          - name: user2
             state: absent
 ```
 
