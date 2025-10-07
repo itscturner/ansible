@@ -20,6 +20,7 @@ Example Playbook
   - hosts: all
     roles:
       - role: users
+        users:
           - name: cturner
             uid: 123456
             group: 123456
