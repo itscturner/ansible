@@ -10,7 +10,7 @@ The default values for the variables are set in `defaults/main.yml`
 Default shell for users:
 users_shell
 
-List of users:
+List of users to manage:
 users
 ```
 
