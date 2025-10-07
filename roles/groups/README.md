@@ -17,6 +17,7 @@ Example Playbook
   - hosts: all
     roles:
       - role: groups
+        groups:
           - name: addgroup
             gid: 1234
           - name: removegroup
