@@ -7,7 +7,11 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
+Default shell for users:
+users_shell
 
+List of users:
+users
 ```
 
 Example Playbook
@@ -17,8 +21,8 @@ Example Playbook
     roles:
       - role: users
           - name: cturner
-            uid:
-            group:
+            uid: 123456
+            group: 123456
             groups: ["sudo", "wheel"]
             comment: "itscturner"
             home_create: true
