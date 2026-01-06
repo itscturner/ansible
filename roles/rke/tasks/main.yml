@@ -14,6 +14,16 @@
     state: latest
 
 
+- name: Template repo file
+  ansible.builtin.template:
+    src: rancher.repo.j2
+    dest: /etc/yum.repos.d/rancher.repo
+    owner: root
+    group: root
+    mode: 0644
+
+
+
 
 - name: Include rke_master.yml
   ansible.builtin.include_tasks:
