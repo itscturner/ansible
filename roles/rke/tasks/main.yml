@@ -21,3 +21,16 @@ rke_agent.yml
 
 
 
+
+
+
+
+
+
+- name: Start and enable rke service
+  ansible.builtin.systemd_service:
+    name: "{{ rke_service }}"
+    state: started
+    enabled: true
+
+
