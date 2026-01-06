@@ -1,2 +1,23 @@
 ---
 # tasks file for rke
+
+
+rke_master.yml
+rke_server.yml
+rke_agent.yml
+
+
+- name: Create rke configuration directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  with_items: "{{ rke_configuration_directories }""
+
+- name: Ensure rke dependencies are installed
+  ansible.builtin.dnf:
+    name: "{{ rke_dependencies }}"
+    state: latest
+
+
+
+
