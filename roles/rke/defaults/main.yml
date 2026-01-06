@@ -2,10 +2,20 @@
 # defaults file for rke
 
 #
-rke_packages:
+#rke_packages:
 
 #
 rke_dependencies:
+  - container-selinux
+  - rke2-common
+  - rke2-selinux
+  #- rke2-server
+  - iptables
+  - libnetfilter_conntrack
+  - libnfnetlink
+  - libnftnl
+  - ipvsadm
+  - policycoreutils-python-utils
 
 #
 rke_configuration_directories:
