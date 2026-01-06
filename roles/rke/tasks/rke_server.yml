@@ -1,0 +1,5 @@
+---
+# tasks file for rke - server
+
+- name: rke_server | 
+
