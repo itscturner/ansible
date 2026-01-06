@@ -1,5 +1,11 @@
 ---
 # tasks file for rke - agent
 
-- name: rke_agent | 
+- name: rke_agent | Create rke2 configuration file
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /etc/rancher/rke2/config.yaml
+    owner:
+    group:
+    mode:
 
