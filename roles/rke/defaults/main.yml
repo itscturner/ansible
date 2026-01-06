@@ -2,6 +2,9 @@
 # defaults file for rke
 
 #
+rke_version:
+
+#
 #rke_packages:
 
 #
