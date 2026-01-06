@@ -7,6 +7,14 @@ rke_packages:
 #
 rke_dependencies:
 
+#
+rke_configuration_directories:
+  - /etc/rancher/rke2
+  - /var/lib/rancher/rke2/agent/images/
+
+
+
+
 
 
 
