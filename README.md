@@ -28,6 +28,7 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [patching](https://github.com/itscturner/ansible/tree/main/roles/patching) <br>
 🚧 [Repos](https://github.com/itscturner/ansible/tree/main/roles/repos) <br>
 🚧 [resolv](https://github.com/itscturner/ansible/tree/main/roles/resolv) <br>
+🚧 [RKE](https://github.com/itscturner/ansible/tree/main/roles/rke) <br>
 🚧 [rsyslog](https://github.com/itscturner/ansible/tree/main/roles/rsyslog) <br>
 🚧 [selinux](https://github.com/itscturner/ansible/tree/main/roles/selinux) <br>
 🚧 [sshd](https://github.com/itscturner/ansible/tree/main/roles/sshd) <br>
