@@ -1,1 +1,4 @@
 # defaults file for authorized_key
+
+# List of users to manage authorized keys.
+authorized_key_users:
