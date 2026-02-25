@@ -1,7 +1,0 @@
----
-# handlers file for hosts
-
-- name: Hosts Reboot
-  ansible.builtin.reboot:
-  when:
-    - host_hostname_reboot
