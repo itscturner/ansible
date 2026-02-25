@@ -1,9 +1,0 @@
----
-# defaults file for git
-
-# List of packages to install for git.
-git_packages:
-  - git
-
-# List of users to configure for git.
-git_users: []
