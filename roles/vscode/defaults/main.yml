@@ -1,8 +1,0 @@
----
-# defaults file for vscode
-
-# List of VSCode extensions.
-vscode_extensions:
-  - esbenp.prettier-vscode
-  - one-monokai
-  - vscode-icons
