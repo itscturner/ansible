@@ -1,4 +1,0 @@
----
-# defaults file for journald
-
-journald_config: []
