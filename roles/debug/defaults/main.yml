@@ -1,8 +1,0 @@
----
-# defaults file for debug
-
-# Show all variables.
-debug_all_variables: false
-
-# Show specific variable.
-debug_variable: []
