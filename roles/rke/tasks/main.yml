@@ -2,13 +2,13 @@
 # tasks file for rke
 
 
-- name: Create rke configuration directories
+- name: Create RKE configuration directories
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
-  with_items: "{{ rke_configuration_directories }""
+  with_items: "{{ rke_configuration_directories }"
 
-- name: Ensure rke dependencies are installed
+- name: Ensure RKE dependencies are installed
   ansible.builtin.dnf:
     name: "{{ rke_dependencies }}"
     state: latest
@@ -44,7 +44,7 @@
 
 
 
-- name: Start and enable rke service
+- name: Start and enable RKE service
   ansible.builtin.systemd_service:
     name: "{{ rke_service }}"
     state: started
