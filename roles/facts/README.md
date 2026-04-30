@@ -7,8 +7,8 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
-
-
+Custom facts to create in key/value format:
+  facts
 ```
 
 Example Playbook
@@ -17,6 +17,10 @@ Example Playbook
   - hosts: all
     roles:
       - role: facts
+        vars:
+          facts:
+            - key: server_location
+              value: Denver
 ```
 
 License
