@@ -8,5 +8,6 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 
 ## Roles:
 
-[ansible](https://github.com/itscturner/ansible/tree/main/roles/ansible) <br>
-
+[Ansible](https://github.com/itscturner/ansible/tree/main/roles/ansible) <br>
+[Facts](https://github.com/itscturner/ansible/tree/main/roles/facts) <br>
+[RKE](https://github.com/itscturner/ansible/tree/main/roles/rke) <br>
