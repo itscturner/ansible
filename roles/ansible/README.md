@@ -1,4 +1,4 @@
-ansible
+Ansible
 =======
 
 An ansible role to configure Ansible.
