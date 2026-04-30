@@ -1,7 +1,7 @@
 Users
 =====
 
-An Ansible role to configure users.
+An Ansible role to manage users.
 
 Role Variables
 --------------
