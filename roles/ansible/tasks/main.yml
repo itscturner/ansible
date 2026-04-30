@@ -5,14 +5,14 @@
   ansible.builtin.include_tasks:
     file: install.yml
 
-- name: Ensure ansible directory exists
+- name: Ensure Ansible directory exists
   ansible.builtin.file:
     path: "{{ ansible_configuration_directory }}"
     state: directory
-    mode: 0755
+    mode: '0755'
 
-- name: Configure ansible
+- name: Configure Ansible
   ansible.builtin.template:
     src: "{{ ansible_config_file }}.j2"
     dest: "{{ ansible_configuration_directory }}/{{ ansible_config_file }}"
-    mode: 0644
+    mode: '0644'
