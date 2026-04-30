@@ -1,14 +1,14 @@
 ---
 # defaults file for ansible
 
-# List of ansible packages.
+# List of Ansible packages to install.
 ansible_packages:
   - ansible
   - ansible-lint
   - cowsay
   - jq
 
-# List of ansible collections.
+# List of Ansible collections to install.
 ansible_collections:
   - ansible.posix
   - ansible.utils
