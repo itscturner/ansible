@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
 
-{% for item in hosts_all_hosts %}
+{% for item in hosts_entries %}
 {{ item.address }}{% for hostname in item.hostnames %} {{ hostname }}{% endfor %}
 
 {% endfor %}
