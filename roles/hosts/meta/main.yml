@@ -1,0 +1,23 @@
+---
+galaxy_info:
+  author: itscturner
+  role_name: hosts
+  description: An Ansible role to manage the /etc/hosts and /etc/hostname files.
+  license: Apache-2.0
+  min_ansible_version: "2.12"
+
+  platforms:
+    - name: Debian
+      versions:
+        - all
+    - name: EL
+      versions:
+        - all
+
+  galaxy_tags:
+    - hosts
+    - hostname
+    - networking
+    - system
+
+  dependencies: []
