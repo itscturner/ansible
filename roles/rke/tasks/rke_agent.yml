@@ -1,11 +1,26 @@
 ---
 # tasks file for rke - agent
 
-- name: rke_agent | Create rke2 configuration file
+- name: rke_agent | Template RKE configuration file
   ansible.builtin.template:
     src: config.yaml.j2
     dest: /etc/rancher/rke2/config.yaml
-    owner:
-    group:
-    mode:
+    owner: root
+    group: root
+    mode: '0644'
 
+- name: rke_agent | Install RKE Agent package
+  ansible.builtin.dnf:
+    name: rke2-agent
+    state: present
+
+- name: rke_agent | Install dependencies for SELinux
+  ansible.builtin.dnf:
+    name: "{{ rke_selinux_dependencies }}"
+    state: present
+
+- name: rke_agent | Start and enable RKE Agent service
+  ansible.builtin.systemd:
+    name: rke2-agent
+    state: started
+    enabled: true
