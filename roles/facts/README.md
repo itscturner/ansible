@@ -1,4 +1,4 @@
-facts
+Facts
 =====
 
 An ansible role to create custom facts.
