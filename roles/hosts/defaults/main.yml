@@ -1,3 +1,10 @@
 ---
 # defaults file for hosts
 
+# Hostname for /etc/hostname file.
+hosts_hostname: "{{ inventory_hostname_short }}"
+
+# Entries to add to /etc/hosts file. Address, Hostnames.
+hosts_entries: []
+  #- address:
+  #  hostnames:
