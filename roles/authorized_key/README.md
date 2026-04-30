@@ -1,7 +1,7 @@
-authorized_key
+Authorized Key
 ==============
 
-An ansible role to configure authorized keys.
+An Ansible role to configure authorized keys.
 
 Role Variables
 --------------
