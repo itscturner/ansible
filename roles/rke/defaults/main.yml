@@ -4,15 +4,12 @@
 #
 rke_version:
 
-#
-#rke_packages:
 
 #
 rke_dependencies:
   - container-selinux
   - rke2-common
   - rke2-selinux
-  #- rke2-server
   - iptables
   - libnetfilter_conntrack
   - libnfnetlink
@@ -20,12 +17,28 @@ rke_dependencies:
   - ipvsadm
   - policycoreutils-python-utils
 
+
+
 #
 rke_configuration_directories:
   - /etc/rancher/rke2
   - /var/lib/rancher/rke2/agent/images/
 
+#
+rke_fqdn:
 
+#
+rke_loadbalancer_ip:
+
+#
+rke_join_token:
+
+#
+rke_registry_mirrors:
+  - docker.io
+  - gcr.io
+  - quay.io
+  - registry.k8s.io
 
 
 
