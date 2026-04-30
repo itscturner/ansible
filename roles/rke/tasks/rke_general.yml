@@ -1,7 +1,21 @@
 ---
 # tasks file for rke - general
 
-- name: rke_general |
+- name: rke_general | Create RKE configuration directories
+  ansible.builtin.file:
+    path: "{{ item }}"
+    state: directory
+  with_items: "{{ rke_configuration_directories }"
 
+- name: rke_general | Ensure RKE dependencies are installed
+  ansible.builtin.dnf:
+    name: "{{ rke_dependencies }}"
+    state: latest
 
-
+- name: rke_general | Template repo file
+  ansible.builtin.template:
+    src: rancher.repo.j2
+    dest: /etc/yum.repos.d/rancher.repo
+    owner: root
+    group: root
+    mode: 0644
