@@ -8,14 +8,14 @@
 - name: Include rke_master.yml
   ansible.builtin.include_tasks:
     file: rke_master.yml
-  when: "rke_master in group_names"
+  when: "'rke_master' in groups and inventory_hostname in groups['rke_master']"
 
 - name: Include rke_server.yml
   ansible.builtin.include_tasks:
     file: rke_server.yml
-  when: "rke_server in group_names"
+  when: "'rke_server' in groups and inventory_hostname in groups['rke_server']"
 
 - name: Include rke_agent.yml
   ansible.builtin.include_tasks:
     file: rke_agent.yml
-  when: "rke_agent in group_names"
+  when: "'rke_agent' in groups and inventory_hostname in groups['rke_agent']"
