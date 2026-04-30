@@ -1,0 +1,18 @@
+---
+# tasks file for hosts
+
+- name: Template hostname file
+  ansible.builtin.template:
+    src: hostname.j2
+    dest: /etc/hostname
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Template hosts file
+  ansible.builtin.template:
+    src: hosts.j2
+    dest: /etc/hosts
+    owner: root
+    group:  root
+    mode: '0644'
