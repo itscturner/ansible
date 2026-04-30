@@ -7,12 +7,12 @@
     password: "{{ item.password | default(lookup('password')) }}"
     update_password: "{{ item.update_password | default(omit) }}"
     uid: "{{ item.uid | default(omit) }}"
-    group: "{{ omit if item.group is defined and item.group == item.username else (item.group if item.group is defined else omit) }}"
-    groups: "{{ item.groups|join(',') if item.groups is defined else users_groups|join(',') }}"
-    comment: "{{ item.name | default(omit) }}"
-    home: "{{ item.home | default(users_home ~ '/' ~ item.username ) }}"
-    createhome: "{{ item.home_create | default(omit) }}"
-    shell: "{{ item.shell | default(omit) }}"
+    group: "{{ item.group }}"
+    groups: "{{ item.groups | join(',') }}"
+    comment: "{{ item.comment | default(omit) }}"
+    home: "{{ users_home }}/{{ item.username }}"
+    createhome: "{{ item.home_create | default('true') }}"
+    shell: "{{ item.shell | default(users_default_shell) }}"
     system: "{{ item.system | default(omit) }}"
     append: "{{ item.append | default(omit) }}"
     generate_ssh_key: "{{ item.ssh_key_generate | default(omit) }}"
@@ -30,11 +30,11 @@
 
 - name: Set users home directory permissions
   ansible.builtin.file:
-    dest: "{{ item.home | default(users_home ~ '/' ~ item.username) }}"
+    dest: "{{ users_home }}/{{ item.username }}"
     owner: "{{ item.username }}"
-    group: "{{ item.group if item.group is defined else item.username }}"
-    mode: "{{ item.home_mode if item.home_mode is defined else users_home_mode }}"
-  when: item.home_create is not defined or item.home_create
+    group: "{{ item.group }}"
+    mode: "{{ item.home_mode }}"
+  when: item.home_create
   with_items: "{{ users }}"
   no_log: >
     "{{ true if item.password is defined or
@@ -43,12 +43,12 @@
 
 - name: Create users ssh directory
   ansible.builtin.file:
-    path: "{{ item.home | default(users_home ~ '/' ~ item.username) }}/.ssh"
+    path: "{{ users_home }}/{{ item.username }}/.ssh"
     owner: "{{ item.username }}"
-    group: "{{ item.group if item.group is defined else item.username }}"
+    group: "{{ item.group }}"
     state: directory
     mode: '0700'
-  when: item.home_create is not defined or item.home_create
+  when: item.home_create
   with_items: "{{ users }}"
   no_log: >
     "{{ true if item.password is defined or
@@ -57,10 +57,10 @@
 
 - name: Add users authorized keys
   ansible.posix.authorized_key:
-    key: "{{ item.authorized_keys | default([]) | join('\n') }}"
     user: "{{ item.username }}"
-    exclusive: "{{ item.authorized_keys_exclusive | default(users_authorized_keys_exclusive) }}"
-  when: item.home_create is not defined or item.home_create
+    key: "{{ item.authorized_keys | default([]) | join('\n') }}"
+    exclusive: "{{ item.authorized_keys_exclusive | default('false') }}"
+  when: item.home_create
   with_items: "{{ users }}"
   no_log: >
     "{{ true if item.password is defined
