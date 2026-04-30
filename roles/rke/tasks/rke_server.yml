@@ -1,5 +1,30 @@
 ---
 # tasks file for rke - server
 
-- name: rke_server | 
+- name: rke_server | Template RKE configuration file
+  ansible.builtin.template:
+    src: config.yaml.j2
+    dest: /etc/rancher/rke2/config.yaml
+    owner: root
+    group: root
+    mode: '0644'
 
+- name: rke_server | Install RKE Server package
+  ansible.builtin.dnf:
+    name: rke2-server
+    state: present
+
+- name: rke_server | Install dependencies for SELinux
+  ansible.builtin.dnf:
+    name: "{{ rke_selinux_dependencies }}"
+    state: present
+
+- name: rke_server | Load IPVS module
+  ansible.builtin.shell:
+    cmd: "modprobe -i ip_vs"
+
+- name: rke_server | Start and enable RKE Server service
+  ansible.builtin.systemd:
+    name: rke2-server
+    state: started
+    enabled: true
