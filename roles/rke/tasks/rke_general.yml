@@ -1,21 +1,64 @@
 ---
 # tasks file for rke - general
 
+- name: rke_general | Turn off firewalld
+  ansible.builtin.systemd:
+    name: firewalld
+    state: stopped
+    enabled: false
+
 - name: rke_general | Create RKE configuration directories
   ansible.builtin.file:
     path: "{{ item }}"
     state: directory
   with_items: "{{ rke_configuration_directories }"
 
-- name: rke_general | Ensure RKE dependencies are installed
-  ansible.builtin.dnf:
-    name: "{{ rke_dependencies }}"
-    state: latest
+- name: rke_general | Create the RKE image storage directory
+  ansible.builtin.file:
+    path:
+    state: directory
 
-- name: rke_general | Template repo file
+- name: rke_general | Template RKE repo file
   ansible.builtin.template:
     src: rancher.repo.j2
     dest: /etc/yum.repos.d/rancher.repo
     owner: root
     group: root
-    mode: 0644
+    mode: '0644'
+
+- name: rke_general | Template registries.yaml file
+  ansible.builtin.template:
+    src: registries.yaml.j2
+    dest: /etc/rancher/rke2/registries.yaml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: rke_general | Clean yum cache
+  ansible.builtin.shell:
+    cmd: "dnf clean all"
+
+- name: rke_general | Ensure RKE dependencies are installed
+  ansible.builtin.dnf:
+    name: "{{ rke_dependencies }}"
+    state: latest
+
+- name: rke_general | Ensure kernel modules are loaded
+  ansible.builtin.shell:
+    cmd: |
+      modprobe -i iscsi_tcp
+      modprobe -i ip_vs
+
+- name: rke_general | Load iscsi_tcp on boot
+  ansible.builtin.copy:
+    dest: /etc/modules-load.d/iscsi_tcp.conf
+    content: iscsi_tcp
+
+- name: rke_general | Load ipvs on boot
+  ansible.builtin.copy:
+    dest: /etc/modules-load.d/ip_vs.conf
+    content: ip_vs
+
+- name: rke_general | Enable kernel domain module loading
+  ansible.builtin.shell:
+    cmd: "semanage boolean -m domain_kernel_load_modules --on"
