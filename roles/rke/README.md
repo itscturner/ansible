@@ -1,7 +1,7 @@
 RKE
 ===
 
-An ansible role to install and configure Rancher Kubernetes Engine.
+An Ansible role to install and configure Rancher Kubernetes Engine.
 
 Role Variables
 --------------
