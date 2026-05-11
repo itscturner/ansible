@@ -3,22 +3,22 @@
 
 - name: mount | Create Mountpoint
   ansible.builtin.file:
-    path: "{{ mount.name }}"
-    owner: "{{ mount.owner | default(omit) }}"
-    group: "{{ mount.group | default(omit) }}"
-    mode: "{{ mount.mode | default(omit) }}"
+    path: "{{ storage_mount.name }}"
     state: directory
+    owner: "{{ storage_mount.owner | default(omit) }}"
+    group: "{{ storage_mount.group | default(omit) }}"
+    mode: "{{ storage_mount.mode | default(omit) }}"
 
 - name: mount | Add Mount to fstab
   ansible.posix.mount:
-    path: "{{ mount.name }}"
-    src: "{{ mount.src }}"
-    fstype: "{{ mount.fstype | default(storage_default_fstype) }}"
-    opts: "{{ mount.opts | default(omit) }}"
-    boot: "{{ mount.boot | default(omit) }}"
-    dump: "{{ mount.dump | default(omit) }}"
-    passno: "{{ mount.passno | default(omit) }}"
+    path: "{{ storage_mount.name }}"
+    src: "{{ storage_mount.source }}"
     state: present
+    fstype: "{{ storage_mount.fstype | default(storage_default_fstype) }}"
+    opts: "{{ storage_mount.options | default(omit) }}"
+    boot: "{{ storage_mount.boot | default(omit) }}"
+    dump: "{{ storage_mount.dump | default(omit) }}"
+    passno: "{{ storage_mount.passno | default(omit) }}"
 
 - name: mount | Reload Systemd
   ansible.builtin.command:
@@ -29,13 +29,13 @@
 
 - name: mount | Mount Filessytem
   ansible.posix.mount:
-    path: "{{ mount.name }}"
-    src: "{{ mount.src }}"
-    fstype: "{{ mount.fstype | default(storage_default_fstype) }}"
-    opts: "{{ mount.opts | default(omit) }}"
-    boot: "{{ mount.boot | default(omit) }}"
-    dump: "{{ mount.dump | default(omit) }}"
-    passno: "{{ mount.passno | default(omit) }}"
+    path: "{{ storage_mount.name }}"
+    src: "{{ storage_mount.source }}"
     state: mounted
+    fstype: "{{ storage_mount.fstype | default(storage_default_fstype) }}"
+    opts: "{{ storage_mount.options | default(omit) }}"
+    boot: "{{ storage_mount.boot | default(omit) }}"
+    dump: "{{ storage_mount.dump | default(omit) }}"
+    passno: "{{ mount.passno | default(omit) }}"
   notify:
     - Refresh facts
