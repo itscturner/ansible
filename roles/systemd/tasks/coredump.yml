@@ -1,0 +1,7 @@
+---
+# tasks file for systemd - coredump
+
+- name: coredump | 
+
+
+
