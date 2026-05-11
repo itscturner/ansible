@@ -1,8 +1,54 @@
 ---
 # tasks file for storage - assert
 
-- name: assert | 
+- name: assert | Verify Partition variable
+  ansible.builtin.assert:
+    that:
+      - partition.name is defined
+      - partition.number is defined
+      - partition.part_start is defined or partition.part_end is defined
+    fail_msg:
+    quiet: true
 
+- name: assert | Verify Partition Label variable
+  ansible.builtin.assert:
+    that:
+      - partition.label is defined
+      - partition.label is iterable
+      - partition.label in [ "aix", "amiga", "bsd", "dvh", "gpt", "loop", "mac", "msdos", "pc98", "sun" ]
+    fail_msg:
+    quiet: true
+  when:
+    - partition.label is defined
 
+- name: assert | Verify Volume Group variable
+  ansible.builtin.assert:
+    that:
+      - volumegroup.name is defined
+      - volumegroup.devices is defined
+    fail_msg:
+    quiet: true
 
+- name: assert | Verify Volume variable
+  ansible.builtin.assert:
+    that:
+      - volume.name is defined
+      - volume.vg is defined
+      - volume.size is defined
+    fail_msg:
+    quiet: true
 
+- name: assert | Verify Filesystem variable
+  ansible.builtin.assert:
+    that:
+      - filesystem.name is defined
+    fail_msg:
+    quiet: true
+
+- name: assert | Verify Mount variable
+  ansible.builtin.assert:
+    that:
+      - mount.name is defined
+      - mount.src is defined
+    fail_msg:
+    quiet: true
