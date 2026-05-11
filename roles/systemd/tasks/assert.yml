@@ -1,13 +1,13 @@
 ---
 # tasks file for systemd - assert
 
-- name: assert | Verify default target variable
+- name: assert | Verify Systemd Default Target variable
   ansible.builtin.assert:
     that:
       - systemd_target is defined
       - systemd_target is string
       - systemd_target in ["graphical", "multi-user", "rescue"]
-    fail_msg: "Default Target variable is not defined or not valid."
+    fail_msg: "Systemd Default Target variable is not defined or not valid."
     quiet: true
 
 - name: assert | Verify Systemd Coredump variable
