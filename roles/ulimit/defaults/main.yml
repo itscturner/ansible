@@ -15,7 +15,3 @@ ulimit_backup: true
 
 # Configurations for ulimit. Domain (defaults to 'ulimit_domain'), Type (defaults to 'ulimit_limit_type'), Limit Item, Value.
 ulimit_configurations: []
-#  - domain: root
-#    type: hard
-#    limit_item: nproc
-#    value: 2048
