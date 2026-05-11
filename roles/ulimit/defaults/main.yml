@@ -1,17 +1,17 @@
 ---
 # defaults file for ulimit
 
-# Default domain.
-ulimit_domain:
+# Default domain for limits configuration file.
+ulimit_domain: '*'
 
-# Default limit type.
-ulimit_limit_type:
+# Default limit type for limits configuration file.
+ulimit_limit_type: soft
 
 # The filepath of the limits configuration file.
 ulimit_file: /etc/security/limits.conf
 
 # Backup limits.conf when changes occur.
-ulimit_backup:
+ulimit_backup: true
 
 # Configurations for ulimit. (Domain, Type, Item, Value).
 ulimit_configurations: []
