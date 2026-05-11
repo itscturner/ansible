@@ -1,8 +1,12 @@
 ---
 # tasks file for storage - filesystem
 
-- name: filesystem | 
+- name: filesystem | Create Filesystems
+  community.general.filesystem:
+    dev: "{{ filesystem.name }}"
+    fstype: "{{ filesystem.fstype | default(storage_default_fstype) }}"
+  notify:
+    - Reload systemd
 
-
-
-
+- name: filesystem | Run handlers
+  ansible.builtin.meta: flush_handlers
