@@ -1,7 +1,7 @@
 ---
 # tasks file for storage - partition
 
-- name: partition | Create partitions
+- name: partition | Create Partitions
   community.general.parted:
     device: "{{ partition.name }}"
     number: "{{ partition.number }}"
