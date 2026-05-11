@@ -2,7 +2,7 @@
 # defaults file for systemd
 
 # Select the target to boot into. "Multiuser", "Graphical" or "Rescue".
-systemd_default_target: ""
+systemd_target: ""
 
 # Options for coredump.conf.
 systemd_coredump: []
