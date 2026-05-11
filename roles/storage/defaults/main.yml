@@ -8,18 +8,14 @@ storage_required_packages:
   - parted
   - xfsprogs
 
-
 # Default options for Volume Groups.
 storage_volume_group_default_options: '--zero y'
-
 
 # Default Filesystem type.
 storage_default_fstype: ext4
 
-
-
 # Partitions to configure.
-# Name, Number, Flags, Partition Start, Partition End, Label.
+# Name, Number, Flags (defaults to 'omit'), Partition Start (defaults to 'omit'), Partition End (defaults to 'omit'), Label (defaults to 'omit').
 storage_partition: []
 #  - name:
 #    number:
@@ -28,10 +24,8 @@ storage_partition: []
 #    partition_end:
 #    label:
 
-
-
 # Volume Groups to configure.
-# Name, Devices, Size, Options.
+# Name, Devices, Size (defaults to 'omit'), Options (defaults to 'storage_volume_group_default_options').
 storage_volume_group: []
 #  - name:
 #    devices:
@@ -39,18 +33,13 @@ storage_volume_group: []
 #    size:
 #    options:
 
-
-
-
 # Volumes to configure.
-# Name, VG, Size, Options.
+# Name, VG, Size, Options (defaults to 'omit').
 storage_volume: []
 #  - name:
 #    vg:
 #    size:
 #    options:
-
-
 
 # Filesystems to configure.
 # Name, FSType (defaults to 'storage_default_fstype').
@@ -58,10 +47,8 @@ storage_filesystem: []
 #  - name:
 #    fstype:
 
-
-
 # Mounts to configure.
-# Name, Source, FSType, Options, Boot, Dump, PassNo, Owner, Group, Mode.
+# Name, Source, FSType (defaults to 'storage_default_fstype'), Options (defaults to 'omit'), Boot (defaults to 'omit'), Dump (defaults to 'omit'), PassNo (defaults to 'omit'), Owner (defaults to 'omit'), Group (defaults to 'omit'), Mode (defaults to 'omit').
 storage_mount: []
 #  - name:
 #    source:
@@ -73,4 +60,3 @@ storage_mount: []
 #    owner:
 #    group:
 #    mode:
-
