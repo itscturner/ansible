@@ -1,0 +1,14 @@
+---
+# tasks file for systemd
+
+- name: Set default target
+  ansible.builtin.file:
+    src: "{{ systemd_path }}/{{ systemd_target }}"
+    dest: /etc/systemd/system/default.target
+    state: link
+    mode: '0644'
+
+
+
+
+
