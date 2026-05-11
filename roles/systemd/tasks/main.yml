@@ -20,4 +20,6 @@
   ansible.builtin.include_tasks:
     file: logind.yml
 
-
+- name: Include user.yml
+  ansible.builtin.include_tasks:
+    file: user.yml
