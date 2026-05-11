@@ -1,12 +1,69 @@
 ---
 # tasks file for ulimit - assert
 
-- name: assert | Verify 
+- name: assert | Verify ulimit configurations variable
   ansible.builtin.assert:
     that:
-      - ulimit_configurations
+      - ulimit_configurations is iterable
+    fail_msg:
+    quiet: true
+  when: ulimit_configurations is defined
 
+- name: assert | Verify ulimit configurations - Domain
+  ansible.builtin.assert:
+    that:
+      - ulimit_domain is defined
+      - ulimit_domain is string
+      - ulimit_domain is not none
+    fail_msg: "'Domain' in ulimit configurations is not valid."
+    quiet: true
+  when: ulimit_configurations is defined
 
+- name: assert | Verify ulimit configurations - Type
+  ansible.builtin.assert:
+    that:
+      - item.type is defined
+      - item.type is string
+      - item.type in ["soft", "hard", "-"]
+    fail_msg: "'Type' in ulimit configurations is not valid. Values can be 'soft', 'hard' or '-'"
+    quiet: true
+  when: ulimit_configurations is defined
+  loop: "{{ ulimit_configurations }}"
+  loop_control:
+    label: "{{ item.type }}"
 
-
-
+- name: assert | Verify ulimit configurations - Item & Value
+  ansible.builtin.assert:
+    that:
+      - item.limit_item is defined
+      - item.limit_item is string
+      - item.limit_item in ulimit_limit_item_options
+      - item.value is defined
+      - item.value is number
+    fail_msg: "'Item' or 'Value' in ulimit configurations are not valid.
+    quiet: true
+  when: ulimit_configurations is defined
+  loop: "{{ ulimit_configurations }}"
+  loop_control:
+    label: "{{ item.limit_item }}"
+  vars:
+    ulimit_limit_item_options:
+      - as
+      - chroot
+      - core
+      - cpu
+      - data
+      - fsize
+      - locks
+      - maxlogins
+      - maxsyslogins
+      - memlock
+      - msgqueue
+      - nice
+      - nofile
+      - nproc
+      - priority
+      - rss
+      - rtprio
+      - sigpending
+      - stack
