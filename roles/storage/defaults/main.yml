@@ -1,0 +1,15 @@
+---
+# defaults file for storage
+
+#
+storage_required_packages:
+  - e2fsprogs
+  - lvm2
+  - parted
+  - xfsprogs
+
+#
+storage_default_fstype:
+
+
+
