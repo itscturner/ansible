@@ -1,0 +1,17 @@
+---
+# defaults file for systemd
+
+# Select the target to boot into. "Multiuser", "Graphical" or "Rescue".
+systemd_default_target: ""
+
+# Options for coredump.conf.
+systemd_coredump: []
+
+# Options for journald.conf.
+systemd_journald: []
+
+# Options for logind.conf.
+systemd_logind: []
+
+# Options for system.conf.
+systemd_system: []
