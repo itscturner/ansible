@@ -1,6 +1,12 @@
 ---
 # tasks file for systemd
 
+- name: Import assert.yml
+  ansible.builtin.import_tasks:
+    file: assert.yml
+  run_once: true
+  delegate_to: localhost
+
 - name: Set default target
   ansible.builtin.file:
     src: "{{ systemd_path }}/{{ systemd_target }}"
@@ -11,19 +17,24 @@
 - name: Include coredump.yml
   ansible.builtin.include_tasks:
     file: coredump.yml
+  when: systemd_coredump is defined
 
 - name: Include journald.yml
   ansible.builtin.include_tasks:
     file: journald.yml
+  when: systemd_journald is defined
 
 - name: Include logind.yml
   ansible.builtin.include_tasks:
     file: logind.yml
+  when: systemd_logind is defined
 
 - name: Include system.yml
   ansible.builtin.include_tasks:
     file: system.yml
+  when: systemd_system is defined
 
 - name: Include user.yml
   ansible.builtin.include_tasks:
     file: user.yml
+  when: systemd_user is defined
