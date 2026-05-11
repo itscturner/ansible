@@ -1,7 +1,7 @@
 ---
 # tasks file for storage - volume group
 
-- name: volume_group | Create volume groups
+- name: volume_group | Create Volume Groups
   community.general.lvg:
     vg: "{{ volumegroup.name }}"
     pvs: "{{ volumegroup.devices | join(',') }}"
