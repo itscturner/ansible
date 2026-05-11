@@ -21,14 +21,14 @@
   when:
     - storage_partitions is defined
 
-- name: Include volumegroup.yml
+- name: Include volume_group.yml
   ansible.builtin.include_tasks:
-    file: volumegroup.yml
-  loop: "{{ storage_volumegroups }}"
+    file: volume_group.yml
+  loop: "{{ storage_volume_groups }}"
   loop_control:
-    loop_var: volumegroup
+    loop_var: volume_group
   when:
-    - storage_volumegroups is defined
+    - storage_volume_groups is defined
 
 - name: Include volume.yml
   ansible.builtin.include_tasks:
