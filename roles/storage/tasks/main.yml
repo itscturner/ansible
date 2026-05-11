@@ -18,8 +18,7 @@
   loop: "{{ storage_partitions }}"
   loop_control:
     loop_var: partition
-  when:
-    - storage_partitions is defined
+  when: storage_partitions is defined
 
 - name: Include volume_group.yml
   ansible.builtin.include_tasks:
@@ -27,8 +26,7 @@
   loop: "{{ storage_volume_groups }}"
   loop_control:
     loop_var: volume_group
-  when:
-    - storage_volume_groups is defined
+  when: storage_volume_groups is defined
 
 - name: Include volume.yml
   ansible.builtin.include_tasks:
@@ -36,8 +34,7 @@
   loop: "{{ storage_volumes }}"
   loop_control:
     loop_var: volume
-  when:
-    - storage_volumes is defined
+  when: storage_volumes is defined
 
 - name: Include filesystem.yml
   ansible.builtin.include_tasks:
@@ -45,8 +42,7 @@
   loop: "{{ storage_filesystems }}"
   loop_control:
     loop_var: filesystem
-  when:
-    - storage_filesystems is defined
+  when: storage_filesystems is defined
 
 - name: Include mount.yml
   ansible.builtin.include_tasks:
@@ -54,5 +50,4 @@
   loop: "{{ storage_mounts }}"
   loop_control:
     loop_var: mount
-  when:
-    - storage_mounts is defined
+  when: storage_mounts is defined
