@@ -1,0 +1,10 @@
+---
+# tasks file for systemd - user
+
+- name: user | Template user configuration file
+  ansible.builtin.template:
+    src: user.conf.j2
+    dest: /etc/systemd/user.conf
+    owner: root
+    group: root
+    mode: '0644'
