@@ -1,7 +1,7 @@
 Storage
 =======
 
-An Ansible role to configure partitions, volume groups, volumes, filesystems and mounts.
+An Ansible role to create and manage partitions, volume groups, volumes, filesystems and mounts.
 
 Role Variables
 --------------
