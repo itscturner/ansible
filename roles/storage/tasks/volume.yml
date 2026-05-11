@@ -3,10 +3,10 @@
 
 - name: volume | Create Logical Volume
   community.general.lvol:
-    lv: "{{ volume.name }}"
-    vg: "{{ volume.vg }}"
-    size: "{{ volume.size }}"
-    opts: "{{ volume.opts | default(omit) }}"
+    lv: "{{ storage_volume.name }}"
+    vg: "{{ storage_volume.vg }}"
+    size: "{{ storage_volume.size }}"
+    opts: "{{ storage_volume.opts | default(omit) }}"
   notify:
     - Run vgscan
 
