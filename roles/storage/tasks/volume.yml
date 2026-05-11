@@ -1,8 +1,14 @@
 ---
 # tasks file for storage - volume
 
-- name: volume | 
+- name: volume | Create Logical Volume
+  community.general.lvol:
+    lv: "{{ volume.name }}"
+    vg: "{{ volume.vg }}"
+    size: "{{ volume.size }}"
+    opts: "{{ volume.opts | default(omit) }}"
+  notify:
+    - Run vgscan
 
-
-
-
+- name: volume | Run handlers
+  ansible.builtin.meta: flush_handlers
