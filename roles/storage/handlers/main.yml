@@ -1,0 +1,16 @@
+---
+# handlers file for storage
+
+- name: Reload Systemd
+  ansible.builtin.systemd:
+    daemon_reload: true
+  when:
+    - ansible_service_mgr == 'systemd'
+
+- name: Run vgscan
+  ansible.builtin.command:
+    cmd: 'vgscan --mknodes'
+  changed_when: true
+
+- name: Refresh facts
+  ansible.builtin.setup:
