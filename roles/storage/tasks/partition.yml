@@ -1,12 +1,12 @@
 ---
 # tasks file for storage - partition
 
-- name: partition | Create Partitions
+- name: partition | Create Partition
   community.general.parted:
-    device: "{{ partition.name }}"
-    number: "{{ partition.number }}"
-    flags: "{{ partition.flags | default(omit) }}"
-    part_start: "{{ partition.part_start | default(omit) }}"
-    part_end: "{{ partition.part_end | default(omit) }}"
-    label: "{{ partition.label | default(omit) }}"
+    device: "{{ storage_partition.name }}"
+    number: "{{ storage_partition.number }}"
+    flags: "{{ storage_partition.flags | default(omit) }}"
+    part_start: "{{ storage_partition.partition_start | default(omit) }}"
+    part_end: "{{ storage_partition.partition_end | default(omit) }}"
+    label: "{{ storage_partition.label | default(omit) }}"
     state: present
