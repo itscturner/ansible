@@ -13,16 +13,16 @@ Select the target to boot into ("Multiuser", "Graphical" or "Rescue"):
 Options for coredump.conf (Key, Value):
   systemd_coredump
 
-Options for journald.conf. (Key, Value):
+Options for journald.conf (Key, Value):
   systemd_journald
 
-Options for logind.conf. (Key, Value):
+Options for logind.conf (Key, Value):
   systemd_logind
 
-Options for system.conf. (Key, Value):
+Options for system.conf (Key, Value):
   systemd_system
 
-Options for user.conf. (Key, Value):
+Options for user.conf (Key, Value):
   systemd_user
 ```
 
