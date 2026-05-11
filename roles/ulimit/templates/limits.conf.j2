@@ -45,5 +45,5 @@
 # <domain>      <type>  <item>         <value>
 #
 {% for limit in ulimit_configurations %}
-{{ limit.domain }} {{ limit.type }} {{ limit.limit_item }} {{ limit.value }}
+{{ limit.domain | default(ulimit_domain) }} {{ limit.type | default(ulimit_limit_type) }} {{ limit.limit_item }} {{ limit.value }}
 {% endfor %}
