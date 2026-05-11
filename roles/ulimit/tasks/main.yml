@@ -1,0 +1,16 @@
+---
+# tasks file for ulimit
+
+- name: Import assert.yml
+  ansible.builtin.import_tasks:
+    file: assert.yml
+  run_once: true
+  delegate_to: localhost
+
+- name: Template limits configuration file
+  ansible.builtin.template:
+    src: limits.conf.j2
+    dest: "{{ ulimit_file }}"
+    owner: root
+    group: root
+    mode: '0644'
