@@ -1,0 +1,111 @@
+---
+# tasks file for systemd - assert
+
+- name: assert | Verify default target variable
+  ansible.builtin.assert:
+    that:
+      - systemd_target is defined
+      - systemd_target is string
+      - systemd_target in ["graphical", "multi-user", "rescue"]
+    fail_msg: "Default Target variable is not defined or not valid."
+    quiet: true
+
+- name: assert | Verify Systemd Coredump variable
+  ansible.builtin.assert:
+    that:
+      - systemd_coredump is iterable
+    fail_msg: "Systemd Coredump variable is not valid."
+    quiet: true
+  when: systemd_coredump is defined
+
+- name: assert | Verify Systemd Coredump configuration
+  ansible.builtin.assert:
+    that:
+      - item.key is defined
+      - item.key is string
+      - item.key is not none
+      - item.value is defined
+    fail_msg: "Systemd Coredump configuration is not valid."
+    quiet: true
+  loop: "{{ systemd_coredump }}"
+  when: systemd_coredump is defined
+
+- name: assert | Verify Systemd Journald variable
+  ansible.builtin.assert:
+    that:
+      - systemd_journald is iterable
+    fail_msg: "Systemd Journald variable is not valid."
+    quiet: true
+  when: systemd_journald is defined
+
+- name: assert | Verify Systemd Journald configuration
+  ansible.builtin.assert:
+    that:
+      - item.key is defined
+      - item.key is string
+      - item.key is not none
+      - item.value is defined
+    fail_msg: "Systemd Journald configuration is not valid."
+    quiet: true
+  loop: "{{ systemd_journald }}"
+  when: systemd_journald is defined
+
+- name: assert | Verify Systemd Logind variable
+  ansible.builtin.assert:
+    that:
+      - systemd_logind is iterable
+    fail_msg: "Systemd Logind variable is not valid."
+    quiet: true
+  when: systemd_logind is defined
+
+- name: assert | Verify Systemd Logind configuration
+  ansible.builtin.assert:
+    that:
+      - item.key is defined
+      - item.key is string
+      - item.key is not none
+      - item.value is defined
+    fail_msg: "Systemd Logind configuration is not valid."
+    quiet: true
+  loop: "{{ systemd_logind }}"
+  when: systemd_logind is defined
+
+- name: assert | Verify Systemd System variable
+  ansible.builtin.assert:
+    that:
+      - systemd_system is iterable
+    fail_msg: "Systemd System variable is not valid."
+    quiet: true
+  when: systemd_system is defined
+
+- name: assert | Verify Systemd System configuration
+  ansible.builtin.assert:
+    that:
+      - item.key is defined
+      - item.key is string
+      - item.key is not none
+      - item.value is defined
+    fail_msg: "Systemd System configuration is not valid."
+    quiet: true
+  loop: "{{ systemd_system }}"
+  when: systemd_system is defined
+
+- name: assert | Verify Systemd User variable
+  ansible.builtin.assert:
+    that:
+      - systemd_user is iterable
+    fail_msg: "Systemd User variable is not valid."
+    quiet: true
+  when: systemd_user is defined
+
+- name: assert | Verify Systemd User configuration
+  ansible.builtin.assert:
+    that:
+      - item.key is defined
+      - item.key is string
+      - item.key is not none
+      - item.value is defined
+    fail_msg: "Systemd User configuration is not valid."
+    quiet: true
+  loop: "{{ systemd_user }}"
+  when: systemd_user is defined
