@@ -38,4 +38,4 @@
     dump: "{{ storage_mount.dump | default(omit) }}"
     passno: "{{ mount.passno | default(omit) }}"
   notify:
-    - Refresh facts
+    - Refresh Facts
