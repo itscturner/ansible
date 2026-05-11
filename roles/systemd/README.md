@@ -7,7 +7,7 @@ Role Variables
 --------------
 The default values for the variables are set in `defaults/main.yml`
 ```
-Select the target to boot into ("Multiuser", "Graphical" or "Rescue"):
+Select the target to boot into ("Graphical", "Multi-user" or "Rescue"):
   systemd_target
 
 Options for coredump.conf (Key, Value):
