@@ -7,7 +7,7 @@
   when:
     - ansible_service_mgr == 'systemd'
 
-- name: Run vgscan
+- name: Run VGscan
   ansible.builtin.command:
     cmd: 'vgscan --mknodes'
   changed_when: true
