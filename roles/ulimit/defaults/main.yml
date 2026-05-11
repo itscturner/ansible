@@ -12,3 +12,6 @@ ulimit_file: /etc/security/limits.conf
 
 # Backup limits.conf when changes occur.
 ulimit_backup:
+
+# Configurations for ulimit. (Domain, Type, Item, Value).
+ulimit_configurations: []
