@@ -4,17 +4,17 @@
 # Select the target to boot into. "Multiuser", "Graphical" or "Rescue".
 systemd_target: ""
 
-# Options for coredump.conf.
+# Options for coredump.conf. (Key, Value).
 systemd_coredump: []
 
-# Options for journald.conf.
+# Options for journald.conf. (Key, Value).
 systemd_journald: []
 
-# Options for logind.conf.
+# Options for logind.conf. (Key, Value).
 systemd_logind: []
 
-# Options for system.conf.
+# Options for system.conf. (Key, Value).
 systemd_system: []
 
-# Options for user.conf.
+# Options for user.conf. (Key, Value).
 systemd_user: []
