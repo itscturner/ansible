@@ -16,7 +16,7 @@ Example Playbook
   - hosts: workstations
     roles:
       - role: systemd
-        systemd_default_target: graphical
+        systemd_target: graphical
 ```
 
 License
