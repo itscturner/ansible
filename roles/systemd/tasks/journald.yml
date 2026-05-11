@@ -1,4 +1,10 @@
 ---
 # tasks file for systemd - journald
 
-- name: journald | 
+- name: journald | Template journald configuration file
+  ansible.builtin.template:
+    src: journald.conf.j2
+    dest: /etc/systemd/journald.conf
+    owner: root
+    group: root
+    mode: '0644'
