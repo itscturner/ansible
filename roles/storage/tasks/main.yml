@@ -1,5 +1,58 @@
 ---
 # tasks file for storage
 
+- name: Import assert.yml
+  ansible.builtin.import_tasks:
+    file: assert.yml
+  run_once: true
+  delegate_to: localhost
 
+- name: Install required packages
+  ansible.builtin.package:
+    name: "{{ storage_required_packages }}"
+    state: present
 
+- name: Include partition.yml
+  ansible.builtin.include_tasks:
+    file: partition.yml
+  loop: "{{ storage_partitions }}"
+  loop_control:
+    loop_var: partition
+  when:
+    - storage_partitions is defined
+
+- name: Include volumegroup.yml
+  ansible.builtin.include_tasks:
+    file: volumegroup.yml
+  loop: "{{ storage_volumegroups }}"
+  loop_control:
+    loop_var: volumegroup
+  when:
+    - storage_volumegroups is defined
+
+- name: Include volume.yml
+  ansible.builtin.include_tasks:
+    file: volume.yml
+  loop: "{{ storage_volumes }}"
+  loop_control:
+    loop_var: volume
+  when:
+    - storage_volumes is defined
+
+- name: Include filesystem.yml
+  ansible.builtin.include_tasks:
+    file: filesystem.yml
+  loop: "{{ storage_filesystems }}"
+  loop_control:
+    loop_var: filesystem
+  when:
+    - storage_filesystems is defined
+
+- name: Include mount.yml
+  ansible.builtin.include_tasks:
+    file: mount.yml
+  loop: "{{ storage_mounts }}"
+  loop_control:
+    loop_var: mount
+  when:
+    - storage_mounts is defined
