@@ -1,15 +1,76 @@
 ---
 # defaults file for storage
 
-#
+# Required packages for the storage role.
 storage_required_packages:
   - e2fsprogs
   - lvm2
   - parted
   - xfsprogs
 
-#
-storage_default_fstype:
+
+# Default options for Volume Groups.
+storage_volume_group_default_options: '--zero y'
 
 
+# Default Filesystem type.
+storage_default_fstype: ext4
+
+
+
+# Partitions to configure.
+# Name, Number, Flags, Partition Start, Partition End, Label.
+storage_partition: []
+#  - name:
+#    number:
+#    flags:
+#    partition_start:
+#    partition_end:
+#    label:
+
+
+
+# Volume Groups to configure.
+# Name, Devices, Size, Options.
+storage_volume_group: []
+#  - name:
+#    devices:
+#       -
+#    size:
+#    options:
+
+
+
+
+# Volumes to configure.
+# Name, VG, Size, Options.
+storage_volume: []
+#  - name:
+#    vg:
+#    size:
+#    options:
+
+
+
+# Filesystems to configure.
+# Name, FSType (defaults to 'storage_default_fstype').
+storage_filesystem: []
+#  - name:
+#    fstype:
+
+
+
+# Mounts to configure.
+# Name, Source, FSType, Options, Boot, Dump, PassNo, Owner, Group, Mode.
+storage_mount: []
+#  - name:
+#    source:
+#    fstype:
+#    options:
+#    boot:
+#    dump:
+#    passno:
+#    owner:
+#    group:
+#    mode:
 
