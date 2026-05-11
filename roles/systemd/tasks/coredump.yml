@@ -1,7 +1,10 @@
 ---
 # tasks file for systemd - coredump
 
-- name: coredump | 
-
-
-
+- name: coredump | Template coredump configuration file
+  ansible.builtin.template:
+    src: coredump.conf.j2
+    dest: /etc/systemd/coredump.conf
+    owner: root
+    group: root
+    mode: '0644'
