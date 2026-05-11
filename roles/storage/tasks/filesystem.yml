@@ -3,8 +3,8 @@
 
 - name: filesystem | Create Filesystem
   community.general.filesystem:
-    dev: "{{ filesystem.name }}"
-    fstype: "{{ filesystem.fstype | default(storage_default_fstype) }}"
+    dev: "{{ storage_filesystem.name }}"
+    fstype: "{{ storage_filesystem.fstype | default(storage_default_fstype) }}"
   notify:
     - Reload systemd
 
