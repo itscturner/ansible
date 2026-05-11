@@ -13,9 +13,10 @@ The default values for the variables are set in `defaults/main.yml`
 Example Playbook
 ----------------
 ```
-  - hosts: all
+  - hosts: workstations
     roles:
       - role: systemd
+        systemd_default_target: graphical
 ```
 
 License
