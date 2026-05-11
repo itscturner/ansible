@@ -14,3 +14,4 @@ A collection of Ansible playbooks, roles, and inventory files for automating ser
 [RKE](https://github.com/itscturner/ansible/tree/main/roles/rke) <br>
 [Systemd](https://github.com/itscturner/ansible/tree/main/roles/systemd) <br>
 [Users](https://github.com/itscturner/ansible/tree/main/roles/users) <br>
+[ulimit](https://github.com/itscturner/ansible/tree/main/roles/ulimit) <br>
