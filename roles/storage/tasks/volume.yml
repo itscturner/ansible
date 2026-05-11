@@ -6,9 +6,9 @@
     lv: "{{ storage_volume.name }}"
     vg: "{{ storage_volume.vg }}"
     size: "{{ storage_volume.size }}"
-    opts: "{{ storage_volume.opts | default(omit) }}"
+    opts: "{{ storage_volume.options | default(omit) }}"
   notify:
-    - Run vgscan
+    - Run VGscan
 
 - name: volume | Run handlers
   ansible.builtin.meta: flush_handlers
