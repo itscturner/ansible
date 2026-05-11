@@ -15,3 +15,6 @@ systemd_logind: []
 
 # Options for system.conf.
 systemd_system: []
+
+# Options for user.conf.
+systemd_user: []
