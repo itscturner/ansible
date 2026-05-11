@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: itscturner
-  role_name: ansible
+  role_name: systemd
   description: An Ansible role to configure systemd.
   license: Apache-2.0
   min_ansible_version: "2.12"
