@@ -66,6 +66,7 @@ Example Playbook
     roles:
       - role: pip
         pip_python_version: '3.9'
+        pip_conf_index_url: 'https://pypi.org/simple'
 ```
 
 License
