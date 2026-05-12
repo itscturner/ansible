@@ -12,21 +12,11 @@
     name: "{{ pip_required_packages }}"
     state: present
 
-- name: Template pip configuration file
-  ansible.builtin.template:
-    src: pip.conf.j2
-    dest: /etc/pip.conf
-    owner: root
-    group: root
-    mode: '0644'
-
-- name: Add extra pip configurations
+- name: Configure pip
   community.general.ini_file:
     path: /etc/pip.conf
     section: "{{ item.section }}"
     option: "{{ item.option }}"
     value: "{{ item.value }}"
     mode: '0644'
-  loop: "{{ pip_extra_configurations }}"
-  when:
-    - pip_extra_configurations is defined
+  loop: "{{ pip_configurations }}"
