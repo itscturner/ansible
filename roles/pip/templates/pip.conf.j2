@@ -7,7 +7,9 @@ respect-virtualenv = {{ pip_conf_respect_virtualenv }}
 {% if pip_conf_download_cache is defined %}
 download-cache = {{ pip_conf_download_cache }}
 {% endif %}
+{% if pip_conf_verbose is defined %}
 verbose = {{ pip_conf_verbose }}
+{% endif %}
 trusted-host = {{ pip_conf_trusted_host }}
 index-url = {{ pip_conf_index_url }}
 {% if pip_conf_proxy is defined %}
