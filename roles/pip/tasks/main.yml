@@ -12,7 +12,7 @@
     name: "{{ pip_required_packages }}"
     state: present
 
-- name: Configure pip
+- name: Configure pip.conf
   community.general.ini_file:
     path: /etc/pip.conf
     section: "{{ item.section }}"
