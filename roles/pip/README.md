@@ -26,6 +26,7 @@ Example Playbook
   - hosts: all
     roles:
       - role: pip
+        pip_python_version: '3.12'
         pip_configurations:
           - section: global
             option: index-url
