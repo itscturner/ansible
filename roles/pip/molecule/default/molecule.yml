@@ -11,8 +11,8 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "pythonpip-${image:-fedora}-${tag:-latest}"
-    image: "${namespace:-robertdebock}/${image:-fedora}:${tag:-latest}"
+  - name: "ansible-pip"
+    image: "registry.access.redhat.com/ubi9/ubi:latest"
     command: /sbin/init
     cgroupns_mode: host
     volumes:
