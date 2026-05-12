@@ -1,6 +1,20 @@
 ---
 # tasks file for ansible - install
 
+- name: install | Ensure dependencies are installed
+  ansible.builtin.package:
+    name: "{{ ansible_dependencies }}"
+    state: present
+
 - name: install | Install Ansible
   ansible.builtin.pip:
-    name:
+    name: "{{ ansible_pip_packages }}"
+    virtualenv: "{{ ansible_venv }}"
+    virtualenv_site_packages: false
+
+- name: install | Install Ansible collections
+
+
+
+
+
