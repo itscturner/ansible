@@ -14,7 +14,4 @@ pip_python_version:
 pip_executable: "/usr/bin/pip{{ pip_python_version }}"
 
 # Configurations to add to pip.conf. (Section, Option, Value).
-pip_configurations:
-  - section:
-    option:
-    value:
+pip_configurations: []
