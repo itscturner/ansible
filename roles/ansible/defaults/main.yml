@@ -3,19 +3,15 @@
 
 
 #
-ansible_install: # package / pip
-
-
-
-#
-ansible_venv:
-ansible_venv_path:
-
+ansible_python_version:
 
 #
 ansible_dependencies:
-  - python3
-  - python3-pip
+  - "python{{ ansible_python_version }}"
+  - "python{{ ansible_python_version }}-devel"
+  - "python{{ ansible_python_version }}-pip"
+  - "python{{ ansible_python_version }}-setuptools"
+
 
 #
 ansible_pip_packages:
@@ -25,6 +21,18 @@ ansible_pip_packages:
   - molecule
   - paramiko
   - pytest-testinfra
+
+
+
+#
+ansible_venv_path:
+
+
+
+
+
+
+
 
 
 
