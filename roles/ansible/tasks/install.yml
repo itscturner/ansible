@@ -1,4 +1,6 @@
 ---
 # tasks file for ansible - install
 
-- name: install | 
+- name: install | Install Ansible
+  ansible.builtin.pip:
+    name:
