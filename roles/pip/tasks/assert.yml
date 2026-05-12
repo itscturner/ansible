@@ -16,11 +16,3 @@
       - pip_executable is not none
     quiet: true
   when: pip_executable is defined
-
-- name: assert | Verify pip_conf_index_url
-  ansible.builtin.assert:
-    that:
-      - pip_conf_index_url is string
-      - pip_conf_index_url is not none
-    fail_msg: "Pip Index URL variable is required."
-    quiet: true
