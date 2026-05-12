@@ -1,0 +1,18 @@
+---
+argument_specs:
+  main:
+    short_description: "An Ansible role to install and configure Pip."
+    description: >
+      An Ansible role to install and configure Pip.
+    author: itscturner
+    options:
+      pip_python_version:
+        required: true
+        default: null
+        description: Python version.
+        type: str
+      pip_configurations:
+        required: false
+        default: null
+        description: Configurations to add to pip.conf.
+        type: dict
