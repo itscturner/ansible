@@ -1,18 +1,10 @@
 ---
 # tasks file for pip - assert
 
-- name: assert | Verify pip_python_version
+- name: assert | Verify Pip Python version
   ansible.builtin.assert:
     that:
       - pip_python_version is float
       - pip_python_version is not none
+    fail_msg: "Pip Python version variable (pip_python_version) is required."
     quiet: true
-  when: pip_python_version is defined
-
-- name: assert | Verify pip_executable
-  ansible.builtin.assert:
-    that:
-      - pip_executable is string
-      - pip_executable is not none
-    quiet: true
-  when: pip_executable is defined
