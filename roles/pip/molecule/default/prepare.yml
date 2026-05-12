@@ -5,5 +5,4 @@
   gather_facts: false
 
   roles:
-    - role: cturner.python
     - role: cturner.pip
