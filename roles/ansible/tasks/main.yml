@@ -1,5 +1,10 @@
 ---
 # tasks file for ansible
 
+- name: Include install.yml
+  ansible.builtin.include_tasks:
+    file: install.yml
 
-
+- name: Include configure.yml
+  ansible.builtin.include_tasks:
+    file: configure.yml
