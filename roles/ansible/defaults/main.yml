@@ -2,12 +2,17 @@
 # defaults file for ansible
 
 
+#
+ansible_install_method:
 
 
 
 #
 ansible_collection_path:
 
-
+#
+ansible_collections:
+  - ansible.posix
+  - community.general
 
 
