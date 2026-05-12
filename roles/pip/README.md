@@ -10,7 +10,7 @@ The default values for the variables are set in `defaults/main.yml`
 Required packages to install for pip:
   pip_required_packages
 
-Default Python version:
+Python version:
   pip_python_version
 
 Pip executable path (changes depending on the 'pip_python_version' variable):
