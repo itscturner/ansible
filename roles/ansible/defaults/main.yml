@@ -1,19 +1,17 @@
 ---
 # defaults file for ansible
 
-
-#
+# Default Python version for Ansible to use.
 ansible_python_version:
 
-#
+# Ansible dependencies to install.
 ansible_dependencies:
   - "python{{ ansible_python_version }}"
   - "python{{ ansible_python_version }}-devel"
   - "python{{ ansible_python_version }}-pip"
   - "python{{ ansible_python_version }}-setuptools"
 
-
-#
+# Ansible pip packages to install.
 ansible_pip_packages:
   - ansible-core
   - ansible-dev-tools
@@ -22,28 +20,15 @@ ansible_pip_packages:
   - paramiko
   - pytest-testinfra
 
-
-
-#
+# Path to Python virtual environment for Ansible.
 ansible_venv_path:
 
-
-
-
-
-
-
-
-
-
-#
+# Path to Ansible collections.
 ansible_collection_path:
 
-#
+# Ansible collections to install.
 ansible_collections:
   - ansible.posix
   - ansible.utils
   - community.general
   - kubernetes.core
-
-
