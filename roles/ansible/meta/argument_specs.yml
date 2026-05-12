@@ -1,0 +1,13 @@
+---
+argument_specs:
+  main:
+    short_description: "An Ansible role to install and configure Ansible."
+    description: >
+      An Ansible role to install and configure Ansible.
+    author: itscturner
+    options:
+      ansible_collection_path:
+        required: true
+        default: null
+        description: Path to Ansible Collections.
+        type: str
