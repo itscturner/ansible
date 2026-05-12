@@ -3,8 +3,13 @@
 
 
 #
-ansible_install_method:
-
+ansible_pip_packages:
+  - ansible-core
+  - ansible-dev-tools
+  - ansible-sign
+  - molecule
+  - paramiko
+  - pytest-testinfra
 
 
 #
@@ -13,6 +18,8 @@ ansible_collection_path:
 #
 ansible_collections:
   - ansible.posix
+  - ansible.utils
   - community.general
+  - kubernetes.core
 
 
