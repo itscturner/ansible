@@ -1,6 +1,18 @@
 ---
 # tasks file for pip - assert
 
-- name: assert | 
+- name: assert | Verify pip_python_version
+  ansible.builtin.assert:
+    that:
+      - pip_python_version is float
+      - pip_python_version is not none
+    quiet: true
+  when: pip_python_version is defined
 
-
+- name: assert | Verify pip_executable
+  ansible.builtin.assert:
+    that:
+      - pip_executable is string
+      - pip_executable is not none
+    quiet: true
+  when: pip_executable is defined
