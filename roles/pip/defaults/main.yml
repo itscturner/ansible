@@ -1,9 +1,8 @@
 ---
 # defaults file for pip
 
-#
-pip_python_version:
+# Default Python version.
+pip_python_version: '3.12'
 
-#
-pip_executable:
-
+# Pip executable path. Changes depending on the 'pip_python_version' variable.
+pip_executable: "/usr/bin/pip{{ pip_python_version }}"
