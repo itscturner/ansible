@@ -5,4 +5,16 @@
   gather_facts: true
 
   tasks:
-    #####
+    - name: Install pip package
+      ansible.builtin.pip:
+        name: boto3
+        executable: "{{ pip_executable }}"
+
+    - name: Get pip package information
+      community.general.pip_package_info:
+      register: pip_package_verify
+
+    - name: Verify pip packag
+      ansible.builtin.debug:
+        msg: "Pip package installed successfully."
+      when: "'boto3' in pip_package_verify.packages"
