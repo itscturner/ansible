@@ -1,0 +1,10 @@
+---
+# tasks file for ansible - configure
+
+- name: configure | Template Ansible configuration file
+  ansible.builtin.template:
+    src:
+    dest:
+    owner:
+    group:
+    mode:
