@@ -1,0 +1,9 @@
+---
+# defaults file for pip
+
+#
+pip_python_version:
+
+#
+pip_executable:
+
