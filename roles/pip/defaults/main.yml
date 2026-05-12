@@ -23,7 +23,7 @@ pip_conf_log_file:
 pip_conf_respect_virtualenv: true
 
 # Download cache location for pip.
-pip_conf_download_cache: /tmp
+pip_conf_download_cache:
 
 # Level of verbosity for pip output.
 pip_conf_verbose:
@@ -54,6 +54,3 @@ pip_conf_list_format: columns
 
 # Extra configurations to add to the pip configuration file. (Section, Option, Value).
 pip_extra_configurations: []
-#  - section:
-#    option:
-#    value:
