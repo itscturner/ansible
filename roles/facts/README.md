@@ -5,11 +5,12 @@ An ansible role to create custom facts.
 
 Role Variables
 --------------
+
 The default values for the variables are set in `defaults/main.yml`
-```
-Custom facts to create in key/value format:
-  facts
-```
+
+| Variable | Required | Default | Choices | Comments                                    |
+|----------|----------|---------|---------|---------------------------------------------|
+| facts    | no       |         |         | Custom facts to create in key/value format. |
 
 Example Playbook
 ----------------
