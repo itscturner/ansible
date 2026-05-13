@@ -22,8 +22,8 @@
   ansible.builtin.file:
     path: "/home/{{ git_user }}"
     state: directory
-    owner: "{{ git_user | default(omit) }}"
-    group: "{{ git_group | default(omit) }}"
+    owner: "{{ git_user }}"
+    group: "{{ git_group }}"
     mode: "0755"
 
 - name: Template Git configuration file
@@ -39,8 +39,8 @@
   ansible.builtin.file:
     path: "{{ git_repository_destination }}"
     state: directory
-    owner: "{{ git_user | default(omit) }}"
-    group: "{{ git_group | default(omit) }}"
+    owner: "{{ git_user }}"
+    group: "{{ git_group }}"
     mode: "0750"
   when:
     - git_repository_destination is defined
