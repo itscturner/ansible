@@ -1,2 +1,11 @@
 ---
 # tasks file for python_venv - check
+
+- name: check | Check if Python virtual environment already exists
+  ansible.builtin.stat:
+    path: "{{ python_venv_base_directory }}/{{ python_venv_name }}/pyenv.cfg"
+  register: python_venv_check
+
+- name: check | End role if Python virtual environment already exists
+  ansible.builtin.meta: end_role
+  when: python_venv_check.stat.exists
