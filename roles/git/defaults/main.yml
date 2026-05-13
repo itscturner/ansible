@@ -10,7 +10,7 @@ git_user:
 git_group:
 
 # Git Username and Email address.
-git_user_name:
+git_username:
 git_user_email:
 
 # Location to place the copies of the Git repositories that are cloned.
