@@ -1,2 +1,29 @@
 ---
 # tasks file for python_venv - setup
+
+- name: setup | Create Python virtual environment directory
+  ansible.builtin.file:
+    path: "{{ python_venv_base_directory }}/{{ python_venv_name }}"
+    state: directory
+    owner: "{{ python_venv_user }}"
+    group: "{{ python_venv_group }}"
+    mode: '0755'
+
+- name: setup | Create Python virtual environment
+  ansible.builtin.shell:
+    cmd: "python{{ python_venv_version }} -m venv {{ python_venv_base_directory }}/{{ python_venv_name }}"
+
+- name: setup | Template requirements.txt file
+  ansible.builtin.template:
+    src: requirements.txt.j2
+    dest: "{{ python_venv_base_directory }}/{{ python_venv_name }}/requirements.txt"
+    owner: "{{ python_venv_user }}"
+    group: "{{ python_venv_group }}"
+    mode: '0644'
+  when:
+
+- name: setup | Install packages from requirements.txt
+  ansible.builtin.pip:
+    virtualenv: "{{ python_venv_base_directory }}/{{ python_venv_name }}"
+    requirements: "{{ python_venv_base_directory }}/{{ python_venv_name }}/requirements.txt"
+  when:
