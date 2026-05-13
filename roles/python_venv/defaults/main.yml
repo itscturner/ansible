@@ -1,2 +1,18 @@
 ---
 # defaults file for python_venv
+
+# Python version.
+python_venv_version:
+
+# Base directory for the Python virtual environment.
+python_venv_base_directory: /opt
+
+# Name of the Python virtual environment.
+python_venv_env_name:
+
+# User and group for the Python virtual environment.
+python_venv_user:
+python_venv_group:
+
+# List of packages to be added to the requirements.txt file in the Python virtual environment. (Name, Version - optional).
+python_venv_requirements_file_packages: []
