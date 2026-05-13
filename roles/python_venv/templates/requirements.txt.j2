@@ -1,0 +1,3 @@
+{% for package in python_venv_requirements_file_packages %}
+{{ package.name }}{% if package.version is defined %}=={{ package.version }}{% endif %}
+{% endfor %}
