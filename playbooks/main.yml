@@ -1,5 +1,0 @@
-- hosts: all
-  become: true
-
-- import_playbook: hardening.yml
-- import_playbook: baseline.yml
