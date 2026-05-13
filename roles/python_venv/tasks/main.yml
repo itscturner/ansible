@@ -1,4 +1,14 @@
 ---
 # tasks file for python_venv
 
+- name: Include check.yml
+  ansible.builtin.include_tasks:
+    file: check.yml
 
+- name: Include install.yml
+  ansible.builtin.include_tasks:
+    file: install.yml
+
+- name: Include setup.yml
+  ansible.builtin.include_tasks:
+    file: setup.yml
