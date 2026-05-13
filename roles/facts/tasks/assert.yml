@@ -6,6 +6,7 @@
     that:
       - facts is iterable
     quiet: true
+    fail_msg: "Facts variable (facts) is not valid."
   when:
     - facts is defined
 
@@ -17,6 +18,7 @@
       - item.key is not none
       - item.value is defined
     quiet: true
+    fail_msg: "Values of Facts variable (facts) are not valid."
   loop: "{{ facts }}"
   loop_control:
     label: "{{ item.key }}"
