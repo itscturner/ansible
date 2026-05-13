@@ -11,3 +11,8 @@ argument_specs:
         default: null
         description: User's system username to configure Git.
         type: str
+      git_group:
+        required: true
+        default: null
+        description: User's system group to configure Git.
+        type: str
