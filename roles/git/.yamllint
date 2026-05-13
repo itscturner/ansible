@@ -1,0 +1,35 @@
+---
+extends: default
+
+rules:
+  braces:
+    min-spaces-inside: 1
+    min-spaces-inside-empty: 0
+    max-spaces-inside: 1
+    max-spaces-inside-empty: 0
+    level: error
+  brackets:
+    min-spaces-inside: 1
+    min-spaces-inside-empty: 0
+    max-spaces-inside: 1
+    max-spaces-inside-empty: 0
+    level: error
+  commas:
+    max-spaces-before: 0
+    min-spaces-after: 1
+    max-spaces-after: 1
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 1
+  empty-lines:
+    max: 1
+  hyphens:
+    max-spaces-after: 1
+  indentation:
+    spaces: consistent
+  line-length: disable
+  quoted-strings:
+    quote-type: consistent
+  trailing-spaces:
+  truthy:
+    check-keys: false
