@@ -11,7 +11,7 @@ lint: |
 driver:
   name: docker
 platforms:
-  - name: "ansible-pip"
+  - name: "ubi9-ansible"
     image: "registry.access.redhat.com/ubi9/ubi:latest"
     command: /sbin/init
     cgroupns_mode: host
