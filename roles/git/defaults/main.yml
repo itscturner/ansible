@@ -13,6 +13,9 @@ git_group:
 git_user_name:
 git_user_email:
 
+# Location to place the copies of the Git repositories that are cloned.
+git_repository_destination: "/home/{{ git_user }}/git"
+
 # Git Repositories to checkout. (Repository, Destination).
 git_repositories: []
 #  - repository:
