@@ -32,8 +32,8 @@
     dest: /home/{{ git_user }}/.gitconfig
     mode: "0644"
   when:
+    - git_username is defined
     - git_user_email is defined
-    - git_user_name is defined
 
 - name: Create Git repository destination
   ansible.builtin.file:
