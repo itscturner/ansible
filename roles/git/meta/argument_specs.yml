@@ -6,13 +6,8 @@ argument_specs:
       An Ansible role to install and configure Git.
     author: itscturner
     options:
-      git_user_email:
+      git_user:
         required: true
         default: null
-        description: User's email to configure Git.
-        type: str
-      git_user_name:
-        required: true
-        default: null
-        description: User's name to configure Git.
+        description: User's system username to configure Git.
         type: str
