@@ -1,2 +1,19 @@
 ---
 # defaults file for git
+
+# Packages to install for the 'Git' role.
+git_packages:
+  - git
+
+# User and group of user to manage Git.
+git_user:
+git_group:
+
+# Git Username and Email address.
+git_user_name:
+git_user_email:
+
+# Git Repositories to checkout. (Repository, Destination).
+git_repositories: []
+#  - repository:
+#    destination:
