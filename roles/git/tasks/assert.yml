@@ -22,16 +22,16 @@
 - name: assert | Verify values in Git Repositories variable
   ansible.builtin.assert:
     that:
-      - item.repo is defined
-      - item.repo is string
-      - item.repo is not none
-      - item.dest is defined
-      - item.dest is string
-      - item.dest is not none
+      - item.repository is defined
+      - item.repository is string
+      - item.repository is not none
+      - item.destination is defined
+      - item.destination is string
+      - item.destination is not none
     quiet: true
     fail_msg: "Values in Git Repositories variable (git_repositories) are not valid."
   loop: "{{ git_repositories }}"
   loop_control:
-    label: "{{ item.repo }}"
+    label: "{{ item.repository }}"
   when:
     - git_repositories is defined
