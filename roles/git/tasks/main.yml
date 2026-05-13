@@ -7,60 +7,40 @@
   run_once: true
   delegate_to: localhost
 
-
-- name: Install git packages
+- name: Install Git packages
   ansible.builtin.package:
     name: "{{ git_packages }}"
     state: present
 
-
-
-
-
-
-
-
 - name: Ensure the specified user exists
   ansible.builtin.getent:
     database: passwd
-    key: "{{ git_username }}"
+    key: "{{ git_user }}"
     fail_key: false
-  when:
-    - git_username is defined
 
-- name: Create directory for git configuration
+- name: Ensure user's home directory exists
   ansible.builtin.file:
-    path: /home/{{ git_username }}
+    path: "/home/{{ git_user }}"
     state: directory
-    owner: "{{ git_username | default(omit) }}"
-    group: "{{ git_groupname | default(omit) }}"
+    owner: "{{ git_user | default(omit) }}"
+    group: "{{ git_group | default(omit) }}"
     mode: "0755"
-  when:
-    - getent_passwd is defined
-    - getent_passwd[git_username] != none
 
-- name: Place git configuration
+- name: Template Git configuration file
   ansible.builtin.template:
     src: gitconfig.j2
-    dest: /home/{{ git_username }}/.gitconfig
+    dest: /home/{{ git_user }}/.gitconfig
     mode: "0644"
   when:
     - git_user_email is defined
     - git_user_name is defined
-    - git_username is defined
-    - getent_passwd[git_username] != none
 
-- name: Create repository_destination
+- name: Create Git repository destination
   ansible.builtin.file:
     path: "{{ git_repository_destination }}"
     state: directory
-    owner: "{{ git_username | default(omit) }}"
-    group: "{{ git_groupname | default(omit) }}"
+    owner: "{{ git_user | default(omit) }}"
+    group: "{{ git_group | default(omit) }}"
     mode: "0750"
   when:
-    - git_username is defined
     - git_repository_destination is defined
-    - getent_passwd[git_username] != none
-
-
-    
