@@ -1,6 +1,12 @@
 ---
 # defaults file for python_venv
 
+# List of packages required for the Python virtual environment.
+python_venv_packages:
+  - "python{{ python_venv_version }}"
+  - "python{{ python_venv_version }}-devel"
+  - "python{{ python_venv_version }}-pip"
+
 # Python version.
 python_venv_version:
 
