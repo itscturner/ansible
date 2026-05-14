@@ -20,10 +20,10 @@
     owner: "{{ python_venv_user }}"
     group: "{{ python_venv_group }}"
     mode: '0644'
-  when:
+  when: python_venv_requirements_file_packages is defined
 
 - name: setup | Install packages from requirements.txt
   ansible.builtin.pip:
     virtualenv: "{{ python_venv_base_directory }}/{{ python_venv_name }}"
     requirements: "{{ python_venv_base_directory }}/{{ python_venv_name }}/requirements.txt"
-  when:
+  when: python_venv_requirements_file_packages is defined
