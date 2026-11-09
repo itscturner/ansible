@@ -1,0 +1,24 @@
+---
+galaxy_info:
+  role_name: users
+  description: An Ansible role to manage users.
+  author: itscturner
+  license: Apache-2.0
+  min_ansible_version: "2.12"
+
+  platforms:
+    - name: EL
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - system
+    - users
+
+dependencies: []
