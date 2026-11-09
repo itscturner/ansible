@@ -1,3 +1,16 @@
 ---
 # tasks file for users - manage
 
+- name: manage | Manage users
+  ansible.builtin.user:
+    name: "{{ item.name }}"
+    state: "{{ item.state | default('present') }}"
+    uid: "{{ item.uid | default(omit) }}"
+    group: "{{ item.group | default(omit) }}"
+    groups: "{{ item.groups | default([]) | join(',') or omit }}"   
+    comment: "{{ item.comment | default(omit) }}"
+    create_home: "{{ item.create_home | default(users_create_home) }}"
+    home: "{{ item.home | default(omit) }}"
+    shell: "{{ item.shell | default(users_default_shell) }}"
+    system: "{{ item.system | default(omit) }}"
+  loop: "{{ users_manage }}"
