@@ -1,7 +1,0 @@
----
-# defaults file for facts
-
-# Custom facts to create in key/value format.
-facts: []
-#  - key: machine_type
-#    value: server
