@@ -1,4 +1,25 @@
 ---
 # tasks file for docker
 
+- name: Import assert.yml
+  ansible.builtin.import_tasks:
+    file: assert.yml
 
+- name: Include OS-specific tasks
+  ansible.builtin.include_tasks:
+    file: "setup-{{ ansible_os_family }}.yml"
+
+- name: Include configure.yml
+  ansible.builtin.include_tasks:
+    file: configure.yml
+
+- name: Ensure Docker is started and enabled
+  ansible.builtin.systemd:
+    name: docker
+    state: started
+    enabled: true
+  become: true
+
+- name: Include users.yml
+  ansible.builtin.include_tasks:
+    file: users.yml
