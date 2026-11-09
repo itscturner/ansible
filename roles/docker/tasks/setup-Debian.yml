@@ -1,5 +1,51 @@
 ---
 # tasks file for docker - Setup Debian
 
+- name: setup-Debian | Ensure old Docker versions are removed
+  ansible.builtin.apt:
+    name: [docker, docker-engine, docker.io, containerd, runc]
+    state: absent
+  become: true
 
+- name: setup-Debian | Install prerequisite packages
+  ansible.builtin.apt:
+    name: [apt-transport-https, ca-certificates, curl, gnupg, lsb-release]
+    state: present
+    update_cache: true
+  become: true
 
+- name: setup-Debian | Create directory for Docker GPG keyring
+  ansible.builtin.file:
+    path: /etc/apt/keyrings
+    state: directory
+    mode: '0755'
+  become: true
+
+- name: setup-Debian | Add Docker official GPG key
+  ansible.builtin.get_url:
+    url: https://docker.com
+    dest: /etc/apt/keyrings/docker.asc
+    mode: '0644'
+  become: true
+
+- name: setup-Debian | Add Docker repository
+  ansible.builtin.apt_repository:
+    repo: >-
+      deb [arch={{ 'amd64' if ansible_architecture == 'x86_64' else 'arm64' }}
+      signed-by=/etc/apt/keyrings/docker.asc]
+      https://docker.com
+      {{ ansible_distribution_release }} stable
+    filename: docker
+    state: present
+  become: true
+
+- name: setup-Debian | Install Docker and Docker Compose
+  ansible.builtin.apt:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+      - docker-compose-plugin
+    state: present
+    update_cache: true
+  become: true
