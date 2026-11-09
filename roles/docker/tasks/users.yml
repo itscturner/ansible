@@ -1,0 +1,10 @@
+---
+# tasks file for docker - users
+
+- name: users | Add specified users to docker group
+  ansible.builtin.user:
+    name: "{{ item }}"
+    groups: docker
+    append: true
+  loop: "{{ docker_users }}"
+  become: true
