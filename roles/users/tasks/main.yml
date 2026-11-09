@@ -1,3 +1,12 @@
 ---
 # tasks file for users
 
+- name: Import assert.yml
+  ansible.builtin.import_tasks:
+    file: assert.yml
+  run_once: true
+  delegate_to: localhost
+
+- name: Include manage.yml
+  ansible.builtin.include_tasks:
+    file: manage.yml
