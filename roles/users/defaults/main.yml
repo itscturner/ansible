@@ -1,0 +1,21 @@
+---
+# defaults file for users
+
+# Users to be managed by this role.
+users_manage: []
+#  - name:
+#    state:
+#    uid:
+#    group:
+#    groups:
+#    comment:
+#    create_home:
+#    home:
+#    shell:
+#    system:
+
+# Create home directories by default for users being created.
+users_create_home: true
+
+# Default shell for users being created.
+users_default_shell: /bin/bash
