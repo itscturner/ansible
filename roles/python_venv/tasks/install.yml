@@ -1,7 +1,0 @@
----
-# tasks file for python_venv - install
-
-- name: install | Ensure required packages are installed for Python virtual environment
-  ansible.builtin.package:
-    name: "{{ python_venv_packages }}"
-    state: present
